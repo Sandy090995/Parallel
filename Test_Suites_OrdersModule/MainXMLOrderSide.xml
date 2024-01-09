@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="OrderSide">
+	<listeners>
+		<listener class-name="flutter.Truvideo.TestUtils.Listeners"></listener>
+	</listeners>
+	<suite-files>
+		<suite-file path="DealerCodePage.xml" />
+		<suite-file path="UserListPage.xml" />
+		<suite-file path="ChangeDealer.xml" />
+		<suite-file path="CreateNewUserandDeleteUser.xml" />
+		<suite-file path="RO_ListPage.xml" />
+		<suite-file path="AddOrderPage.xml" />
+		<suite-file path="EditOrderPage.xml" />
+		<suite-file path="OrderDetailsPage.xml" />
+		<suite-file path="ContactsList.xml" />
+		<suite-file path="MessagesListPage.xml" />
+		<suite-file path="ChatListPageTest.xml" />
+		<suite-file path="MessagingScreen.xml" />
+		<suite-file path="ProfileIconScreenPage.xml" />
+		<suite-file path="RO_SettingPage.xml" />
+		<suite-file path="SupportFunctionality.xml" />
+		<!--<suite-file path="CameraQualityFromSetting.xml" />-->
+		<suite-file path="VideoPreviewScreenTest.xml" />
+		<suite-file path="VideoUploadFromDeviceGallery.xml" />
+		<suite-file path="VideoUploadFromRecorderScreen.xml" />
+	</suite-files>
+</suite>

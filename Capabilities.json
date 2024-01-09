@@ -1,0 +1,83 @@
+
+[
+
+    {
+        "name":"Galaxy S21 5G",
+        "caps":{
+            "automationName":"UiAutomator2",
+            "platformName":"ANDROID",
+            "deviceName":"Galaxy S21 5G",
+            "platformVersion":"12.0",
+            "bundleId":"com.truvideo.enterprise.rc",
+            "app":"/src/main/resources/ApplicationFile/RCTruvideoflutter.apk",
+            "autoAcceptAlerts": "true",
+            "autoAcceptAlerts":true
+                }
+    },
+    {
+    "name":"iPhone8",
+    "caps":{
+        "automationName":"XCUITest",
+        "platformName":"iOS",
+        "deviceName":"iPhone8",
+        "platformVersion":"15.5",
+        "bundleId":"com.truvideo.enterprise.rc",
+        "udid":"f56dbf11ec7c4f28f4147740577c3dfa121023b3",
+        "app":"/src/main/resources/ApplicationFile/TruVideoEnterprise.app",
+        "autoAcceptAlerts":true
+            }
+     },
+     {
+        "name":"MI10I",
+        "caps":{
+            "automationName":"UiAutomator2",
+            "platformName":"ANDROID",
+            "deviceName":"M2007J17I",
+            "platformVersion":"12.0",
+            "bundleId":"com.truvideo.enterprise.rc",
+            "app":"/src/main/resources/ApplicationFile/RCTruvideoflutter.apk",
+            "autoAcceptAlerts": "true"
+                }
+    },
+    {
+        "name":"iPhone12mini",
+        "caps":{
+                "appium:deviceName": "iPhone 12 mini",
+                "appium:platformVersion": "16.2",
+                "platformName": "iOS",
+                "appium:automationName": "XCUITest",
+                "appium:noReset": true,
+                "appium:bundleId": "com.truvideo.enterprise.rc",
+                "app":"/src/main/resources/ApplicationFile/RCTruvideoflutter.apk",
+                "autoAcceptAlerts": "true"
+                }
+    },
+    
+    {
+    "name":"iPhone8_v16.3",
+    "caps":{
+        "automationName":"XCUITest",
+        "platformName":"iOS",
+        "deviceName":"iPhone8(2)",
+        "platformVersion":"16.3.1",
+        "bundleId":"com.truvideo.enterprise.rc",
+        "udid":"0f7ff0b1aacc9d6c1cecb453205ba82cf7e21762",
+        "app":"/src/main/resources/ApplicationFile/TruVideoEnterprise.app",
+        "autoAcceptAlerts":true,
+        "autoAcceptAlerts": "true"
+            }
+     },
+     { 
+     "name":"iPhone X",
+    "caps":{
+        "automationName":"XCUITest",
+        "platformName":"iOS",
+        "deviceName":"iPhone X",
+        "platformVersion":"16.5.1",
+        "bundleId":"com.truvideo.enterprise.rc",
+        "udid":"5d4e4f2ea9b1d96b7c54c1c17b37dd3f4bf43eab",
+        "app":"/src/main/resources/ApplicationFile/TruVideoEnterprise.app",
+        "autoAcceptAlerts":true
+            }
+    }
+]
