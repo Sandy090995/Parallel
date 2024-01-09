@@ -22,6 +22,8 @@ public class BaseClass {
 	AppiumDriverLocalService service;
 	public Logger log = LogManager.getLogger(this.getClass().getName());
 	
+	public static String userForLogin_Order ="RahulTest test";
+	public static String userForLogin_Sales ="disha gupta";
 	public static String capabilityName = System.getProperty("capabilityName", "Galaxy S21 5G");
 	public static String browserName = System.getProperty("browser", "Chrome");
 	public static String applicationBuild = "1.5.20(949)";

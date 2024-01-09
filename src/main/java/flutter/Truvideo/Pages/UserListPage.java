@@ -227,6 +227,20 @@ public class UserListPage extends UtilityClass {
 	}
 
 	public boolean selectUserToLogin_WithValidPin(String user) throws Exception {
+		navigateTo_RO_Prospect_ListPage(user);
+		RO_ListPage roListpage = new RO_ListPage(driver);
+		Thread.sleep(3000);
+		if (roListpage.getCreateButton().isDisplayed()) {
+			log.info("User logged in successfully and Navigating to the RO/Prospects List Page");
+			return true;
+		} else {
+			log.info("User login failed");
+			return false;
+
+		}
+	}
+	
+	public RO_ListPage navigateTo_RO_Prospect_ListPage(String user) throws Exception {
 		Thread.sleep(2000);
 		searchUser(user);
 		Thread.sleep(3000);
@@ -252,18 +266,9 @@ public class UserListPage extends UtilityClass {
 		}catch(NoSuchElementException e) {
 		log.info("Notifications allowed pop up not displayed");
 		}
-		RO_ListPage roListpage = new RO_ListPage(driver);
-		Thread.sleep(3000);
-		if (roListpage.getCreateButton().isDisplayed()) {
-			log.info("User logged in successfully and Navigating to the RO/Prospects List Page");
-			return true;
-		} else {
-			log.info("User login failed");
-			return false;
-
-		}
+		return new RO_ListPage(driver);
 	}
-
+	
 	public void searchUser(String user) throws Exception {
 		Thread.sleep(1000);
 		searchBar.click();

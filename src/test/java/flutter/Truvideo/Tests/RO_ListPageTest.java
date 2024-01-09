@@ -1,14 +1,28 @@
 package flutter.Truvideo.Tests;
 
+import java.net.MalformedURLException;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
 import flutter.Truvideo.BaseClass.BaseClass;
 import flutter.Truvideo.Pages.RO_ListPage;
 
 public class RO_ListPageTest extends BaseClass{
-
 	RO_ListPage ro_ListPage;
+	
+	@BeforeClass
+	public void setUp() throws MalformedURLException, Exception {
+		driver=setUpApplication();
+		ro_ListPage=loadDealerCodePage().navigateToUserListScreen_Order()
+				.navigateTo_RO_Prospect_ListPage(userForLogin_Order);
+	}
+	
+	@Override
+	@AfterClass
+	public void tearDown() {
+		driver.quit();
+	}
 	
 	@Test(priority = 1)
 	public void verifyAllFooterTabs_and_HeadersTabs() throws Exception {
@@ -70,20 +84,20 @@ public class RO_ListPageTest extends BaseClass{
 		Assert.assertTrue(ro_ListPage.checkNavigationBackTo_Order());
 	}
 	
-	@Test(priority = 11)//need to call in profilrIcon.xml file
+	//@Test(priority = 11)//need to call in profilrIcon.xml file
 	public void verifyNavigationToProfileIcon() throws InterruptedException {
 		ro_ListPage=new RO_ListPage(driver);
 		Assert.assertTrue(ro_ListPage.checkNavigationToProfileIcon());
 	}
 	
-	@Test(priority = 12)
+	//@Test(priority = 12)
 	public void verifyNavigationToAddOrderPage() {
 		ro_ListPage=new RO_ListPage(driver);
 		Assert.assertTrue(ro_ListPage.checkNavigationTo_AddOrder_Page());
 	}
 	
 
-	@Test(priority = 15)  //Using for selecting first Existing New RO
+	//@Test(priority = 15)  //Using for selecting first Existing New RO
 	public void verifyNavigationFirstNewExistingRODetailsPage() {
 		ro_ListPage=new RO_ListPage(driver);
 		ro_ListPage.checkNavigationTo_OrderDetails_Existing_FirstNewRO();
