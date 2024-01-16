@@ -266,8 +266,7 @@ public class RO_ListPage extends UtilityClass {
 	}
 
 	public boolean checkNavigationTo_Chat() throws InterruptedException {
-	  Thread.sleep(3000);
-		chatFooterTab.click();
+		Navigate_To_Chat();
 		ChatListPage chatPage = new ChatListPage(driver);
 		waitTillElementToBeVisible(chatPage.getChat_Title(),10,1);
 		if (chatPage.getChat_Title().isDisplayed()) {
@@ -277,9 +276,15 @@ public class RO_ListPage extends UtilityClass {
 			return false;
 		}
 	}
+	
+	public ChatListPage Navigate_To_Chat() throws InterruptedException {
+		  Thread.sleep(3000);
+			chatFooterTab.click();
+			return new ChatListPage(driver);
+		}
 
 	public boolean checkNavigationTo_Messages() {
-		messageFooterTab.click();
+		Navigate_To_MessageList();
 		MessagesListPage messagePage = new MessagesListPage(driver);
 		waitTillElementToBeVisible(messagePage.getMessage_Title(), 3);
 		if (messagePage.getMessage_Title().isDisplayed()) {
@@ -289,9 +294,14 @@ public class RO_ListPage extends UtilityClass {
 			return false;
 		}
 	}
+	
+	public MessagesListPage Navigate_To_MessageList() {
+		messageFooterTab.click();
+		return new MessagesListPage(driver);
+	}
 
 	public boolean checkNavigationTo_Contacts() {
-		contactsFooterTab.click();
+		Navigate_To_Contacts();
 		ContactsListPage contactPage = new ContactsListPage(driver);
 		waitTillElementToBeVisible(contactPage.getContacts_Title(), 3);
 		if (contactPage.getContacts_Title().isDisplayed()) {
@@ -300,6 +310,11 @@ public class RO_ListPage extends UtilityClass {
 		} else {
 			return false;
 		}
+	}
+	
+	public ContactsListPage Navigate_To_Contacts() {
+		contactsFooterTab.click();
+		return new ContactsListPage(driver);	
 	}
 
 	public boolean checkNavigationBackTo_Order() {
@@ -321,8 +336,7 @@ public class RO_ListPage extends UtilityClass {
 	}
 
 	public boolean checkNavigationToProfileIcon() throws InterruptedException {
-		Thread.sleep(7000);
-		profileIcon.click();
+		Navigate_ToProfileIcon();
 		log.info("Clicked on Profile Icon");
 		ProfileIconScreen profileScreen = new ProfileIconScreen(driver);
 		if (profileScreen.getLogOut_Button().isDisplayed()) {
@@ -331,24 +345,41 @@ public class RO_ListPage extends UtilityClass {
 			return false;
 		}
 	}
+	
+	public ProfileIconScreen Navigate_ToProfileIcon() throws InterruptedException {
+		Thread.sleep(7000);
+		profileIcon.click();
+		return new ProfileIconScreen(driver);
+	}
 
 	public boolean checkNavigationTo_AddOrder_Page() {
-		createButton.click();
-		AddOrderPage addOrderPage = new AddOrderPage(driver);
-		
-		try {
+		NavigateTo_AddOrder_Page();
+		AddOrderPage addOrderPage = new AddOrderPage(driver);	
 		if (addOrderPage.getAddOrder_Title().isDisplayed()) {
 			return true;
 		} else {
 			return false;
-		}}
-		catch(Exception e){
-			if (addOrderPage.getAddProspect_Title().isDisplayed()) {
-				return true;
-			} else {
-				return false;
-			}
 		}
+	}
+	
+	public boolean checkNavigationTo_AddProspect_Page() {
+		NavigateTo_AddProspect_Page();
+		AddProspectPage addProspectPage = new AddProspectPage(driver);	
+		if (addProspectPage.getAddProspect_Title().isDisplayed()) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	public AddOrderPage NavigateTo_AddOrder_Page() {
+		createButton.click();
+		return new AddOrderPage(driver);
+	}
+	
+	public AddProspectPage NavigateTo_AddProspect_Page() {
+		createButton.click();
+		return new AddProspectPage(driver);
 	}
 
 
@@ -356,14 +387,11 @@ public class RO_ListPage extends UtilityClass {
 		newFilter.click();
 		log.info("Clicked on new tab");
 		filterStatusList.get(0).click();
-		log.info("Selected First RO" );
-		
+		log.info("Selected First RO" );	
 	}
-
-
-
+	
 	public boolean checkNavigationTo_AddProspects_Page() {
-		createButton.click();
+		NavigateTo_AddProspect_Page();
 		AddProspectPage addProspectsPage = new AddProspectPage(driver);
 		if (addProspectsPage.getAddProspect_Title().isDisplayed()) {
 			return true;
@@ -371,7 +399,6 @@ public class RO_ListPage extends UtilityClass {
 			return false;
 		}
 	}
-
 
 	public boolean checkProspects_Status_My() throws Exception {
 		ProspectDetailsPage prospectDetail=new ProspectDetailsPage(driver);

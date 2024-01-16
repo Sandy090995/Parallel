@@ -84,6 +84,18 @@ public class AddProspectPage extends UtilityClass {
 	
 	
 	public boolean checkCreateProspect() throws InterruptedException {
+		navigateTOProspectDetails();
+		ProspectDetailsPage prospectDetails=new ProspectDetailsPage(driver);
+		if(prospectDetails.getProspectDetails_PageTitle().isDisplayed()) {
+			log.info("Prospect added successfully");
+			return true;
+		}else {
+			log.info("Prospect not added");
+			return false;
+		}
+	}
+	
+	public ProspectDetailsPage navigateTOProspectDetails() throws InterruptedException {
 		textBoxList.get(0).click();
 		textBoxList.get(0).sendKeys("First"+randomString(5));
 		String firstName=textBoxList.get(0).getText();
@@ -104,14 +116,7 @@ public class AddProspectPage extends UtilityClass {
 		addProspect_Title.click();
 		createButton.click();
 		Thread.sleep(3000);
-		ProspectDetailsPage prospectDetails=new ProspectDetailsPage(driver);
-		if(prospectDetails.getProspectDetails_PageTitle().isDisplayed()) {
-			log.info("Prospect added successfully");
-			return true;
-		}else {
-			log.info("Prospect not added");
-			return false;
-		}
+		return new ProspectDetailsPage(driver);
 	}
 	
 	public void verifyCreatedRO_OnDashboard() {

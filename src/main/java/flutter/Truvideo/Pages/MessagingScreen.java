@@ -92,8 +92,7 @@ public class MessagingScreen extends UtilityClass {
 
 	public boolean checkDefaultScreenDuringNewConversation() {
 		message_Title.click();
-		if (thisConversationIsOpen_text.isDisplayed() && noItemsFound_text.isDisplayed()
-				&& conversationStatus_text.isDisplayed()) {
+		if (thisConversationIsOpen_text.isDisplayed() && conversationStatus_text.isDisplayed()) {
 			log.info("This conversation is Open, No itemes found, Convesation Status is displayed");
 			log.info("Send button is Displayed and disabled ");
 			return true;

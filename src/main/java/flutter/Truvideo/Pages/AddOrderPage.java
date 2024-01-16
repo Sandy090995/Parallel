@@ -172,6 +172,20 @@ public class AddOrderPage extends UtilityClass{
 	}
 	
 	public boolean checkCreateOrder() throws Exception {
+		NavigateToRODetail();
+		OrderDetailsPage orderDetails=new OrderDetailsPage(driver);
+		String roNumber=ro_ID.get(0).getText();
+		System.out.println("New RO number is :-"+roNumber);
+		if(orderDetails.getStatus_New().isDisplayed()) {
+			log.info("New Ro Created Successfully");
+			return true;
+		}else {
+			log.info("New Ro Creation Unsuccessfull");
+			return false;
+		}
+	}
+	
+	public OrderDetailsPage NavigateToRODetail() throws Exception {
 		Thread.sleep(2000);
 		order_textBox.click();
 		order_textBox.sendKeys("RO"+randomNumber());
@@ -209,19 +223,8 @@ public class AddOrderPage extends UtilityClass{
 		}
 		addOrder_Title.click();//hiding keayboard
 		createButton.click();
-		Thread.sleep(5000);
-		OrderDetailsPage orderDetails=new OrderDetailsPage(driver);
-		Thread.sleep(10000);
-		String roNumber=ro_ID.get(0).getText();
-		System.out.println("New RO number is :-"+roNumber);
-		if(orderDetails.getStatus_New().isDisplayed()) {
-			log.info("New Ro Created Successfully");
-			return true;
-		}else {
-			log.info("New Ro Creation Unsuccessfull");
-			return false;
-		}
-		
+		Thread.sleep(15000);
+		return new OrderDetailsPage(driver);
 	}
 	
 	public void verifyCreatedRO_OnDashboard() {

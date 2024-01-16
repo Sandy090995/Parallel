@@ -1,13 +1,30 @@
 package flutter.Truvideo.Tests;
+import java.net.MalformedURLException;
+
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import flutter.Truvideo.BaseClass.BaseClass;
 import flutter.Truvideo.Pages.MessagesListPage;
-import flutter.Truvideo.Pages.UserListPage;
 
-public class MessagesListPageTest extends BaseClass{
+public class MessagesListPageTest_Order extends BaseClass{
 
 	MessagesListPage messageListPage;
+	
+	@BeforeClass
+	public void setUp() throws MalformedURLException, Exception {
+		driver=setUpApplication();
+		messageListPage=loadDealerCodePage().navigateToUserListScreen_Order()
+				.navigateTo_RO_Prospect_ListPage(userForLogin_Order)
+				.Navigate_To_MessageList();
+	}
+	
+	@Override
+	@AfterClass
+	public void tearDown() {
+		driver.quit();
+	}
 	
 	@Test(priority = 1)
 	public void verify_AllActive_Filter() throws InterruptedException {

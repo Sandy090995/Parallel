@@ -1,13 +1,30 @@
 package flutter.Truvideo.Tests;
 
+import java.net.MalformedURLException;
+
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import flutter.Truvideo.BaseClass.BaseClass;
 import flutter.Truvideo.Pages.ContactsListPage;
 
-public class ContactsListPageTest extends BaseClass{
+public class ContactsListPageTest_Order extends BaseClass{
 
 	ContactsListPage contactsListPage;
+	
+	@BeforeClass
+	public void setUp() throws MalformedURLException, Exception {
+		driver=setUpApplication();
+		contactsListPage=loadDealerCodePage().navigateToUserListScreen_Order()
+				.navigateTo_RO_Prospect_ListPage(userForLogin_Order)
+				.Navigate_To_Contacts();
+	}
+	
+	@AfterClass
+	public void tearDown() {
+		driver.quit();
+	}
 	
 	@Test(priority = 1)
 	public void verifyAllAvailableTabsOnContactsScreen() {

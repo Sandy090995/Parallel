@@ -198,7 +198,7 @@ public class MessagesListPage extends UtilityClass {
 	}
 
 	public boolean navigationToMessagingScreen() {
-		statusListAll.get(0).click();
+		navigateToMessagingScreen();
 		MessagingScreen messagingScreen = new MessagingScreen(driver);
 		if (messagingScreen.getMessage_Title().isDisplayed()) {
 			log.info("User is navigated to the messaging screen");
@@ -207,6 +207,12 @@ public class MessagesListPage extends UtilityClass {
 			log.info("User is anable to navigate to the messaging screen");
 			return false;
 		}
+	}
+	
+	public MessagingScreen navigateToMessagingScreen() {
+		myActiveFilter.click();
+		statusListAll.get(0).click();
+		return new MessagingScreen(driver);
 	}
 
 }
