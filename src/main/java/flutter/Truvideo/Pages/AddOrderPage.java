@@ -172,7 +172,7 @@ public class AddOrderPage extends UtilityClass{
 	}
 	
 	public boolean checkCreateOrder() throws Exception {
-		NavigateToRODetail();
+		CreateNewRO_NavigateToRODetail();
 		OrderDetailsPage orderDetails=new OrderDetailsPage(driver);
 		String roNumber=ro_ID.get(0).getText();
 		System.out.println("New RO number is :-"+roNumber);
@@ -185,7 +185,7 @@ public class AddOrderPage extends UtilityClass{
 		}
 	}
 	
-	public OrderDetailsPage NavigateToRODetail() throws Exception {
+	public OrderDetailsPage CreateNewRO_NavigateToRODetail() throws Exception {
 		Thread.sleep(2000);
 		order_textBox.click();
 		order_textBox.sendKeys("RO"+randomNumber());

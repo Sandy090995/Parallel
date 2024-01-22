@@ -1,13 +1,40 @@
 package flutter.Truvideo.Tests;
 
+import java.net.MalformedURLException;
 import org.testng.Assert;
-import org.testng.annotations.Test;
-
+import org.testng.annotations.*;
 import flutter.Truvideo.BaseClass.BaseClass;
+import flutter.Truvideo.Pages.UserListPage;
 import flutter.Truvideo.Pages.VideoRecordingPage;
 
 public class VideoRecordingPageTest extends BaseClass{
 	VideoRecordingPage vidioRecordingPage;
+	
+	@BeforeClass
+	public void setUp() throws MalformedURLException, Exception {
+		if(driver==null) {
+		driver=setUpApplication();
+		vidioRecordingPage=loadDealerCodePage().navigateToUserListScreen_Order()
+				.navigateTo_RO_Prospect_ListPage(userForLogin_Order).navigateToOrderDetail_FirstNew()
+				.Navigate_To_CameraScreen();
+		}else {
+			UserListPage userlistPage=new UserListPage(driver);
+			userlistPage.navigateTo_RO_Prospect_ListPage(userForLogin_Order).navigateToOrderDetail_FirstNew()
+			.Navigate_To_CameraScreen();
+		}
+	}
+	
+	@BeforeMethod
+	public void setDriverObject() {
+		if (vidioRecordingPage == null) {
+			vidioRecordingPage = new VideoRecordingPage(driver);
+		}
+	}
+	
+	//@AfterClass
+	public void tearDown() {
+		driver.quit();
+	}
 
 	@Test
 	public void verifyVideoUploading_MediaGallery() throws InterruptedException {
@@ -58,8 +85,7 @@ public class VideoRecordingPageTest extends BaseClass{
 	}
 	
 	@Test
-   public void verifyCameraQuality() throws InterruptedException
-   {
+   public void verifyCameraQuality() throws InterruptedException {
 		vidioRecordingPage=new VideoRecordingPage(driver);
 		vidioRecordingPage.cameraQualityFromSetting();
    }

@@ -69,6 +69,10 @@ public class EditOrder_ProspectPage extends UtilityClass {
 	@AndroidFindBy(accessibility = "CANCEL")
 	@iOSXCUITFindBy(accessibility = "CANCEL")
 	private WebElement cancel_Button;
+	
+	public WebElement getCancelButton() {
+		return cancel_Button;
+	}
 
 	@AndroidFindBy(xpath = "//android.view.View[contains(@content-desc,'SAVE')]")
 	@iOSXCUITFindBy(accessibility = "SAVE")

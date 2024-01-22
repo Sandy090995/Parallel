@@ -2,20 +2,20 @@ package flutter.Truvideo.Tests;
 
 import java.net.MalformedURLException;
 import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 import flutter.Truvideo.BaseClass.BaseClass;
 import flutter.Truvideo.Pages.DealerCodePage;
 
-public class DealerCodePageTest_Order extends BaseClass {
-	DealerCodePage dealerCodePage;
-	
+public class DealerCodePageTest_Prospect extends BaseClass {
+DealerCodePage dealerCodePage;
 	
 	@BeforeClass
 	public void setUp() throws MalformedURLException, Exception {
-		if(driver==null) {
 		driver=setUpApplication();
 		dealerCodePage=loadDealerCodePage();
-		}
 	}
 	
 	@BeforeMethod
@@ -25,26 +25,24 @@ public class DealerCodePageTest_Order extends BaseClass {
 		}
 	}
 	
-	//@AfterClass
+	@AfterClass
 	public void tearDown() {
 		driver.quit();
-		log.info("CLosed in Class");
 	}
 	
 	@Test(priority = 1)
-	public void verifyAllVisibleText_LogoIsDisplayed_DealerCodePage(){
+	public void verifyAllVisibleText_LogoIsDisplayed_DealerCodePage_Sales(){
 		Assert.assertTrue(dealerCodePage.visibleElements_DealerCodePage());
 	}
 	
 	@Test(priority = 2)
-	public void verifyLogin_InValidDealerCode() throws InterruptedException {
+	public void verifyLogin_InValidDealerCode_Sales() throws InterruptedException {
 		Assert.assertTrue(dealerCodePage.dealerLogin_InvalidCredentials());
 	}
 	
 	@Test(priority = 3)
-	public void verifyLogin_ValidDealerCode() throws Exception {
-	Assert.assertTrue(dealerCodePage.dealerLogin_ValidCredentials());
+	public void verifyLogin_ValidDealerCode_Sales() throws Exception {
+		Assert.assertTrue(dealerCodePage.salesDealerLogin_ValidCredentials());
 	}
-		
+	
 }
-

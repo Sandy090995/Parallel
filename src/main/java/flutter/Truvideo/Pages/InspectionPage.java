@@ -29,11 +29,33 @@ public class InspectionPage extends UtilityClass {
 	}
 
 	@iOSXCUITFindBy(accessibility = "Inspections")
+	@AndroidFindBy(accessibility = "Inspection")
 	private WebElement inspection_TitleAgain;
 
 	public WebElement getInspection_TitleAgain() {
 		return inspection_TitleAgain;
 	}
+	
+	@AndroidFindBy(accessibility = "Exit?")
+	@iOSXCUITFindBy(accessibility = "Exit?")
+	private WebElement exit_Question;
+	
+	@AndroidFindBy(accessibility = "//android.view.View[contains(@content-desc,'If you exit this screen')]")
+	private WebElement doYouWishToContinue_Message;
+	
+	@AndroidFindBy(accessibility = "YES")
+	@iOSXCUITFindBy(accessibility = "YES")
+	private WebElement yes_Button;
+	
+	public WebElement getYesButton() {
+		return yes_Button;
+	}
+	
+	@AndroidFindBy(accessibility = "NO")
+	@iOSXCUITFindBy(accessibility = "NO")
+	private WebElement no_Button;
+	
+	
 	
 	@iOSXCUITFindBy(accessibility="Standard Multipoint Inspection - Mazda")
 	@AndroidFindBy(accessibility = "Standard Multipoint Inspection - Mazda")

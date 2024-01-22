@@ -5,9 +5,6 @@ import java.util.List;
 import java.util.Set;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
-
-import com.google.common.collect.ImmutableMap;
-
 import flutter.Truvideo.Utils.UtilityClass;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -382,12 +379,12 @@ public class RO_ListPage extends UtilityClass {
 		return new AddProspectPage(driver);
 	}
 
-
-	public void checkNavigationTo_OrderDetails_Existing_FirstNewRO() {
+	public OrderDetailsPage navigateToOrderDetail_FirstNew() {
 		newFilter.click();
 		log.info("Clicked on new tab");
 		filterStatusList.get(0).click();
-		log.info("Selected First RO" );	
+		log.info("Selected First RO" );
+		return new OrderDetailsPage(driver);
 	}
 	
 	public boolean checkNavigationTo_AddProspects_Page() {

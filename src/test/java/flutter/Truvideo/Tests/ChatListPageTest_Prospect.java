@@ -1,25 +1,23 @@
 package flutter.Truvideo.Tests;
 
 import java.net.MalformedURLException;
+
 import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 import flutter.Truvideo.BaseClass.BaseClass;
 import flutter.Truvideo.Pages.ChatListPage;
-import flutter.Truvideo.Pages.RO_ListPage;
 
-public class ChatListPageTest_Order extends BaseClass {
+public class ChatListPageTest_Prospect extends BaseClass {
 	ChatListPage chatlistpage;
 	
 	@BeforeClass
 	public void setUp() throws MalformedURLException, Exception {
-		if(driver==null) {
 		driver=setUpApplication();
-		chatlistpage=loadDealerCodePage().navigateToUserListScreen_Order()
-				.navigateTo_RO_Prospect_ListPage(userForLogin_Order).Navigate_To_Chat();
-		}else {
-			RO_ListPage roListPage=new RO_ListPage(driver);
-			roListPage.Navigate_To_Chat();
-		}
+		chatlistpage=loadDealerCodePage().navigateToUserListScreen_Sales()
+				.navigateTo_RO_Prospect_ListPage(userForLogin_Sales).Navigate_To_Chat();
 	}
 	
 	@BeforeMethod
@@ -29,7 +27,7 @@ public class ChatListPageTest_Order extends BaseClass {
 		}
 	}
 	
-	//@AfterClass
+	@AfterClass
 	public void tearDown() {
 		driver.quit();
 	}

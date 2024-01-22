@@ -6,13 +6,10 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.asserts.SoftAssert;
-
 import Dashboard.Truvideo.Pages.DashHomePage;
 import Dashboard.Truvideo.Pages.DashLoginPage;
 import Dashboard.Truvideo.Pages.DashUsersPage;
@@ -30,7 +27,7 @@ public class CreateNewUserPage extends UtilityClass {
 		this.driver = driver;
 		PageFactory.initElements(new AppiumFieldDecorator(driver), this);
 	}
-	
+
 	public static String newUser;
 
 	@AndroidFindBy(xpath = "//android.view.View[@index='0']")
@@ -47,7 +44,7 @@ public class CreateNewUserPage extends UtilityClass {
 	public WebElement getCreateUserPage_Title() {
 		return createUserPage_Title;
 	}
-	
+
 	@AndroidFindBy(xpath = "//android.widget.EditText[1]")
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeTextField[1]")
 	private WebElement fNameBox;
@@ -72,7 +69,7 @@ public class CreateNewUserPage extends UtilityClass {
 		return cancelButton;
 	}
 
-	//@AndroidFindBy(xpath = "//android.view.View[@content-desc=\"CREATE\"]")
+	// @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"CREATE\"]")
 	@AndroidFindBy(accessibility = "NEXT")
 	@iOSXCUITFindBy(accessibility = "NEXT")
 	private WebElement createButton;
@@ -126,15 +123,15 @@ public class CreateNewUserPage extends UtilityClass {
 	private WebElement four;
 
 	@AndroidFindBy(accessibility = "5")
-    @iOSXCUITFindBy(accessibility = "5")
+	@iOSXCUITFindBy(accessibility = "5")
 	private WebElement five;
 
 	@AndroidFindBy(accessibility = "6")
-    @iOSXCUITFindBy(accessibility = "6")
+	@iOSXCUITFindBy(accessibility = "6")
 	private WebElement six;
 
 	@AndroidFindBy(accessibility = "7")
-    @iOSXCUITFindBy(accessibility = "7")
+	@iOSXCUITFindBy(accessibility = "7")
 	private WebElement seven;
 
 	@AndroidFindBy(accessibility = "8")
@@ -164,7 +161,6 @@ public class CreateNewUserPage extends UtilityClass {
 	@AndroidFindBy(accessibility = "ACCEPT")
 	@iOSXCUITFindBy(accessibility = "ACCEPT")
 	private WebElement acceptButton;
-
 
 	public boolean check_cancelButton() throws InterruptedException {
 		fNameBox.click();
@@ -196,69 +192,17 @@ public class CreateNewUserPage extends UtilityClass {
 			return false;
 		}
 	}
-	
+
 	public void checkNewUserCreationAndVerificationFromDashboard() throws InterruptedException {
 		SoftAssert soft = new SoftAssert();
 		Thread.sleep(3000);
 		System.out.println("inside check new user page");
 		fNameBox.click();
-		fNameBox.sendKeys("Automation"+randomString(3));
-		newUser=fNameBox.getText();
+		fNameBox.sendKeys("Automation" + randomString(3));
+		newUser = fNameBox.getText();
 		System.out.println("inside check new user page1");
 		lNameBox.click();
-		lNameBox.sendKeys("User"+randomString(3));
-		jobTitle.click();
-		jobTitle.sendKeys("technician");
-		createUserPage_Title.click();// hiding keyboard
-		// ((HidesKeyboard) driver).hideKeyboard();
-		createButton.click();
-		soft.assertTrue(createYourPinText.isDisplayed());
-		log.info("Create Your Pin text is Displayed");
-		enter_pin();
-		soft.assertTrue(confirmYourPinText.isDisplayed());
-		log.info("Confirm Your Pin text is Displayed");
-		// Entering Wrong pin in Confirm pin Screen
-		one.click();
-		two.click();
-		three.click();
-		two.click();
-		one.click();
-		three.click();
-		soft.assertTrue(errorText.isDisplayed() && pinDoNotMatchText.isDisplayed());
-		log.info("Error & The pin code do not match text is displayed");
-		acceptButton.click();
-		enter_pin();
-		soft.assertTrue(almostDoneText.isDisplayed());
-		log.info("Almost done message displayed..."); 
-		/*Web Browser Execution Starts*/
-		webdriver=BaseClass.setDashboardBrowser();
-		DashLoginPage dashLoginPage=new DashLoginPage(webdriver);
-		dashLoginPage.loginToWebApplication();
-		DashHomePage dashHomePage=new DashHomePage(webdriver);
-		dashHomePage.navigateToUserSetting();
-		DashUsersPage dashUserPage=new DashUsersPage(webdriver);
-		soft.assertTrue(dashUserPage.ApproveUserFromDashboard());
-		webdriver.close();
-		/*Web Browser Execution Closed*/
-		userlist=new UserListPage(driver);
-		userlist.getNoButton().click();
-		RO_ListPage rolist=new RO_ListPage(driver);
-		soft.assertTrue(rolist.getOrderPageTitle().isDisplayed());
-		//closeBtn.click();
-		soft.assertAll();
-
-	}
-
-	public void checkNewUserCreation1() throws InterruptedException {
-		SoftAssert soft = new SoftAssert();
-		Thread.sleep(3000);
-		System.out.println("inside check new user page");
-		fNameBox.click();
-		fNameBox.sendKeys("Automation"+randomString(3));
-		newUser=fNameBox.getText();
-		System.out.println("inside check new user page1");
-		lNameBox.click();
-		lNameBox.sendKeys("User"+randomString(3));
+		lNameBox.sendKeys("User" + randomString(3));
 		jobTitle.click();
 		jobTitle.sendKeys("technician");
 		createUserPage_Title.click();// hiding keyboard
@@ -282,9 +226,22 @@ public class CreateNewUserPage extends UtilityClass {
 		enter_pin();
 		soft.assertTrue(almostDoneText.isDisplayed());
 		log.info("Almost done message displayed...");
-		closeBtn.click();
+		/* Web Browser Execution Starts */
+		webdriver = BaseClass.setDashboardBrowser();
+		DashLoginPage dashLoginPage = new DashLoginPage(webdriver);
+		dashLoginPage.loginToWebApplication();
+		DashHomePage dashHomePage = new DashHomePage(webdriver);
+		dashHomePage.navigateToUserSetting();
+		DashUsersPage dashUserPage = new DashUsersPage(webdriver);
+		soft.assertTrue(dashUserPage.ApproveUserFromDashboard());
+		webdriver.close();
+		/* Web Browser Execution Closed */
+		userlist = new UserListPage(driver);
+		userlist.getNoButton().click();
+		RO_ListPage rolist = new RO_ListPage(driver);
+		soft.assertTrue(rolist.getOrderPageTitle().isDisplayed());
+		// closeBtn.click();
 		soft.assertAll();
-
 	}
 
 	public void enter_pin() {
@@ -295,7 +252,7 @@ public class CreateNewUserPage extends UtilityClass {
 		five.click();
 		six.click();
 	}
-	
+
 	public boolean checkErrorMessage_NullValue_Sales() {
 		createUserPage_Title.click();// hiding keyboard
 		// ((HidesKeyboard) driver).hideKeyboard();
@@ -313,18 +270,18 @@ public class CreateNewUserPage extends UtilityClass {
 		SoftAssert soft = new SoftAssert();
 		createUserPage_Title.click();
 		textBox.get(0).click();
-		textBox.get(0).sendKeys("AutomationFirst"+randomString(5));
-		newUser=textBox.get(0).getText();
+		textBox.get(0).sendKeys("AutomationFirst" + randomString(5));
+		newUser = textBox.get(0).getText();
 		createUserPage_Title.click();
 		textBox.get(1).click();
-		textBox.get(1).sendKeys("Last"+randomString(5));
+		textBox.get(1).sendKeys("Last" + randomString(5));
 		createUserPage_Title.click();
 		textBox.get(2).click();
 		textBox.get(2).sendKeys("Job");
 		createUserPage_Title.click();
 		soft.assertEquals(textBox.get(2).getText(), "Job");
 		textBox.get(3).click();
-		textBox.get(3).sendKeys(randomString(7)+"@gmail.com");
+		textBox.get(3).sendKeys(randomString(7) + "@gmail.com");
 		createUserPage_Title.click();
 		Thread.sleep(1000);
 		scrollDown();
@@ -365,20 +322,20 @@ public class CreateNewUserPage extends UtilityClass {
 		Thread.sleep(2000);
 		soft.assertTrue(almostDoneText.isDisplayed());
 		log.info("Almost done message displayed...");
-		/*Web Browser Execution Starts*/
-		webdriver=BaseClass.setDashboardBrowser();
-		DashLoginPage dashLoginPage=new DashLoginPage(webdriver);
+		/* Web Browser Execution Starts */
+		webdriver = BaseClass.setDashboardBrowser();
+		DashLoginPage dashLoginPage = new DashLoginPage(webdriver);
 		dashLoginPage.loginToWebApplication();
-		DashHomePage dashHomePage=new DashHomePage(webdriver);
+		DashHomePage dashHomePage = new DashHomePage(webdriver);
 		dashHomePage.navigateToUserSetting();
-		DashUsersPage dashUserPage=new DashUsersPage(webdriver);
+		DashUsersPage dashUserPage = new DashUsersPage(webdriver);
 		soft.assertTrue(dashUserPage.ApproveUserFromDashboard());
 		webdriver.close();
-		/*Web Browser Execution Closed*/
-		//closeBtn.click();
-		userlist=new UserListPage(driver);
+		/* Web Browser Execution Closed */
+		// closeBtn.click();
+		userlist = new UserListPage(driver);
 		userlist.getNoButton().click();
-		RO_ListPage rolist=new RO_ListPage(driver);
+		RO_ListPage rolist = new RO_ListPage(driver);
 		soft.assertTrue(rolist.getprospects_PageTitle().isDisplayed());
 		soft.assertAll();
 	}

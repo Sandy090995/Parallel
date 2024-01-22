@@ -284,12 +284,10 @@ public class UserListPage extends UtilityClass {
 	}
 	
 	public boolean checkCreateUserFunction() throws InterruptedException {
+		Navigate_To_CreateUserPage();
 		CreateNewUserPage newUser = new CreateNewUserPage(driver);
-		threeDotButton.click();
-		createUser.click();
 		newUser.getfNameBox().click();
 		newUser.getCreateUserPage_Title().click();
-		//((HidesKeyboard) driver).hideKeyboard();
 		if (newUser.getCreateUserPage_Title().isDisplayed()) {
 			log.info("User is navigated to the Create User page");
 			return true;
@@ -298,10 +296,14 @@ public class UserListPage extends UtilityClass {
 			return false;
 		}
 	}
+	
+	public CreateNewUserPage Navigate_To_CreateUserPage() throws InterruptedException {
+		threeDotButton.click();
+		createUser.click();
+		return new CreateNewUserPage(driver);	
+	}
 
 	public boolean check_TextsUnderChangeDealerFunction() {
-		CreateNewUserPage newUser = new CreateNewUserPage(driver);
-		newUser.getCancelButton().click();
 		threeDotButton.click();
 		changeDealer.click();
 		if (changeDealer.isDisplayed() && areYouSure_text.isDisplayed()) {
@@ -312,7 +314,7 @@ public class UserListPage extends UtilityClass {
 		}
 	}
 	
-	public boolean check_ChangeDealerFunction() throws InterruptedException {
+	public boolean check_ChangeDealerFunction_Order() throws InterruptedException {
 		Thread.sleep(2000);
 		threeDotButton.click();
         changeDealer.click();
@@ -332,7 +334,7 @@ public class UserListPage extends UtilityClass {
 		}
 	}
 	
-	public boolean check_ChangeDealerFunctionsales() throws InterruptedException {
+	public boolean check_ChangeDealerFunction_Sales() throws InterruptedException {
 		Thread.sleep(2000);
 		threeDotButton.click();
         changeDealer.click();

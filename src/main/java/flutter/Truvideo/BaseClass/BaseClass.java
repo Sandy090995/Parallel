@@ -1,7 +1,6 @@
 package flutter.Truvideo.BaseClass;
 
 import java.net.MalformedURLException;
-import java.net.URL;
 import java.time.Duration;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -16,6 +15,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
 import io.appium.java_client.service.local.flags.GeneralServerFlag;
+
 public class BaseClass {
 	public static AppiumDriver driver;
 	public static WebDriver webDriver;
@@ -28,6 +28,11 @@ public class BaseClass {
 	public static String browserName = System.getProperty("browser", "Chrome");
 	public static String applicationBuild = "1.5.20(949)";
 	public static String opeartingSystem;
+	
+	@BeforeSuite
+	public void setUp() throws MalformedURLException, Exception {
+		driver=setUpApplication();
+	}
 
 	public AppiumDriver setUpApplication() throws MalformedURLException, Exception {
 		System.out.println(capabilityName);
@@ -53,8 +58,10 @@ public class BaseClass {
 		return driver;
 	}
 
+	@AfterSuite
 	public void tearDown() {
 		driver.quit();
+		log.info("Closed in Suite");
 	}
 	
 	public static WebDriver setDashboardBrowser() {

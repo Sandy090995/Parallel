@@ -1,16 +1,13 @@
 package flutter.Truvideo.Pages;
 
 import java.util.List;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.asserts.SoftAssert;
-
 import Dashboard.Truvideo.Pages.DashHomePage;
 import Dashboard.Truvideo.Pages.DashLoginPage;
 import Dashboard.Truvideo.Pages.DashProspectsPage;
-import Dashboard.Truvideo.Pages.DashRepairOrderPage;
 import flutter.Truvideo.BaseClass.BaseClass;
 import flutter.Truvideo.Utils.UtilityClass;
 import io.appium.java_client.AppiumDriver;
@@ -58,6 +55,10 @@ public class AddProspectPage extends UtilityClass {
 	@AndroidFindBy(accessibility = "CANCEL")
 	@iOSXCUITFindBy( accessibility= "CANCEL")
 	private WebElement cancelButton;
+	
+	public WebElement getCancelButton() {
+		return cancelButton;
+	}
 	
 	public boolean checkCancelButton() {
 		cancelButton.click();

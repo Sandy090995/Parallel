@@ -1,22 +1,25 @@
 package flutter.Truvideo.Tests;
 
 import java.net.MalformedURLException;
+
 import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
 import flutter.Truvideo.BaseClass.BaseClass;
 import flutter.Truvideo.Pages.MessagingScreen;
 
-public class MessagingScreenTest_Order extends BaseClass {
+public class MessagingScreenTest_Prospect extends BaseClass {
 	MessagingScreen messageScreen;
 	
 	@BeforeClass
 	public void setUp() throws MalformedURLException, Exception {
-		if(driver==null) {
 		driver=setUpApplication();
-		messageScreen=loadDealerCodePage().navigateToUserListScreen_Order()
-				.navigateTo_RO_Prospect_ListPage(userForLogin_Order)
+		messageScreen=loadDealerCodePage().navigateToUserListScreen_Sales()
+				.navigateTo_RO_Prospect_ListPage(userForLogin_Sales)
 				.Navigate_To_MessageList().navigateToMessagingScreen();
-		}
 	}
 	
 	@BeforeMethod
@@ -26,7 +29,7 @@ public class MessagingScreenTest_Order extends BaseClass {
 		}
 	}
 	
-	//@AfterClass
+	@AfterClass
 	public void tearDown() {
 		driver.quit();
 	}
@@ -44,7 +47,6 @@ public class MessagingScreenTest_Order extends BaseClass {
 	@Test(priority = 3)
 	public void verifyManualConversationStatus() throws InterruptedException {
 		messageScreen.checkManualConversationStatus();
-		driver.navigate().back();
 	}
 
 	

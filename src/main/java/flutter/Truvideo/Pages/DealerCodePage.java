@@ -1,11 +1,8 @@
 package flutter.Truvideo.Pages;
 
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
-
-import flutter.Truvideo.BaseClass.BaseClass;
 import flutter.Truvideo.Utils.UtilityClass;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -178,6 +175,7 @@ public class DealerCodePage extends UtilityClass {
 		ZERO.click();
 		ONE.click();
 		log.info("Dealer code is entered");
+		Thread.sleep(5000);
 		return new UserListPage(driver);
 	}
 
@@ -228,6 +226,7 @@ public class DealerCodePage extends UtilityClass {
 		NINE.click();
 		SEVEN.click();
 		log.info("Sales Dealer code is entered");
+		Thread.sleep(5000);
 		return new UserListPage(driver);
 	}
 

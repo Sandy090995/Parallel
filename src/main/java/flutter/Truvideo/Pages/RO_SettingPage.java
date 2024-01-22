@@ -50,9 +50,13 @@ public class RO_SettingPage extends UtilityClass {
 	@iOSXCUITFindBy(accessibility = "Light")
 	private WebElement lightTheme;
 
-	@AndroidFindBy(xpath = "//android.view.View[contains(@content-desc, 'Biometric login')]")
-	@iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[contains(@name, 'Biometric login')]")
+	@AndroidFindBy(xpath = "//android.view.View[contains(@content-desc, 'Biometric')]")
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[contains(@name, 'Biometric')]")
 	private WebElement biometric;
+
+	@AndroidFindBy(accessibility = "Enter your current pin")
+	@iOSXCUITFindBy(accessibility = "Enter your current pin")
+	private WebElement enterYourPin_Text;
 
 	@AndroidFindBy(accessibility = "1")
 	private WebElement one;
@@ -83,17 +87,19 @@ public class RO_SettingPage extends UtilityClass {
 
 	@AndroidFindBy(xpath = "//android.widget.ImageView[contains(@content-desc,'91')]")
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeImage[contains(@name, 'India')]")
-
 	private WebElement indiaCountry;
 
 	@AndroidFindBy(accessibility = "Default country updated")
 	@iOSXCUITFindBy(accessibility = "Default country updated")
 	private WebElement alertMessage;
 
-	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]")
+	@AndroidFindBy(xpath = "//hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]")
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2][@index='1']")
-
 	private WebElement backArrow;
+
+	public WebElement getBackArrow() {
+		return backArrow;
+	}
 
 	@AndroidFindBy(xpath = "//android.view.View[contains(@content-desc, 'Camera Quality')]")
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[contains(@name, 'Camera Quality')]")
@@ -212,7 +218,6 @@ public class RO_SettingPage extends UtilityClass {
 		} catch (Exception e) {
 			changedFont = smallFont.getAttribute("label");
 		}
-
 		if (!defaultFont.equals(changedFont)) {
 			return true;
 		} else {
@@ -220,42 +225,6 @@ public class RO_SettingPage extends UtilityClass {
 		}
 	}
 
-//	public boolean largeFontCheck()
-//	{
-//	    log.info("Clicked on Font Button on Settings Screen");
-//	    String defaultFont = smallFont.getAttribute("content-desc");
-//	    largeFont.click();
-//	    log.info("Changed Font Small to Large");
-//	    fontSize.click();
-//	    String changedFont = largeFont.getAttribute("content-desc");
-//
-//	    if(!defaultFont.equals(changedFont))
-//	    {
-//	    	return true;   }
-//	    else{
-//	    	return false;
-//	    }
-//	}
-//	public boolean mediumFontCheck() throws InterruptedException
-//	{
-//	    log.info("Clicked on Font Button on Settings Screen");
-//	    String defaultFont = largeFont.getAttribute("content-desc");
-//	    mediumFont.click();
-//	    log.info("Changed Font Large to Medium");
-//	    fontSize.click();
-//	    String changedFont = mediumFont.getAttribute("content-desc");
-//	    Thread.sleep(8000);
-//
-////	    settingLabel.click();
-////        Thread.sleep(8000);
-//	    if(!defaultFont.equals(changedFont))
-//	    {
-//	    	return true;   }
-//	    else{
-//	    	return false;
-//	    }
-//	}
-//
 	public boolean meduimFontCheck() {
 		log.info("Clicked on Font Button on Settings Screen");
 		String defaultFont;
@@ -273,7 +242,6 @@ public class RO_SettingPage extends UtilityClass {
 		} catch (Exception e) {
 			changedFont = largeFont.getAttribute("label");
 		}
-
 		if (!defaultFont.equals(changedFont)) {
 			return true;
 		} else {
@@ -299,7 +267,6 @@ public class RO_SettingPage extends UtilityClass {
 			changedFont = mediumFont.getAttribute("label");
 		}
 		Thread.sleep(8000);
-
 		if (!defaultFont.equals(changedFont)) {
 			return true;
 		} else {
@@ -307,53 +274,7 @@ public class RO_SettingPage extends UtilityClass {
 		}
 	}
 
-//	String defaultFont;
-//	public boolean checkFontChange(WebElement fontElement) throws InterruptedException {
-//	    log.info("Clicked on Font Button on Settings Screen +++++");
-//	    defaultFont = mediumFont.getAttribute("content-desc");
-//	    System.out.println(defaultFont);
-//	    fontElement.click();
-//	    log.info("Changed Font");
-//
-//	    // Sleep for a short duration to allow the font change to take effect
-//	    Thread.sleep(2000);
-//
-//	    fontSize.click();
-//	    String changedFont = fontElement.getAttribute("content-desc");
-//	    System.out.println(changedFont);
-//
-//	    return defaultFont.equals(changedFont);
-//	}
-//
-//	public void testFontChange() throws InterruptedException {
-//	    Thread.sleep(2000); // Add sleep duration if necessary
-//	    fontSize.click();
-//
-//	    Thread.sleep(5000);
-//	    boolean isSmallFontChanged = checkFontChange(smallFont);
-//	    if (isSmallFontChanged) {
-//	        log.info("Small font changed successfully");
-//	    } else {
-//	        log.error("Small font change failed");
-//	    }
-//
-//	    boolean isMediumFontChanged = checkFontChange(mediumFont);
-//	    if (isMediumFontChanged) {
-//	        log.info("Medium font changed successfully");
-//	    } else {
-//	        log.error("Medium font change failed");
-//	    }
-//
-//	    boolean isLargeFontChanged = checkFontChange(largeFont);
-//	    if (isLargeFontChanged) {
-//	        log.info("Large font changed successfully");
-//	    } else {
-//	        log.error("Large font change failed");
-//	    }
-//	}
-
 	public boolean checkTheme() {
-
 		mediumFont.click();
 		themeMode.click();
 		log.info("Clicked on Theme mode :-Default System (Light) Theme is selected");
@@ -379,7 +300,6 @@ public class RO_SettingPage extends UtilityClass {
 		} else {
 			log.info("Theme is not changed from Light to Dark");
 		}
-
 		lightTheme.click();
 		if (!light.equals(dark)) {
 			log.info("Changed theme to Dark to Light");
@@ -390,22 +310,18 @@ public class RO_SettingPage extends UtilityClass {
 		}
 	}
 
-	public void biometricConfiguration() {
+	public boolean biometricConfiguration() {
 		biometric.click();
 		log.info("Clicked on BioMetric Login");
-
-		log.info("Insert your User PIN");
-		one.click();
-		two.click();
-		three.click();
-		four.click();
-		five.click();
-		six.click();
-
-		log.info("Navigated to Authentication page  :---Due to Security Flag we can't Automate Authentication");
-
-		log.info("Navigated to Authrntication page  :---Due to Security Flag we can't Automate Authentication");
-
+		if (enterYourPin_Text.isDisplayed()) {
+			log.info("Insert your User PIN Message displayed");
+			log.info("Navigated to Authentication page  :---Due to Security Flag we can't Automate Authentication");
+			backArrow.click();
+			return true;
+		} else {
+			backArrow.click();
+			return false;
+		}
 	}
 
 	public boolean defaultCountry(String country) throws InterruptedException {
@@ -425,7 +341,6 @@ public class RO_SettingPage extends UtilityClass {
 		}
 		System.out.println(text);
 		Thread.sleep(4000);
-		backArrow.click();
 		log.info("Clicked back button and now user is on RO list page");
 		System.out.println("value of text " + text);
 		if (text.equals("Default country updated")) {
@@ -436,7 +351,6 @@ public class RO_SettingPage extends UtilityClass {
 	}
 
 	public boolean lowCameraQuality() throws InterruptedException {
-		RO_ListPage roListPage = new RO_ListPage(driver);
 		scrollDown();
 		Thread.sleep(3000);
 		camQualityOption.click();
@@ -444,58 +358,58 @@ public class RO_SettingPage extends UtilityClass {
 		Thread.sleep(3000);
 		lowQuality.click();
 		log.info("Changed camera quality to LOW");
-		backArrow.click();
-		// log.info("clicked on back arrow and user is navigated on RO List screen");
-		if (roListPage.getOrderPageTitle().isDisplayed()) {
-			log.info("clicked on back arrow and user is navigated on RO List screen");
+		String selectedQuality;
+		if (isAndroid()) {
+			selectedQuality = camQualityOption.getAttribute("content-desc");
+		} else {
+			selectedQuality = camQualityOption.getAttribute("label");
+		}
+		if (selectedQuality.contains("Low")) {
+			log.info("Low video quality selected");
 			return true;
 		} else {
-			log.info("clicked on back arrow and but user is not navigated on RO List screen");
+			log.info("Failed to select Low video quality");
 			return false;
 		}
-
 	}
 
 	public boolean mediumCameraQuality() {
-		RO_ListPage roListPage = new RO_ListPage(driver);
-
-		log.info("clicked on back arrow and user is navigated on RO List screen");
-		scrollDown();
 		camQualityOption.click();
 		log.info("Clicked on camera quality option:-'Low','Medium','High' option is displayed");
 		mediumQuality.click();
 		log.info("Changed camera quality to Medium");
-		backArrow.click();
-		log.info("clicked on back arrow and user is navigated on RO List screen");
-
-		if (roListPage.getOrderPageTitle().isDisplayed()) {
-			log.info("clicked on back arrow and user is navigated on RO List screen");
+		String selectedQuality;
+		if (isAndroid()) {
+			selectedQuality = camQualityOption.getAttribute("content-desc");
+		} else {
+			selectedQuality = camQualityOption.getAttribute("label");
+		}
+		if (selectedQuality.contains("Medium")) {
+			log.info("Medium video quality selected");
 			return true;
 		} else {
-			log.info("clicked on back arrow and but user is not navigated on RO List screen");
+			log.info("Failed to select Medium video quality");
 			return false;
 		}
-
 	}
 
 	public boolean highCameraQuality() {
-		RO_ListPage roListPage = new RO_ListPage(driver);
-		scrollDown();
 		camQualityOption.click();
 		log.info("Clicked on camera quality option:-'Low','Medium','High' option is displayed");
 		highQuality.click();
-		log.info("Changed camera quality to High");
-		backArrow.click();
-		log.info("clicked on back arrow and user is navigated on RO List screen");
-
-		if (roListPage.getOrderPageTitle().isDisplayed()) {
-			log.info("clicked on back arrow and user is navigated on RO List screen");
+		String selectedQuality;
+		if (isAndroid()) {
+			selectedQuality = camQualityOption.getAttribute("content-desc");
+		} else {
+			selectedQuality = camQualityOption.getAttribute("label");
+		}
+		if (selectedQuality.contains("High")) {
+			log.info("Changed camera quality to High");
 			return true;
 		} else {
-			log.info("clicked on back arrow and but user is not navigated on RO List screen");
+			log.info("Failed to Change camera quality to High");
 			return false;
 		}
-
 	}
 
 	public boolean deleteUser() throws InterruptedException {
@@ -514,7 +428,5 @@ public class RO_SettingPage extends UtilityClass {
 			log.info("Can not delete user");
 			return false;
 		}
-
 	}
-
 }

@@ -2,8 +2,6 @@ package flutter.Truvideo.Pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
-
 import flutter.Truvideo.Utils.UtilityClass;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -35,6 +33,12 @@ public class VideoRecordingPage extends UtilityClass {
 		return RecordingTimer;
 	}
 
+	@AndroidFindBy(xpath = "//android.view.View/android.view.View/android.view.View/android.view.View[1]")
+	private WebElement x_Button;
+	
+	public WebElement getX_Button() {
+		return x_Button;
+	}
 	// upload from device
 	@AndroidFindBy(accessibility = "The device must be on landscape mode")
 	@iOSXCUITFindBy(accessibility = "The device must be on landscape mode")
