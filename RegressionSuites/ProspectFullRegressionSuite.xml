@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="FullRegression_Prospect_Suite">
+	<listeners>
+		<listener class-name="flutter.Truvideo.TestUtils.Listeners"></listener>
+	</listeners>
+	<test thread-count="5" name="ProspectSideTest">
+		<classes>
+			<class name="flutter.Truvideo.Tests.Prospects.DealerCodePageTest_Prospect" />
+			<class name="flutter.Truvideo.Tests.Prospects.UserListPageTest_Prospect" />
+			<class name="flutter.Truvideo.Tests.Prospects.ProspectsListPageTest" />
+			<class name="flutter.Truvideo.Tests.Prospects.AddProspectPageTest" />
+			<class name="flutter.Truvideo.Tests.Prospects.PropsectDetailsPageTest" />
+			<class name="flutter.Truvideo.Tests.Prospects.ContactsListPageTest_Prospect" />
+			<class name="flutter.Truvideo.Tests.Prospects.MessagesListPageTest_Prospect" />
+			<class name="flutter.Truvideo.Tests.Prospects.MessagingScreenTest_Prospect" />
+			<class name="flutter.Truvideo.Tests.Prospects.ChatListPageTest_Prospect" />
+			<class name="flutter.Truvideo.Tests.Prospects.SettingPageTest_Prospect" />
+			<class name="flutter.Truvideo.Tests.Prospects.SupportPageTest_Prospect" />
+			<class name="flutter.Truvideo.Tests.Prospects.ProfileIconScreenTest_Prospect" />
+			<class name="flutter.Truvideo.Tests.Prospects.VideoRecordingPageTest_Gallery_Prospect" />
+			<class name="flutter.Truvideo.Tests.Prospects.PendingToUploadPageTest_Gallery_Prospect" />
+			<class name="flutter.Truvideo.Tests.Prospects.VideoRecordingPageTest_Recorder_Prospect" />
+			<class name="flutter.Truvideo.Tests.Prospects.PendingToUploadPageTest_Recorder_Prospect" />
+		</classes>
+	</test>
+</suite> 

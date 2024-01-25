@@ -32,6 +32,10 @@ public class VideoPreviewScreen extends UtilityClass{
 	@iOSXCUITFindBy(xpath= "//XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[5]")
 	private WebElement greenButton;
 	
+	public WebElement getGreenButton() {
+		return greenButton;
+	}
+	
 	@AndroidFindBy(xpath = "//android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View[5]")
 	 @iOSXCUITFindBy(xpath= "//XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[6]" )
 	private WebElement redButton;
@@ -71,6 +75,10 @@ public class VideoPreviewScreen extends UtilityClass{
 	@AndroidFindBy(xpath = "//android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View[2]")
 	 @iOSXCUITFindBy(xpath= "//XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[3]" )
 	private WebElement next_ScreenButton;
+	
+	public WebElement getNext_ScreenButton() {
+		return next_ScreenButton;
+	}
 	
 	@AndroidFindBy(xpath = "//android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View[2]")
 	 @iOSXCUITFindBy(xpath= "//XCUIElementTypeApplication[@name=\"TruVideo Enterprise\"]/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[3]" )
@@ -163,7 +171,39 @@ public class VideoPreviewScreen extends UtilityClass{
 		previous_ScreenButton.click();
 	}
 	
-	public boolean checkPreviewScreenFunction() throws InterruptedException {
+	public boolean checkPreviewScreenFunction_Order() throws InterruptedException {
+		previewScreenFunction();
+		OrderDetailsPage orderDetailsPage=new OrderDetailsPage(driver);
+		if(orderDetailsPage.getPendingToUploadVideo().isDisplayed()) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
+	public boolean checkPreviewScreenFunction_Prospect() throws InterruptedException {
+		previewScreenFunction();
+		ProspectDetailsPage prospectDetailsPage=new ProspectDetailsPage(driver);
+		if(prospectDetailsPage.getPendingToUploadVideo().isDisplayed()) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
+	public OrderDetailsPage navigateToOrderDetails() throws InterruptedException {
+		Thread.sleep(2000);
+		previewScreenFunction();
+		return new OrderDetailsPage(driver);
+	}
+	
+	public OrderDetailsPage navigateToProspectDetails() throws InterruptedException {
+		Thread.sleep(2000);
+		previewScreenFunction();
+		return new OrderDetailsPage(driver);
+	}
+	
+	public void previewScreenFunction() throws InterruptedException {
 		Thread.sleep(2000);
 		//previous_ScreenButton.click();
 		rotation_Anticlockwise_video.click();
@@ -198,44 +238,20 @@ public class VideoPreviewScreen extends UtilityClass{
 		delete_Button.click();
 		log.info("Image : One image is deleted");
 		greenButton.click();
-		OrderDetailsPage orderDetailsPage=new OrderDetailsPage(driver);
 		Thread.sleep(4000);
 		scrollDown();
-		Thread.sleep(2000);	
-		if(orderDetailsPage.getPendingToUploadVideo().isDisplayed()) {
-			return true;
-		}else {
-			return false;
-		}
+		Thread.sleep(4000);	
 	}
 	
-	
-	
-	
-	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View[2]")
-	 @iOSXCUITFindBy(xpath= "//XCUIElementTypeApplication[@name=\"TruVideo Enterprise\"]/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[3]" )
-	private WebElement greenContinueButton;
-	public boolean forCameraQualityFunction() throws InterruptedException
-	{
-		Thread.sleep(4000);
-		greenContinueButton.click();
-		log.info("Clicked on Green (Continue) button");
-		OrderDetailsPage orderDetailsPage=new OrderDetailsPage(driver);
-		Thread.sleep(4000);
-		scrollDown();
-		if(orderDetailsPage.getPendingToUploadVideo().isDisplayed()) {
-			return true;
-		}else {
-			return false;
-		}
-		
+	public OrderDetailsPage navigateToOrderDetails_Recorder() throws InterruptedException {
+		deleteImages();
+		previewScreenFunction();
+		return new OrderDetailsPage(driver);
 	}
 	
-	
-	
-	
-	
-
-	
-
+	public ProspectDetailsPage navigateToProspectDetails_Recorder() throws InterruptedException {
+		deleteImages();
+		previewScreenFunction();
+		return new ProspectDetailsPage(driver);
+	}
 }

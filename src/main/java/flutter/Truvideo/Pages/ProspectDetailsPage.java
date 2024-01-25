@@ -83,7 +83,7 @@ public class ProspectDetailsPage extends UtilityClass {
 	@AndroidFindBy(xpath = "//android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]")
 	private WebElement x_Button;
 
-	@AndroidFindBy(xpath = "//android.widget.ImageView[contains(@content-desc,'Pending to upload') or (@index='0')]")
+	@AndroidFindBy(xpath = "//android.widget.ImageView[contains(@content-desc,'Pending to Upload') or (@index='0')]")
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeImage[contains(@name,'Pending to Upload')]")
 	private WebElement pendingToUpload_video;
 

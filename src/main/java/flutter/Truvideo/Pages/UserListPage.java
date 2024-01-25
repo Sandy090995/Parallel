@@ -275,9 +275,9 @@ public class UserListPage extends UtilityClass {
 		searchBar.clear();
 		searchBar.sendKeys(user);	
 		//selectUser_Login.get(0).click();
-		//Thread.sleep(4000);
+		Thread.sleep(1000);
 		userName=searchBar.getText();
-		Thread.sleep(400);
+		Thread.sleep(1000);
 		//selectUser_Login.get(0).click();
 		getUserToLogin(userName).click();
 

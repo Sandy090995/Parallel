@@ -131,7 +131,7 @@ public class OrderDetailsPage extends UtilityClass {
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[3]")
 	private WebElement x_Button;
 
-	@AndroidFindBy(xpath = "//android.widget.ImageView[contains(@content-desc,'Pending to upload') or (@index='0')]")
+	@AndroidFindBy(xpath = "//android.widget.ImageView[contains(@content-desc,'Pending to Upload') or (@index='0')]")
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeImage[contains(@name,'Pending to Upload')]")
 	private WebElement pendingToUpload_video;
 
@@ -332,7 +332,8 @@ public class OrderDetailsPage extends UtilityClass {
 	
 	public PendingToUploadPage Navigate_To_PendingToUploadScreen() throws InterruptedException {
 		scrollDown();
-		Thread.sleep(5000);
+		Thread.sleep(3000);
+		scrollDown();
 		pendingToUpload_video.click();
 		log.info("Clicked on video details :-  User will navigate to Pending to Upload screen");
 		return new PendingToUploadPage(driver);

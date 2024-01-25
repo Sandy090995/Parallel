@@ -193,7 +193,19 @@ public class VideoRecordingPage extends UtilityClass {
 	@iOSXCUITFindBy(accessibility = "CONTINUE")
 	private WebElement continue_Button;
 
-	public boolean checkVideoUploadingFromDeviceGallery() throws InterruptedException {
+	public boolean checkVideoPickFromDeviceGallery() throws InterruptedException {
+		navigateToVideoPreviewScreen_Gallery();
+		VideoPreviewScreen previewScreen = new VideoPreviewScreen(driver);
+		if (previewScreen.getPlay_PauseButton().isDisplayed()) {
+			log.info("video Preview is Displayed");
+			return true;
+		} else {
+			log.info("video Preview is not Displayed");
+			return false;
+		}
+	}
+	
+	public VideoPreviewScreen navigateToVideoPreviewScreen_Gallery() throws InterruptedException {
 		pickFromGallery.click();
 		Thread.sleep(2000);
 		try {
@@ -218,14 +230,7 @@ public class VideoRecordingPage extends UtilityClass {
 		Thread.sleep(5000);
 		continueButton.click();
 		Thread.sleep(5000);
-		VideoPreviewScreen previewScreen = new VideoPreviewScreen(driver);
-		if (previewScreen.getPlay_PauseButton().isDisplayed()) {
-			log.info("video Preview is Displayed");
-			return true;
-		} else {
-			log.info("video Preview is not Displayed");
-			return false;
-		}
+		return new VideoPreviewScreen(driver);
 	}
 
 	public boolean checkChangingVideoQualityFromRecorder() throws InterruptedException {
@@ -388,34 +393,20 @@ public class VideoRecordingPage extends UtilityClass {
 		}
 
 	}
-
-	@AndroidFindBy(xpath = "//android.view.View[10]")
-	@iOSXCUITFindBy(xpath = "//XCUIElementTypeOther[5]")
-	private WebElement cameraFunction_StartRecording;
-
-	@AndroidFindBy(xpath = "//android.view.View[8]")
-	@iOSXCUITFindBy(xpath = "//XCUIElementTypeOther[5]")
-	private WebElement cameraStopRecording;
-
-	public void cameraQualityFromSetting() throws InterruptedException {
-
-		// checkVideoRecordingWithImageCapture();
-		cameraFunction_StartRecording.click();
-		log.info("Clicked on startRecording");
-		Thread.sleep(10000);
-		cameraStopRecording.click();
-		log.info("Clicked on stop recording button");
-		Thread.sleep(3000);
-		continue_Button.click();
-		log.info("Clicked on continue button");
-
-//		log.info("Clicked on Camera quality button" );
-//		boolean lowCamValue= cameraQuality_Low.isSelected();
-//		String lowCamValue1= cameraQuality_Low.getText();
-//		boolean lowCamValue2= cameraQuality_Low.isEnabled();
-//		System.out.println("Boolean value low camera Quality is :-"+lowCamValue+"Boolean value low camera Quality is gettext :-"+lowCamValue1+"Boolean value low camera Quality is isEnabled :-"+lowCamValue2);
-//		boolean value=cameraQuality_Medium.isEnabled();
-//		System.out.println("Medium is enabled:-"+value);
+	
+	public VideoPreviewScreen navigateToOrderDetails_Preview_Recorder() throws InterruptedException {
+		checkOnlyImageCapturing();
+		checkNavigationToMediaActionScreen();
+		checkVideoRecordingWithImageCapture();
+		return new VideoPreviewScreen(driver);
 	}
+	
+	public VideoPreviewScreen navigateToProspectDetails_Preview_Recorder() throws InterruptedException {
+		checkOnlyImageCapturing();
+		checkNavigationToMediaActionScreen();
+		checkVideoRecordingWithImageCapture();
+		return new VideoPreviewScreen(driver);
+	}
+
 
 }

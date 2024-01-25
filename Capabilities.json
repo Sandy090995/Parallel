@@ -15,6 +15,19 @@
                 }
     },
     {
+        "name":"Samsung zFlip",
+        "caps":{
+            "automationName":"UiAutomator2",
+            "platformName":"ANDROID",
+            "deviceName":"Galaxy S21 5G",
+            "platformVersion":"14.0",
+            "bundleId":"com.truvideo.enterprise.rc",
+            "app":"/src/main/resources/ApplicationFile/RCTruvideoflutter.apk",
+            "autoAcceptAlerts": "true",
+            "autoAcceptAlerts":true
+                }
+    },
+    {
     "name":"iPhone8",
     "caps":{
         "automationName":"XCUITest",
