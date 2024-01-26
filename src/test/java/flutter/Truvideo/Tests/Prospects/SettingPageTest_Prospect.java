@@ -83,11 +83,13 @@ public class SettingPageTest_Prospect extends BaseClass {
 	@Test(priority = 10)
 	public void verifyChangeCameraQuality_High() throws InterruptedException {
 		Assert.assertTrue(settingPage.highCameraQuality());
+		driver.navigate().back();
 	}
 
 	//@Test(priority = 11)
 	public void verifyDeleteUserFunction() throws InterruptedException {
 		Assert.assertTrue(settingPage.deleteUser());
+		driver.navigate().back();
 	}
 
 }

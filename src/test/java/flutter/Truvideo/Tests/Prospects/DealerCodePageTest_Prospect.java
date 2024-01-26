@@ -11,8 +11,10 @@ DealerCodePage dealerCodePage;
 	
 	@BeforeClass
 	public void setUp() throws MalformedURLException, Exception {
+		if(driver==null) {
 		driver=setUpApplication();
 		dealerCodePage=loadDealerCodePage();
+		}
 	}
 	
 	@BeforeMethod

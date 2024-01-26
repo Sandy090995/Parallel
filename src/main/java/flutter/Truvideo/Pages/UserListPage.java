@@ -58,9 +58,9 @@ public class UserListPage extends UtilityClass {
 	public WebElement getUserToLogin(String searchUser) {
 		WebElement search_User = null;
 	    if(isiOS()) {
-	    	 search_User=driver.findElement(By.xpath("//XCUIElementTypeStaticText[@label='" + searchUser + "']"));
+	    	 search_User=driver.findElement(By.xpath("//XCUIElementTypeStaticText[contains(@label,'" + searchUser + "')]"));
 	    } else if(isAndroid()) {
-	    	search_User=driver.findElement(By.xpath("//android.view.View[@content-desc='" + searchUser + "']"));
+	    	search_User=driver.findElement(By.xpath("//android.view.View[contains(@content-desc,'" + searchUser + "')]"));
 	    } 
 	    return search_User;
 	}

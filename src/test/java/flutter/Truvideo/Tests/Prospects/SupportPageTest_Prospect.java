@@ -38,6 +38,7 @@ public class SupportPageTest_Prospect extends BaseClass {
 	public void verifySupportFunctionality() throws InterruptedException {
 		Assert.assertTrue(
 				supportPage.checkSupportFunctionality("rahul.kapse@5exceptions.com", "7812059487", "Testing Support"));
+		driver.navigate().back();
 	}
 
 }

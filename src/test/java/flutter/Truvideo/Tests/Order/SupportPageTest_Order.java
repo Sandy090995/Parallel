@@ -38,7 +38,6 @@ public class SupportPageTest_Order extends BaseClass {
 		Assert.assertTrue(
 				supportPage.checkSupportFunctionality("rahul.kapse@5exceptions.com", "7812059487", "Testing Support"));
 	driver.navigate().back();
-	driver.navigate().back();
 	}
 
 }

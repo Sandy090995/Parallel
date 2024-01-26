@@ -12,9 +12,11 @@ public class ProspectsListPageTest extends BaseClass {
 
 	@BeforeClass
 	public void setUp() throws MalformedURLException, Exception {
+		if(driver==null) {
 		driver = setUpApplication();
 		ro_ListPage = loadDealerCodePage().navigateToUserListScreen_Sales()
 				.navigateTo_RO_Prospect_ListPage(userForLogin_Sales);
+		}
 	}
 
 	@BeforeMethod

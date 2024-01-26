@@ -9,6 +9,7 @@ import org.apache.commons.mail.MultiPartEmail;
 import org.openqa.selenium.OutputType;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+import com.aventstack.extentreports.reporter.configuration.Theme;
 
 import flutter.Truvideo.BaseClass.BaseClass;
 import io.appium.java_client.AppiumDriver;
@@ -21,6 +22,7 @@ public class TestUtils {
 		ExtentSparkReporter reporter = new ExtentSparkReporter(path);
 		reporter.config().setReportName("RC Truvideo Enterprise App");
 		reporter.config().setDocumentTitle("Automation Test Result");
+		reporter.config().setTheme(Theme.DARK);
 
 		extent = new ExtentReports();
 		extent.attachReporter(reporter);
@@ -54,7 +56,7 @@ public class TestUtils {
 			email.setAuthenticator(new DefaultAuthenticator("sandip.chopkar@5exceptions.com", "scusooxsoohzvlfz")); //pass=AppPass
 			email.setSSLOnConnect(true); // Use SSL
 			email.setFrom("sandip.chopkar@5exceptions.com");
-			email.addTo("rahul.kapse@5exceptions.com");
+			//email.addTo("rahul.kapse@5exceptions.com");
 			email.addTo("sandipchopkar789@gmail.com");
 			email.setSubject("Automation Report");
 			email.setMsg("Please find the attached Automation Report For Truvideo Flutter App.");

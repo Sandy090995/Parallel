@@ -14,10 +14,12 @@ public class PropsectDetailsPageTest extends BaseClass {
 
 	@BeforeClass
 	public void setUp() throws MalformedURLException, Exception {
+		if(driver==null) {
 		driver = setUpApplication();
 		prospectDetails = loadDealerCodePage().navigateToUserListScreen_Sales()
 				.navigateTo_RO_Prospect_ListPage(userForLogin_Sales).NavigateTo_AddProspect_Page()
 				.navigateTOProspectDetails();
+		}
 	}
 	
 	@BeforeMethod
@@ -57,18 +59,7 @@ public class PropsectDetailsPageTest extends BaseClass {
 		Assert.assertTrue(prospectDetails.checkNavigation_To_Messages());
 		MessagingScreen messageScreen=new MessagingScreen(driver);
 		messageScreen.getBackButton().click();
-	}
-
-	//@Test
-	public void verifyCheck_UncheckVideoFunction() throws InterruptedException {
-		prospectDetails = new ProspectDetailsPage(driver);
-		Assert.assertTrue(prospectDetails.check_UncheckButton_Function());
-	}
-
-	//@Test
-	public void verifyNavigationToPendingToUpload() throws InterruptedException {
-		prospectDetails = new ProspectDetailsPage(driver);
-		Assert.assertTrue(prospectDetails.checkNavigation_PendingToUploadScreen());
+		driver.navigate().back();
 	}
 
 }

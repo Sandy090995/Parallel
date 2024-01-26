@@ -44,6 +44,8 @@ public class MessagingScreenTest_Prospect extends BaseClass {
 	@Test(priority = 3)
 	public void verifyManualConversationStatus() throws InterruptedException {
 		messageScreen.checkManualConversationStatus();
+		MessagingScreen messagingScreen=new MessagingScreen(driver);
+		messagingScreen.getBackButton().click();
 	}
 
 	
