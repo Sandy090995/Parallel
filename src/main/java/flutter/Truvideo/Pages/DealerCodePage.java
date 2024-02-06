@@ -92,6 +92,25 @@ public class DealerCodePage extends UtilityClass {
 	@AndroidFindBy(accessibility = "OK")
 	private WebElement oKButton;
 
+	
+	public boolean applicationInstall_dealerCodePageLoad() {
+		try {
+			if (popUpOK.isDisplayed()) {
+				log.info("PopUp Displayed");
+				popUpOK.click();
+			}
+		} catch (NoSuchElementException e) {
+			log.info("PopUp not present");
+		}
+		if (helloThereText.isDisplayed()){
+			log.info("App installed and Dealer Code Page Load");
+			return true;
+		} else {
+			log.info("Error in App installed and Dealer Code Page Load");
+			return false;
+		}
+	}
+	
 	public boolean visibleElements_DealerCodePage() {
 		try {
 			if (popUpOK.isDisplayed()) {

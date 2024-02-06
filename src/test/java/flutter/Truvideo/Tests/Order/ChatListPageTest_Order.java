@@ -33,7 +33,7 @@ public class ChatListPageTest_Order extends BaseClass {
 	public void tearDown() {
 		driver.quit();
 	}
-
+	
 	@Test(priority = 1)
 	public void verifyNavigationToChatScreen() throws InterruptedException {
 		Assert.assertTrue(chatlistpage.navigationToChatScreen());

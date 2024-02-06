@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite" parallel="tests" preserve-order="true">
+	<test name="ServiseSideTest_Samsung_zFlip" preserve-order="true">
+		<parameter name="capabilityName" value="Samsung zFlip" />
+		<classes>
+			<class name="flutter.Truvideo.Tests.Order.DealerCodePageTest_Order">
+				<methods>
+					<include
+						name="verifyAllVisibleText_LogoIsDisplayed_DealerCodePage"></include>
+					<include name="verifyLogin_InValidDealerCode"></include>
+					<include name="verifyLogin_ValidDealerCode"></include>
+				</methods>
+			</class>
+			<class name="flutter.Truvideo.Tests.Order.UserListPageTest_Order">
+				<methods>
+					<include name="verifyDealerName_And_RefreshButton"></include>
+					<include name="verifyNavigationToCreateUserScreen"></include>
+					<include name="verify_TextsUnderChangeDealerFunction"></include>
+					<include name="verify_ChangeDealerFunction"></include>
+					<include name="verifyInvalidUserSearch"></include>
+					<include name="verify_HelloThere_PersonalPinText"></include>
+					<include name="verify_Login_InValidPin"></include>
+					<include name="verify_Login_ValidPin"></include>
+				</methods>
+			</class>
+			<class name="flutter.Truvideo.Tests.Order.RO_ListPageTest">
+				<methods>
+					<include name="verifyAllFooterTabs_and_HeadersTabs"></include>
+					<include name="verifySearchROFunction"></include>
+					<include name="verifyRO_Status_New"></include>
+					<include name="verifyRO_Status_Rejected"></include>
+					<include name="verifyRO_Status_All"></include>
+					<include name="verifyRO_Status_My"></include>
+					<include name="verifyNavigationTo_Chat"></include>
+					<include name="verifyNavigationTo_Messages"></include>
+					<include name="verifyNavigationTo_Contacts"></include>
+					<include name="verifyNavigation_BackTo_Orders"></include>
+					<include name="verifyNavigationToProfileIcon"></include>
+					<include name="verifyNavigationToAddOrderPage"></include>
+				</methods>
+			</class>
+			<class name="flutter.Truvideo.Tests.Order.AddOrderPageTest">
+				<methods>
+					<include name="verifyMandatoryFieldRequiredMessage"></include>
+					<include name="checkNewOrderCreation"></include>
+					<include name="verifyOrderOnDashboard"></include>
+				</methods>
+			</class>
+			<class name="flutter.Truvideo.Tests.Order.OrderDetailsPageTest">
+				<methods>
+					<include name="verifyVariousFields_RoDetails"></include>
+					<include name="verifyMandatoryFields"></include>
+					<include name="verifyNavigationToInspection"></include>
+					<include name="verifyNavigationToEditOrder"></include>
+					<include name="verifyNavigationToMessages"></include>
+					<include name="verifyNavigationToCameraScreen"></include>
+					<include name="verifyNavigationToROListPage"></include>
+				</methods>
+			</class>
+			<class
+				name="flutter.Truvideo.Tests.Order.ContactsListPageTest_Order">
+				<methods>
+					<include name="verifyAllAvailableTabsOnContactsScreen"></include>
+					<include name="verifySearchContacts"></include>
+					<include name="verifyAddToFavorite_withoutSearch"></include>
+					<include name="verifyRemoveFromFavorite"></include>
+					<include name="verifyCalling_Button"></include>
+					<include name="verifyAdd_Remove_Favorite_withSearch"></include>
+					<include name="verifyCalling_withSearch"></include>
+				</methods>
+			</class>
+			<class
+				name="flutter.Truvideo.Tests.Order.MessagesListPageTest_Order">
+				<methods>
+					<include name="verify_AllActive_Filter"></include>
+					<include name="verifyAll_Filter"></include>
+					<include name="verify_MyActive_Filter"></include>
+					<include name="verify_My_Filter"></include>
+					<include name="verifyNavigationToMessagingScreen"></include>
+				</methods>
+			</class>
+			<class name="flutter.Truvideo.Tests.Order.MessagingScreenTest_Order">
+				<methods>
+					<include name="verifyDefaultScreenDuringNew_Conversation"></include>
+					<include name="verifySendMessageFunction"></include>
+					<include name="verifyManualConversationStatus"></include>
+				</methods>
+			</class>
+			<class name="flutter.Truvideo.Tests.Order.ChatListPageTest_Order">
+				<methods>
+					<include name="verifyNavigationToChatScreen"></include>
+					<include name="verifySendMessage_ChatScreen"></include>
+					<include name="verifyCallingFunction"></include>
+					<include name="verifyCreateChat_Function"></include>
+					<include name="verifySearchChat_Function"></include>
+				</methods>
+			</class>
+			<class name="flutter.Truvideo.Tests.Order.SettingPageTest_Order">
+				<methods>
+					<include name="verifyAllElementsOnSettingScreen"></include>
+					<include name="verifyChangeFontSize_Small"></include>
+					<include name="verifyChangeFontSize_Large"></include>
+					<include name="verifyChangeFontSize_Medium"></include>
+					<include name="verifyThemeChangeFunction"></include>
+					<include name="verifyBiometricConfiguration"></include>
+					<include name="verifyChangeDefaultCountry"></include>
+					<include name="verifyChangeCameraQuality_Low"></include>
+					<include name="verifyChangeCameraQuality_Medium"></include>
+					<include name="verifyChangeCameraQuality_High"></include>
+				</methods>
+			</class>
+			<class name="flutter.Truvideo.Tests.Order.SupportPageTest_Order">
+				<methods>
+					<include name="verifySupportFunctionality"></include>
+				</methods>
+			</class>
+			<class
+				name="flutter.Truvideo.Tests.Order.ProfileIconScreenTest_Order">
+				<methods>
+					<include name="verifyUserDetails"></include>
+					<include name="verifyNavigationToSettingScreen"></include>
+					<include name="verifyNavigationToSupportScreen"></include>
+					<include name="verifySwitchDealerFunction"></include>
+					<include name="verifySwitchBackToFirstDealer"></include>
+					<include name="verifyLogoutFunctionality"></include>
+				</methods>
+			</class>
+			<class
+				name="flutter.Truvideo.Tests.Order.VideoRecordingPageTest_Gallery_Order">
+				<methods>
+					<include name="verifyPickFromDeviceGallery_Order"></include>
+					<include
+						name="verifyDeleteVideo_VideoPreviewScreen_NOButton_MediaGallery"></include>
+					<include
+						name="verifyDeleteVideo_VideoPreviewScreen__DeleteButton_MediaGallery"></include>
+					<include name="verifyPreviewScreenFunction_MediaGallery"></include>
+				</methods>
+			</class>
+			<class
+				name="flutter.Truvideo.Tests.Order.PendingToUploadPageTest_Gallery_Order">
+				<methods>
+					<include name="verifyVideoCanPlayOnPendingScreen_Gallery"></include>
+					<include
+						name="verifyDeleteImage_PendingToUploadScreen_Gallery"></include>
+					<include name="verifyChangeVideoTagAndDescription_Gallery"></include>
+					<include name="verifyUploadVideo_Gallery"></include>
+					<include name="verifyUploadedVideos_Gallery_OnDashboard"></include>
+				</methods>
+			</class>
+			<class
+				name="flutter.Truvideo.Tests.Order.VideoRecordingPageTest_Recorder_Order">
+				<methods>
+					<include name="verifyChangingVideoQualityFromRecorder"></include>
+					<include name="verifyFlashlightFunction_Recorder"></include>
+					<include name="verifyNarratorMode_Recorder"></include>
+					<include name="verifyNoiseCancellation_Recorder"></include>
+					<include
+						name="verifyVideoRecordingWithImageCapture_Recorder"></include>
+					<include name="verifyDeleteVideoFunction_NOButton_Recorder"></include>
+					<include
+						name="verifyDeleteVideoFunction_DeleteButton_Recorder"></include>
+					<include name="verifyOnlyImageCapturing_Recorder"></include>
+					<include name="verifyNavigationToMediaActionScreen_Recorder"></include>
+					<include
+						name="verifyVideoRecordingWithImageCapture_Again_Recorder"></include>
+					<include
+						name="verifyDeleteImagesFunction_PreviewScreen_recorder"></include>
+					<include name="verifyPreviewScreenFunction_Recorder"></include>
+				</methods>
+			</class>
+			<class
+				name="flutter.Truvideo.Tests.Order.PendingToUploadPageTest_Recorder_Order">
+				<methods>
+					<include name="verifyVideoCanPlayOnPendingScreen_Recorder"></include>
+					<include name="verifyDeleteImage_PendingToUploadScreen_Recorder"></include>
+					<include name="verifyChangeVideoTagAndDescription_Recorder"></include>
+					<include name="verifyUploadVideo_Recorder"></include>
+					<include name="verifyUploadedVideos_Recorder_OnDashboard_Order"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="ServiseSideTest_MI10I" preserve-order="true">
+		<parameter name="capabilityName" value="MI10I" />
+		<classes>
+			<class name="flutter.Truvideo.Tests.Order.DealerCodePageTest_Order">
+				<methods>
+					<include
+						name="verifyAllVisibleText_LogoIsDisplayed_DealerCodePage"></include>
+					<include name="verifyLogin_InValidDealerCode"></include>
+					<include name="verifyLogin_ValidDealerCode"></include>
+				</methods>
+			</class>
+			<class name="flutter.Truvideo.Tests.Order.UserListPageTest_Order">
+				<methods>
+					<include name="verifyDealerName_And_RefreshButton"></include>
+					<include name="verifyNavigationToCreateUserScreen"></include>
+					<include name="verify_TextsUnderChangeDealerFunction"></include>
+					<include name="verify_ChangeDealerFunction"></include>
+					<include name="verifyInvalidUserSearch"></include>
+					<include name="verify_HelloThere_PersonalPinText"></include>
+					<include name="verify_Login_InValidPin"></include>
+					<include name="verify_Login_ValidPin"></include>
+				</methods>
+			</class>
+			<class name="flutter.Truvideo.Tests.Order.RO_ListPageTest">
+				<methods>
+					<include name="verifyAllFooterTabs_and_HeadersTabs"></include>
+					<include name="verifySearchROFunction"></include>
+					<include name="verifyRO_Status_New"></include>
+					<include name="verifyRO_Status_Rejected"></include>
+					<include name="verifyRO_Status_All"></include>
+					<include name="verifyRO_Status_My"></include>
+					<include name="verifyNavigationTo_Chat"></include>
+					<include name="verifyNavigationTo_Messages"></include>
+					<include name="verifyNavigationTo_Contacts"></include>
+					<include name="verifyNavigation_BackTo_Orders"></include>
+					<include name="verifyNavigationToProfileIcon"></include>
+					<include name="verifyNavigationToAddOrderPage"></include>
+				</methods>
+			</class>
+			<class name="flutter.Truvideo.Tests.Order.AddOrderPageTest">
+				<methods>
+					<include name="verifyMandatoryFieldRequiredMessage"></include>
+					<include name="checkNewOrderCreation"></include>
+					<include name="verifyOrderOnDashboard"></include>
+				</methods>
+			</class>
+			<class name="flutter.Truvideo.Tests.Order.OrderDetailsPageTest">
+				<methods>
+					<include name="verifyVariousFields_RoDetails"></include>
+					<include name="verifyMandatoryFields"></include>
+					<include name="verifyNavigationToInspection"></include>
+					<include name="verifyNavigationToEditOrder"></include>
+					<include name="verifyNavigationToMessages"></include>
+					<include name="verifyNavigationToCameraScreen"></include>
+					<include name="verifyNavigationToROListPage"></include>
+				</methods>
+			</class>
+			<class
+				name="flutter.Truvideo.Tests.Order.ContactsListPageTest_Order">
+				<methods>
+					<include name="verifyAllAvailableTabsOnContactsScreen"></include>
+					<include name="verifySearchContacts"></include>
+					<include name="verifyAddToFavorite_withoutSearch"></include>
+					<include name="verifyRemoveFromFavorite"></include>
+					<include name="verifyCalling_Button"></include>
+					<include name="verifyAdd_Remove_Favorite_withSearch"></include>
+					<include name="verifyCalling_withSearch"></include>
+				</methods>
+			</class>
+			<class
+				name="flutter.Truvideo.Tests.Order.MessagesListPageTest_Order">
+				<methods>
+					<include name="verify_AllActive_Filter"></include>
+					<include name="verifyAll_Filter"></include>
+					<include name="verify_MyActive_Filter"></include>
+					<include name="verify_My_Filter"></include>
+					<include name="verifyNavigationToMessagingScreen"></include>
+				</methods>
+			</class>
+			<class name="flutter.Truvideo.Tests.Order.MessagingScreenTest_Order">
+				<methods>
+					<include name="verifyDefaultScreenDuringNew_Conversation"></include>
+					<include name="verifySendMessageFunction"></include>
+					<include name="verifyManualConversationStatus"></include>
+				</methods>
+			</class>
+			<class name="flutter.Truvideo.Tests.Order.ChatListPageTest_Order">
+				<methods>
+					<include name="verifyNavigationToChatScreen"></include>
+					<include name="verifySendMessage_ChatScreen"></include>
+					<include name="verifyCallingFunction"></include>
+					<include name="verifyCreateChat_Function"></include>
+					<include name="verifySearchChat_Function"></include>
+				</methods>
+			</class>
+			<class name="flutter.Truvideo.Tests.Order.SettingPageTest_Order">
+				<methods>
+					<include name="verifyAllElementsOnSettingScreen"></include>
+					<include name="verifyChangeFontSize_Small"></include>
+					<include name="verifyChangeFontSize_Large"></include>
+					<include name="verifyChangeFontSize_Medium"></include>
+					<include name="verifyThemeChangeFunction"></include>
+					<include name="verifyBiometricConfiguration"></include>
+					<include name="verifyChangeDefaultCountry"></include>
+					<include name="verifyChangeCameraQuality_Low"></include>
+					<include name="verifyChangeCameraQuality_Medium"></include>
+					<include name="verifyChangeCameraQuality_High"></include>
+				</methods>
+			</class>
+			<class name="flutter.Truvideo.Tests.Order.SupportPageTest_Order">
+				<methods>
+					<include name="verifySupportFunctionality"></include>
+				</methods>
+			</class>
+			<class
+				name="flutter.Truvideo.Tests.Order.ProfileIconScreenTest_Order">
+				<methods>
+					<include name="verifyUserDetails"></include>
+					<include name="verifyNavigationToSettingScreen"></include>
+					<include name="verifyNavigationToSupportScreen"></include>
+					<include name="verifySwitchDealerFunction"></include>
+					<include name="verifySwitchBackToFirstDealer"></include>
+					<include name="verifyLogoutFunctionality"></include>
+				</methods>
+			</class>
+			<class
+				name="flutter.Truvideo.Tests.Order.VideoRecordingPageTest_Gallery_Order">
+				<methods>
+					<include name="verifyPickFromDeviceGallery_Order"></include>
+					<include
+						name="verifyDeleteVideo_VideoPreviewScreen_NOButton_MediaGallery"></include>
+					<include
+						name="verifyDeleteVideo_VideoPreviewScreen__DeleteButton_MediaGallery"></include>
+					<include name="verifyPreviewScreenFunction_MediaGallery"></include>
+				</methods>
+			</class>
+			<class
+				name="flutter.Truvideo.Tests.Order.PendingToUploadPageTest_Gallery_Order">
+				<methods>
+					<include name="verifyVideoCanPlayOnPendingScreen_Gallery"></include>
+					<include
+						name="verifyDeleteImage_PendingToUploadScreen_Gallery"></include>
+					<include name="verifyChangeVideoTagAndDescription_Gallery"></include>
+					<include name="verifyUploadVideo_Gallery"></include>
+					<include name="verifyUploadedVideos_Gallery_OnDashboard"></include>
+				</methods>
+			</class>
+			<class
+				name="flutter.Truvideo.Tests.Order.VideoRecordingPageTest_Recorder_Order">
+				<methods>
+					<include name="verifyChangingVideoQualityFromRecorder"></include>
+					<include name="verifyFlashlightFunction_Recorder"></include>
+					<include name="verifyNarratorMode_Recorder"></include>
+					<include name="verifyNoiseCancellation_Recorder"></include>
+					<include
+						name="verifyVideoRecordingWithImageCapture_Recorder"></include>
+					<include name="verifyDeleteVideoFunction_NOButton_Recorder"></include>
+					<include
+						name="verifyDeleteVideoFunction_DeleteButton_Recorder"></include>
+					<include name="verifyOnlyImageCapturing_Recorder"></include>
+					<include name="verifyNavigationToMediaActionScreen_Recorder"></include>
+					<include
+						name="verifyVideoRecordingWithImageCapture_Again_Recorder"></include>
+					<include
+						name="verifyDeleteImagesFunction_PreviewScreen_recorder"></include>
+					<include name="verifyPreviewScreenFunction_Recorder"></include>
+				</methods>
+			</class>
+			<class
+				name="flutter.Truvideo.Tests.Order.PendingToUploadPageTest_Recorder_Order">
+				<methods>
+					<include name="verifyVideoCanPlayOnPendingScreen_Recorder"></include>
+					<include name="verifyDeleteImage_PendingToUploadScreen_Recorder"></include>
+					<include name="verifyChangeVideoTagAndDescription_Recorder"></include>
+					<include name="verifyUploadVideo_Recorder"></include>
+					<include name="verifyUploadedVideos_Recorder_OnDashboard_Order"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+</suite> 

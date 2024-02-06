@@ -36,6 +36,13 @@ public class InspectionPage extends UtilityClass {
 		return inspection_TitleAgain;
 	}
 	
+	@AndroidFindBy(xpath = "//android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]")
+	private WebElement backArrowButton;
+	
+	public WebElement getBackArrowButton() {
+		return backArrowButton;
+	}
+	
 	@AndroidFindBy(accessibility = "Exit?")
 	@iOSXCUITFindBy(accessibility = "Exit?")
 	private WebElement exit_Question;

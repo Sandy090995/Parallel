@@ -16,7 +16,12 @@ public class Listeners extends TestUtils implements ITestListener {
 
 	public void onTestStart(ITestResult result) {
 		test = extent.createTest(result.getMethod().getMethodName());// Method Name
-
+		test.assignCategory("All");
+		try {
+		test.assignCategory(TestUtils.getTicketID(result.getMethod().getMethodName()));
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void onTestSuccess(ITestResult result) {
@@ -49,12 +54,16 @@ public class Listeners extends TestUtils implements ITestListener {
 	}
 
 	public void onStart(ITestContext context) {
-
-	}
+		try {
+		readTestDataFromExcel();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		}
 
 	public void onFinish(ITestContext context) {
 		extent.flush();
-		sendReportToEmail();
+		//sendReportToEmail();
 	}
 
 }

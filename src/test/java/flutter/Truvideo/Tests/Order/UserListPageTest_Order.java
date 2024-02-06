@@ -31,49 +31,49 @@ public class UserListPageTest_Order extends BaseClass {
 	}
 	
 	@Test(priority = 1)
-	public void verifyDealerName_And_RefreshButton() throws Exception {
+	public void verifyDealerName_And_RefreshButton_Order() throws Exception {
 		Assert.assertTrue(userListPage.checkVisibleText_Icons());	
 	}
 	
 	@Test(priority =2)
-	public void verifyNavigationToCreateUserScreen() throws InterruptedException {
+	public void verifyNavigationToCreateUserScreen_Order() throws InterruptedException {
 		Assert.assertTrue(userListPage.checkCreateUserFunction());
 		CreateNewUserPage createUserPage=new CreateNewUserPage(driver);
 		createUserPage.getCancelButton().click();		
 	}
 	
 	@Test(priority =3)
-	public void verify_TextsUnderChangeDealerFunction() {
+	public void verify_TextsUnderChangeDealerFunction_Order() {
 		Assert.assertTrue(userListPage.check_TextsUnderChangeDealerFunction());
 	}
 	
 	@Test(priority =4)
-	public void verify_ChangeDealerFunction() throws InterruptedException {
+	public void verify_ChangeDealerFunction_Order() throws InterruptedException {
 		Assert.assertTrue(userListPage.check_ChangeDealerFunction_Order());
 	}
 	
 	@Test(priority = 5)
-	public void verifyInvalidUserSearch() throws InterruptedException {
+	public void verifyInvalidUserSearch_Order() throws InterruptedException {
 		Assert.assertTrue(userListPage.checkForInvalidUser("mvnsdsdhj"));
 	}
 	
 	@Test(priority = 6)
-	public void verify_HelloThere_PersonalPinText() throws Exception {
+	public void verify_HelloThere_PersonalPinText_Order() throws Exception {
 		Assert.assertTrue(userListPage.check_VisibleText_PersonalPinScreen("RahulTest test"));
 	}
 	
 	@Test(priority = 7)
-	public void verify_Login_InValidPin() throws Exception {
+	public void verify_Login_InValidPin_Order() throws Exception {
 		Assert.assertTrue(userListPage.selectUserToLogin_WitInvalidPin("RahulTest test"));
 	}
 	
 	@Test(priority = 8)
-	public void verify_Login_ValidPin() throws Exception {
+	public void verify_Login_ValidPin_Order() throws Exception {
 		Assert.assertTrue(userListPage.selectUserToLogin_WithValidPin("RahulTest test"));
 	}
 	
 	//@Test(priority = 9)
-	public void verifyDeletedUserSearch() throws InterruptedException {
+	public void verifyDeletedUserSearch_Order() throws InterruptedException {
 		Assert.assertTrue(userListPage.checkForInvalidUser(CreateNewUserPage.newUser));
 	}
 		

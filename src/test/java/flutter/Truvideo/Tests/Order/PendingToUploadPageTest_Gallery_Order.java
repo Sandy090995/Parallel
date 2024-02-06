@@ -35,7 +35,7 @@ public class PendingToUploadPageTest_Gallery_Order extends BaseClass {
 	public void tearDown() {
 		driver.quit();
 	}
-
+	
 	// @Test(priority = 1)
 	public void verifyVideoCanPlayOnPendingScreen_Gallery() throws InterruptedException {
 		Assert.assertTrue(pendingToUploadPage.checkVideoIsPlaying());

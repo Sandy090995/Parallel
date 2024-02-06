@@ -35,7 +35,7 @@ public class ContactsListPageTest_Order extends BaseClass{
 	public void tearDown() {
 		driver.quit();
 	}
-	
+ 
 	@Test(priority = 1)
 	public void verifyAllAvailableTabsOnContactsScreen() {
 		Assert.assertTrue(contactsListPage.checkAllAvailableTabsOnContactsScreen());

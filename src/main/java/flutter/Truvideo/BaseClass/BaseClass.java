@@ -1,9 +1,7 @@
 package flutter.Truvideo.BaseClass;
 
-import java.net.MalformedURLException;
 import java.time.Duration;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -21,24 +19,20 @@ public class BaseClass {
 	public static WebDriver webDriver;
 	AppiumDriverLocalService service;
 	public Logger log = LogManager.getLogger(this.getClass().getName());
-	public static String userForLogin_Order ="RahulTest test";
-	public static String userForLogin_Sales ="disha gupta";
-	public static String capabilityName = System.getProperty("capabilityName", "Samsung zFlip");
+	public static String userForLogin_Order = "RahulTest test";
+	public static String userForLogin_Sales = "disha gupta";
+	public static String capabilityName = System.getProperty("capabilityName", "MI10I");
 	public static String browserName = System.getProperty("browser", "Chrome");
 	public static String applicationBuild = "1.5.20(949)";
 	public static String opeartingSystem;
-	
-	@BeforeSuite
-	public void setUp() throws MalformedURLException, Exception {
-		driver=setUpApplication();
-	}
+	public static boolean flagvalue;
 
-	public AppiumDriver setUpApplication() throws MalformedURLException, Exception {
+	public AppiumDriver setUpApplication() throws Exception {
 		System.out.println(capabilityName);
 		startAppiumService();
 		try {
 			// driver = new AppiumDriver(new
-			 //URL("http://127.0.0.1:4723"),CapabilityReader.getDesiredCapabilities(capabilityName,"./Capabilities.json"));
+			// URL("http://127.0.0.1:4723"),CapabilityReader.getDesiredCapabilities(capabilityName,"./Capabilities.json"));
 			driver = new AppiumDriver(service,
 					CapabilityReader.getDesiredCapabilities(capabilityName, "./Capabilities.json"));
 			log.info("Capability file read....");
@@ -49,20 +43,53 @@ public class BaseClass {
 		if (driver != null) {
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 			log.info("Connected to Appium Server, Launching Application. . .");
+			opeartingSystem = driver.getCapabilities().getPlatformName().toString();
+			flagvalue = false;
+			log.info("flag value class : " + flagvalue);
 			return driver;
 		} else {
 			log.error("Driver is null. Unable to connect to Appium Server or Launch Application.");
 		}
-		opeartingSystem=driver.getCapabilities().getPlatformName().toString();
 		return driver;
 	}
 
-	@AfterSuite
-	public void tearDown() {
-		driver.quit();
-		log.info("Closed in Suite");
+	@Parameters("deviceName")
+	@BeforeTest
+	public AppiumDriver setUpApplication(@Optional("") String deviceName) throws Exception {
+		log.info("device Name : " + deviceName);
+		if (!deviceName.isBlank()) {
+			System.out.println(deviceName);
+			startAppiumService();
+			try {
+				driver = new AppiumDriver(service,
+						CapabilityReader.getDesiredCapabilities(deviceName, "./Capabilities.json"));
+				log.info("Capability file read....");
+			} catch (Exception e) {
+				log.info("Error in Reading Capabilities from Json File ");
+				e.printStackTrace();
+			}
+			if (driver != null) {
+				driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+				log.info("Connected to Appium Server, Launching Application. . .");
+				opeartingSystem = driver.getCapabilities().getPlatformName().toString();
+				flagvalue = false;
+				log.info("flag value suite : " + flagvalue);
+				return driver;
+			} else {
+				log.error("Driver is null. Unable to connect to Appium Server or Launch Application.");
+			}
+		}
+		return driver;
 	}
-	
+
+	@AfterTest
+	public void tearDown() {
+		if (driver != null) {
+			driver.quit();
+			log.info("Closed in Suite");
+		}
+	}
+
 	public static WebDriver setDashboardBrowser() {
 		if (browserName.equalsIgnoreCase("chrome")) {
 			webDriver = new ChromeDriver();
@@ -81,16 +108,14 @@ public class BaseClass {
 		AppiumServiceBuilder builder = new AppiumServiceBuilder();
 		builder.withIPAddress("127.0.0.1");
 		builder.usingAnyFreePort();
-		builder.withArgument(GeneralServerFlag.USE_PLUGINS,"element-wait");
-		//builder.withArgument(GeneralServerFlag.LOG_LEVEL, "warn");
+		builder.withArgument(GeneralServerFlag.USE_PLUGINS, "element-wait");
 		service = AppiumDriverLocalService.buildService(builder);
 		service.start();
-		//service.clearOutPutStreams();
 	}
-	
+
 	public DealerCodePage loadDealerCodePage() {
-		DealerCodePage dealerCodePage=new DealerCodePage(driver);
+		DealerCodePage dealerCodePage = new DealerCodePage(driver);
 		return dealerCodePage;
 	}
-	
+
 }

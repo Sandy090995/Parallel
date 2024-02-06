@@ -31,12 +31,12 @@ public class UserListPageTest_Prospect extends BaseClass {
 	}
 
 	@Test(priority = 1)
-	public void verifyDealerName_And_RefreshButton() throws Exception {
+	public void verifyDealerName_And_RefreshButton_Sales() throws Exception {
 		Assert.assertTrue(userListPage.checkVisibleText_Icons());
 	}
 
 	@Test(priority = 2)
-	public void verifyNavigationToCreateUserScreen() throws InterruptedException {
+	public void verifyNavigationToCreateUserScreen_Sales() throws InterruptedException {
 		Assert.assertTrue(userListPage.checkCreateUserFunction());
 		CreateNewUserPage createUserPage=new CreateNewUserPage(driver);
 		createUserPage.getCancelButton().click();
@@ -44,40 +44,40 @@ public class UserListPageTest_Prospect extends BaseClass {
 	}
 
 	@Test(priority = 3)
-	public void verify_TextsUnderChangeDealerFunction() {
+	public void verify_TextsUnderChangeDealerFunction_Sales() {
 		Assert.assertTrue(userListPage.check_TextsUnderChangeDealerFunction());
 	}
 
 	@Test(priority = 4)
-	public void verify_ChangeDealerFunction() throws InterruptedException {
+	public void verify_ChangeDealerFunction_Sales() throws InterruptedException {
 		Assert.assertTrue(userListPage.check_ChangeDealerFunction_Sales());
 	}
 
 	@Test(priority = 5)
-	public void verifyInvalidUserSearch() throws InterruptedException {
+	public void verifyInvalidUserSearch_Sales() throws InterruptedException {
 		Assert.assertTrue(userListPage.checkForInvalidUser("mvnsdsdhj"));
 	}
 
 	@Test(priority = 6)
-	public void verify_HelloThere_PersonalPinTextsales() throws Exception {
+	public void verify_HelloThere_PersonalPinText_Sales() throws Exception {
 		userListPage = new UserListPage(driver);
 		Assert.assertTrue(userListPage.check_VisibleText_PersonalPinScreen("disha gupta"));
 	}
 
 	@Test(priority = 7)
-	public void verify_Login_InValidPinsales() throws Exception {
+	public void verify_Login_InValidPin_Sales() throws Exception {
 		userListPage = new UserListPage(driver);
 		Assert.assertTrue(userListPage.selectUserToLogin_WitInvalidPin("disha gupta"));
 	}
 
 	@Test(priority = 8)
-	public void verify_Login_ValidPinsales() throws Exception {
+	public void verify_Login_ValidPin_Sales() throws Exception {
 		userListPage = new UserListPage(driver);
 		Assert.assertTrue(userListPage.selectUserToLogin_WithValidPin("disha gupta"));
 	}
 
 	// @Test(priority = 9)
-	public void verifyDeletedUserSearch() throws InterruptedException {
+	public void verifyDeletedUserSearch_Sales() throws InterruptedException {
 		userListPage = new UserListPage(driver);
 		Assert.assertTrue(userListPage.checkForInvalidUser(CreateNewUserPage.newUser));
 	}

@@ -48,9 +48,14 @@ public class OrderDetailsPageTest extends BaseClass {
 	@Test(priority = 3)
 	public void verifyNavigationToInspection() throws InterruptedException {
 		Assert.assertTrue(orderDetails.checkNavigation_To_Inspection());
-		driver.navigate().back();
 		InspectionPage inspectionPage = new InspectionPage(driver);
+		inspectionPage.getBackArrowButton().click();
+		if(inspectionPage.getYesButton().isDisplayed()) {
 		inspectionPage.getYesButton().click();
+		}else {
+			driver.navigate().back();
+			inspectionPage.getYesButton().click();
+		}
 	}
 
 	@Test(priority = 4)
