@@ -37,37 +37,37 @@ public class ContactsListPageTest_Order extends BaseClass{
 	}
  
 	@Test(priority = 1)
-	public void verifyAllAvailableTabsOnContactsScreen() {
+	public void verifyAllAvailableTabsOnContactsScreen_Order() {
 		Assert.assertTrue(contactsListPage.checkAllAvailableTabsOnContactsScreen());
 	}
 	
 	@Test(priority = 2)
-	public void verifySearchContacts() throws InterruptedException {
+	public void verifySearchContacts_Order() throws InterruptedException {
 		Assert.assertTrue(contactsListPage.checkSearchContacts("Sandip Test"));
 	}
 	
 	@Test(priority = 3)
-	public void verifyAddToFavorite_withoutSearch() throws InterruptedException {
+	public void verifyAddToFavorite_withoutSearch_Order() throws InterruptedException {
 		Assert.assertTrue(contactsListPage.checkAddToFavorite_withoutSearch());
 	}
 	
 	@Test(priority = 4)
-	public void verifyRemoveFromFavorite() throws InterruptedException {
+	public void verifyRemoveFromFavorite_Order() throws InterruptedException {
 		Assert.assertTrue(contactsListPage.removeFromFavorite());
 	}
 	
 	@Test(priority = 5)
-	public void verifyCalling_Button() throws InterruptedException {
+	public void verifyContacts_Calling_Button_Order() throws InterruptedException {
 		Assert.assertTrue(contactsListPage.checkCalling_Button());
 	}
 	
 	@Test(priority = 6)
-	public void verifyAdd_Remove_Favorite_withSearch() {
+	public void verifyAdd_Remove_Favorite_withSearch_Order() {
 		Assert.assertTrue(contactsListPage.checkAdd_Remove_Favorite_withSearch("Sandip Test"));
 	}
 	
 	@Test(priority = 7)
-	public void verifyCalling_withSearch () throws InterruptedException{
+	public void verifyContact_Calling_withSearch_Order () throws InterruptedException{
 		Assert.assertTrue(contactsListPage.checkCalling_withSearch("Sandip Test"));
 	}
 	

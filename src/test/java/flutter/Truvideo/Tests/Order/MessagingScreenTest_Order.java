@@ -32,17 +32,17 @@ public class MessagingScreenTest_Order extends BaseClass {
 	}
 
 	@Test(priority = 1)
-	public void verifyDefaultScreenDuringNew_Conversation() {
+	public void verifyDefaultScreenDuringNew_Conversation_Order() {
 		Assert.assertTrue(messageScreen.checkDefaultScreenDuringNewConversation());
 	}
 
 	@Test(priority = 2)
-	public void verifySendMessageFunction() throws InterruptedException {
+	public void verifySendMessageFunction_Order() throws InterruptedException {
 		Assert.assertTrue(messageScreen.checkSendMessage());
 	}
 
 	@Test(priority = 3)
-	public void verifyManualConversationStatus() throws InterruptedException {
+	public void verifyManualConversationStatus_Order() throws InterruptedException {
 		messageScreen.checkManualConversationStatus();
 		driver.navigate().back();
 	}

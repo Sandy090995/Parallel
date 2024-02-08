@@ -27,7 +27,7 @@ public class Edit_OrderPageTest extends BaseClass{
 		}
 	}
 	
-	@AfterClass
+	//@AfterClass
 	public void tearDown() {
 		driver.quit();
 	}

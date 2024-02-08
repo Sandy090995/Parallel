@@ -108,7 +108,7 @@ public class ProfileIconScreen extends UtilityClass {
 		log.info("verifying logged user is showing or not....");
 		if (isAndroid()) {
 			userName = userNameProfileIcon().getAttribute("content-desc");
-		} else if (isiOS()) {
+		} else {
 			userName = userNameProfileIcon().getAttribute("label");
 		}
 		if (userName.equalsIgnoreCase(UserListPage.userName)) {
@@ -120,7 +120,7 @@ public class ProfileIconScreen extends UtilityClass {
 
 		if (isAndroid()) {
 			loginDealerName = serviceSideDealerName.getAttribute("content-desc");
-		} else if (isiOS()) {
+		} else {
 			loginDealerName = serviceSideDealerName.getAttribute("label");
 		}
 		if (loginDealerName.equalsIgnoreCase("DEMO - Main Street Toyota")) {
@@ -130,7 +130,7 @@ public class ProfileIconScreen extends UtilityClass {
 		}
 		if (isAndroid()) {
 			dealerCode = serviceDealerCode().getAttribute("content-desc");
-		} else if (isiOS()) {
+		} else {
 			dealerCode = serviceDealerCode().getAttribute("label");
 		}
 

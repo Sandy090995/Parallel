@@ -25,7 +25,7 @@ public class BaseClass {
 	public static String browserName = System.getProperty("browser", "Chrome");
 	public static String applicationBuild = "1.5.20(949)";
 	public static String opeartingSystem;
-	public static boolean flagvalue;
+	public static boolean openInSuite;
 
 	public AppiumDriver setUpApplication() throws Exception {
 		System.out.println(capabilityName);
@@ -44,8 +44,8 @@ public class BaseClass {
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 			log.info("Connected to Appium Server, Launching Application. . .");
 			opeartingSystem = driver.getCapabilities().getPlatformName().toString();
-			flagvalue = false;
-			log.info("flag value class : " + flagvalue);
+			openInSuite = false;
+			log.info("openInSuite : " + openInSuite);
 			return driver;
 		} else {
 			log.error("Driver is null. Unable to connect to Appium Server or Launch Application.");
@@ -72,8 +72,8 @@ public class BaseClass {
 				driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 				log.info("Connected to Appium Server, Launching Application. . .");
 				opeartingSystem = driver.getCapabilities().getPlatformName().toString();
-				flagvalue = false;
-				log.info("flag value suite : " + flagvalue);
+				openInSuite = true;
+				log.info("openInSuite : " + openInSuite);
 				return driver;
 			} else {
 				log.error("Driver is null. Unable to connect to Appium Server or Launch Application.");

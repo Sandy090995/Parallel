@@ -32,7 +32,7 @@ public class AddOrderPageTest extends  BaseClass{
 	}
 	
 	@Test(priority = 1)
-	public void verifyMandatoryFieldRequiredMessage() {
+	public void verifyMandatoryFieldRequiredMessage_OrderCreation() {
 		Assert.assertTrue(addOrder.checkErrorMessage());
 	}
 	

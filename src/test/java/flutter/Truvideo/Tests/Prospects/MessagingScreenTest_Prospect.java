@@ -32,17 +32,17 @@ public class MessagingScreenTest_Prospect extends BaseClass {
 	}
 
 	@Test(priority = 1)
-	public void verifyDefaultScreenDuringNew_Conversation() {
+	public void verifyDefaultScreenDuringNew_Conversation_Sales() {
 		Assert.assertTrue(messageScreen.checkDefaultScreenDuringNewConversation());
 	}
 
 	@Test(priority = 2)
-	public void verifySendMessageFunction() throws InterruptedException {
+	public void verifySendMessageFunction_Sales() throws InterruptedException {
 		Assert.assertTrue(messageScreen.checkSendMessage());
 	}
 
 	@Test(priority = 3)
-	public void verifyManualConversationStatus() throws InterruptedException {
+	public void verifyManualConversationStatus_Sales() throws InterruptedException {
 		messageScreen.checkManualConversationStatus();
 		MessagingScreen messagingScreen=new MessagingScreen(driver);
 		messagingScreen.getBackButton().click();

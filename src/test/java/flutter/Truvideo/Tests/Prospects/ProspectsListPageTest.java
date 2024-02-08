@@ -32,7 +32,7 @@ public class ProspectsListPageTest extends BaseClass {
 	}
 
 	@Test(priority = 1)
-	public void verifyAllFooterTabs_and_HeadersTabs() throws Exception {
+	public void verifyAllFooterTabs_and_HeadersTabs_Sales() throws Exception {
 		Assert.assertTrue(ro_ListPage.checkAllFooterTab_and_HederTabs());
 	}
 
@@ -57,17 +57,17 @@ public class ProspectsListPageTest extends BaseClass {
 	}
 
 	@Test(priority = 7)
-	public void verifyNavigationTo_Chat() throws InterruptedException {
+	public void verifyNavigationTo_Chat_Sales() throws InterruptedException {
 		Assert.assertTrue(ro_ListPage.checkNavigationTo_Chat());
 	}
 
 	@Test(priority = 8)
-	public void verifyNavigationTo_Messages() {
+	public void verifyNavigationTo_Messages_Sales() {
 		Assert.assertTrue(ro_ListPage.checkNavigationTo_Messages());
 	}
 
 	@Test(priority = 9)
-	public void verifyNavigationTo_Contacts() {
+	public void verifyNavigationTo_Contacts_Sales() {
 		Assert.assertTrue(ro_ListPage.checkNavigationTo_Contacts());
 	}
 
@@ -77,7 +77,7 @@ public class ProspectsListPageTest extends BaseClass {
 	}
 
 	@Test(priority = 11)
-	public void verifyNavigationToProfileIcon() throws InterruptedException {
+	public void verifyNavigationToProfileIcon_Sales() throws InterruptedException {
 		Assert.assertTrue(ro_ListPage.checkNavigationToProfileIcon());
 		driver.navigate().back();
 	}

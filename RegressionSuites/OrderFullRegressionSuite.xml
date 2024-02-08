@@ -8,7 +8,7 @@
 		<parameter name="deviceName" value="MI10I" />
 		<classes >
 			<class name="flutter.Truvideo.Tests.Order.DealerCodePageTest_Order"/>
-			<!--<class name="flutter.Truvideo.Tests.Order.UserListPageTest_Order" />
+			<class name="flutter.Truvideo.Tests.Order.UserListPageTest_Order" />
 			<class name="flutter.Truvideo.Tests.Order.RO_ListPageTest" />
 			<class name="flutter.Truvideo.Tests.Order.AddOrderPageTest" />
 			<class name="flutter.Truvideo.Tests.Order.OrderDetailsPageTest" />
@@ -22,7 +22,7 @@
 			<class name="flutter.Truvideo.Tests.Order.VideoRecordingPageTest_Gallery_Order" />
 			<class name="flutter.Truvideo.Tests.Order.PendingToUploadPageTest_Gallery_Order" />
 			<class name="flutter.Truvideo.Tests.Order.VideoRecordingPageTest_Recorder_Order" />
-			<class name="flutter.Truvideo.Tests.Order.PendingToUploadPageTest_Recorder_Order" />-->
+			<class name="flutter.Truvideo.Tests.Order.PendingToUploadPageTest_Recorder_Order" />
 		</classes>
 	</test>
 </suite> 

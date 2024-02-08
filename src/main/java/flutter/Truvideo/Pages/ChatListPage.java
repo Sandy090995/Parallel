@@ -77,14 +77,14 @@ public class ChatListPage extends UtilityClass {
 		String userName_ChatScreen="";
 		if(isAndroid()) {
 			userName_ChatListScreen = userName_ChatListScreen+userList_Chat.get(0).getAttribute("content-desc");
-		} else if(isiOS()) {
+		} else {
 			Thread.sleep(3000);
 			userName_ChatListScreen = userName_ChatListScreen+userList_Chat.get(0).getAttribute("name");
 		}
 		userList_Chat.get(0).click();
 		if(isAndroid()) {
 			userName_ChatScreen = userName_ChatScreen+chatScreen_UserName.getAttribute("content-desc");
-		} else if(isiOS()) {
+		} else {
 			Thread.sleep(3000);
 			userName_ChatScreen= userName_ChatScreen+chatScreen_UserName.getAttribute("name");
 		}

@@ -48,14 +48,14 @@ public class PropsectDetailsPageTest extends BaseClass {
 	}
 
 	@Test(priority = 3)
-	public void verifyNavigationToCameraScreen() throws InterruptedException {
+	public void verifyNavigationToCameraScreen_ProspectDetails() throws InterruptedException {
 		Assert.assertTrue(prospectDetails.checkNavigation_To_CameraScreen());
 		VideoRecordingPage recordingPage=new VideoRecordingPage(driver);
 		recordingPage.getX_Button().click();
 	}
 
 	@Test(priority = 4)
-	public void verifyNavigationToMessages() throws InterruptedException {
+	public void verifyNavigationToMessages_ProspectDetails() throws InterruptedException {
 		Assert.assertTrue(prospectDetails.checkNavigation_To_Messages());
 		MessagingScreen messageScreen=new MessagingScreen(driver);
 		messageScreen.getBackButton().click();

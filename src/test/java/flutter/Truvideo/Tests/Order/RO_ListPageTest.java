@@ -31,7 +31,7 @@ public class RO_ListPageTest extends BaseClass{
 	}
 	
 	@Test(priority = 1)
-	public void verifyAllFooterTabs_and_HeadersTabs() throws Exception {
+	public void verifyAllFooterTabs_and_HeadersTabs_Order() throws Exception {
 		Assert.assertTrue(ro_ListPage.checkAllFooterTab_and_HederTabs());
 	}
 	
@@ -62,17 +62,17 @@ public class RO_ListPageTest extends BaseClass{
 	}
 	
 	@Test(priority = 7)
-	public void verifyNavigationTo_Chat() throws InterruptedException {
+	public void verifyNavigationTo_Chat_Order() throws InterruptedException {
 		Assert.assertTrue(ro_ListPage.checkNavigationTo_Chat());
 	}
 	
 	@Test(priority = 8)
-	public void verifyNavigationTo_Messages() {
+	public void verifyNavigationTo_Messages_Order() {
 		Assert.assertTrue(ro_ListPage.checkNavigationTo_Messages());
 	}
 	
 	@Test(priority = 9)
-	public void verifyNavigationTo_Contacts() {
+	public void verifyNavigationTo_Contacts_Order() {
 		Assert.assertTrue(ro_ListPage.checkNavigationTo_Contacts());
 	}
 	
@@ -82,7 +82,7 @@ public class RO_ListPageTest extends BaseClass{
 	}
 	
 	@Test(priority = 11)//need to call in profilrIcon.xml file
-	public void verifyNavigationToProfileIcon() throws InterruptedException {
+	public void verifyNavigationToProfileIcon_Order() throws InterruptedException {
 		Assert.assertTrue(ro_ListPage.checkNavigationToProfileIcon());
 		driver.navigate().back();
 	}

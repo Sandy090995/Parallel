@@ -39,27 +39,27 @@ public class PendingToUploadPageTest_Recorder_Order extends BaseClass {
 	}
 
 	// @Test(priority = 1)
-		public void verifyVideoCanPlayOnPendingScreen_Recorder() throws InterruptedException {
+		public void verifyVideoCanPlayOnPendingScreen_Recorder_Order() throws InterruptedException {
 			Assert.assertTrue(pendingToUploadPage.checkVideoIsPlaying());
 		}
 
 		@Test(priority = 2)
-		public void verifyDeleteImage_PendingToUploadScreen_Recorder() throws InterruptedException {
+		public void verifyDeleteImage_PendingToUploadScreen_Recorder_Order() throws InterruptedException {
 			Assert.assertTrue(pendingToUploadPage.detailsAndDeleteImage());
 		}
 		
 		@Test(priority = 3)
-		public void verifyChangeVideoTagAndDescription_Recorder() throws InterruptedException {
+		public void verifyChangeVideoTagAndDescription_Recorder_Order() throws InterruptedException {
 			Assert.assertTrue(pendingToUploadPage.changeVideoTagAndDescription());
 		}
 
 		@Test(priority = 4)
-		public void verifyUploadVideo_Recorder() throws InterruptedException {
+		public void verifyUploadVideo_Recorder_Order() throws InterruptedException {
 			Assert.assertTrue(pendingToUploadPage.uploadVideo());
 		}
 		
-		//@Test(dependsOnMethods = "verifyUploadVideo_Recorder")
-		public void verifyUploadedVideos_Recorder_OnDashboard_Order() throws InterruptedException {
+		//@Test(dependsOnMethods = "verifyUploadVideo_Recorder_Order")
+		public void verifyUploadedVideos_Recorder_OnDashboard_Order_Order() throws InterruptedException {
 			pendingToUploadPage.verifyUploadedVideos_OnDashboard_Order();
 		}
 		

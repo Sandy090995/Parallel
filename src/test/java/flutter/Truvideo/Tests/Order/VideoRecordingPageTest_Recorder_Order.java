@@ -40,65 +40,65 @@ public class VideoRecordingPageTest_Recorder_Order extends BaseClass {
 	}
 
 	@Test(priority = 1)
-	public void verifyChangingVideoQualityFromRecorder() throws InterruptedException {
+	public void verifyChangingVideoQualityFromRecorder_Order() throws InterruptedException {
 		vidioRecordingPage.checkChangingVideoQualityFromRecorder();
 	}
 
 	@Test(priority = 2)
-	public void verifyFlashlightFunction_Recorder() throws InterruptedException {
+	public void verifyFlashlightFunction_Recorder_Order() throws InterruptedException {
 		Assert.assertTrue(vidioRecordingPage.checkFlashlightFunction());
 	}
 
 	@Test(priority = 3)
-	public void verifyNarratorMode_Recorder() throws InterruptedException {
+	public void verifyNarratorMode_Recorder_Order() throws InterruptedException {
 		Assert.assertTrue(vidioRecordingPage.checkNarratorMode());
 	}
 
 	@Test(priority = 4)
-	public void verifyNoiseCancellation_Recorder() throws InterruptedException {
+	public void verifyNoiseCancellation_Recorder_Order() throws InterruptedException {
 		Assert.assertTrue(vidioRecordingPage.checkNoiseCancellation());
 	}
 
 	@Test(priority = 5)
-	public void verifyVideoRecordingWithImageCapture_Recorder() throws InterruptedException {
+	public void verifyVideoRecordingWithImageCapture_Recorder_Order() throws InterruptedException {
 		vidioRecordingPage.checkOnlyImageCapturing();
 		Assert.assertTrue(vidioRecordingPage.checkVideoRecordingWithImageCapture());
 	}
 
 	@Test(priority = 6)
-	public void verifyDeleteVideoFunction_NOButton_Recorder() throws InterruptedException {
+	public void verifyDeleteVideoFunction_NOButton_Recorder_Order() throws InterruptedException {
 		Assert.assertTrue(videoPreviewScreen.checkDeleteVideoFunction_NOButton());
 	}
 
 	@Test(priority = 7)
-	public void verifyDeleteVideoFunction_DeleteButton_Recorder() throws InterruptedException {
+	public void verifyDeleteVideoFunction_DeleteButton_Recorder_Order() throws InterruptedException {
 		Assert.assertTrue(videoPreviewScreen.checkDeleteVideoFunction_DeleteButton_Recorder());
 	}
 
 	@Test(priority = 8)
-	public void verifyOnlyImageCapturing_Recorder() throws InterruptedException {
+	public void verifyOnlyImageCapturing_Recorder_Order() throws InterruptedException {
 		Assert.assertTrue(vidioRecordingPage.checkOnlyImageCapturing());
 	}
 
 	@Test(priority = 9)
-	public void verifyNavigationToMediaActionScreen_Recorder() throws InterruptedException {
+	public void verifyNavigationToMediaActionScreen_Recorder_Order() throws InterruptedException {
 		vidioRecordingPage = new VideoRecordingPage(driver);
 		Assert.assertTrue(vidioRecordingPage.checkNavigationToMediaActionScreen());
 	}
 
 	@Test(priority = 10)
-	public void verifyVideoRecordingWithImageCapture_Again_Recorder() throws InterruptedException {
+	public void verifyVideoRecordingWithImageCapture_Again_Recorder_Order() throws InterruptedException {
 		Assert.assertTrue(vidioRecordingPage.checkVideoRecordingWithImageCapture());
 	}
 
 	@Test(priority = 11)
-	public void verifyDeleteImagesFunction_PreviewScreen_recorder() throws InterruptedException {
+	public void verifyDeleteImagesFunction_PreviewScreen_recorder_Order() throws InterruptedException {
 		videoPreviewScreen = new VideoPreviewScreen(driver);
 		videoPreviewScreen.deleteImages();
 	}
 
 	@Test(priority = 12)
-	public void verifyPreviewScreenFunction_Recorder() throws InterruptedException {
+	public void verifyPreviewScreenFunction_Recorder_Order() throws InterruptedException {
 		Assert.assertTrue(videoPreviewScreen.checkPreviewScreenFunction_Order());
 	}
 

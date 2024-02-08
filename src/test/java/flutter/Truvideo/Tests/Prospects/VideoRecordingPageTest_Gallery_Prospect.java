@@ -45,17 +45,17 @@ public class VideoRecordingPageTest_Gallery_Prospect extends BaseClass {
 	}
 
 	@Test(priority = 2)
-	public void verifyDeleteVideo_VideoPreviewScreen_NOButton_MediaGallery() throws InterruptedException {
+	public void verifyDeleteVideo_VideoPreviewScreen_NOButton_MediaGallery_Sales() throws InterruptedException {
 		Assert.assertTrue(videoPreviewScreen.checkDeleteVideoFunction_NOButton());
 	}
 
 	@Test(priority = 3)
-	public void verifyDeleteVideo_VideoPreviewScreen__DeleteButton_MediaGallery() throws InterruptedException {
+	public void verifyDeleteVideo_VideoPreviewScreen__DeleteButton_MediaGallery_Sales() throws InterruptedException {
 		Assert.assertTrue(videoPreviewScreen.checkDeleteVideoFunction_DeleteButton_MediaGallery());
 	}
 
 	@Test(priority = 4)
-	public void verifyPreviewScreenFunction_MediaGallery() throws InterruptedException {
+	public void verifyPreviewScreenFunction_MediaGallery_Sales() throws InterruptedException {
 		Assert.assertTrue(vidioRecordingPage.navigateToVideoPreviewScreen_Gallery().checkPreviewScreenFunction_Prospect());
 	}
 

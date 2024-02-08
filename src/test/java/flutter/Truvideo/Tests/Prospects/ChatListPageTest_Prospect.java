@@ -36,28 +36,28 @@ public class ChatListPageTest_Prospect extends BaseClass {
 	}
 
 	@Test(priority = 1)
-	public void verifyNavigationToChatScreen() throws InterruptedException {
+	public void verifyNavigationToChatScreen_Sales() throws InterruptedException {
 		Assert.assertTrue(chatlistpage.navigationToChatScreen());
 	}
 
 	@Test(priority = 2)
-	public void verifySendMessage_ChatScreen() throws InterruptedException {
+	public void verifySendMessage_ChatScreen_Sales() throws InterruptedException {
 		Assert.assertTrue(chatlistpage.checkSendMessage());
 	}
 
 	@Test(priority = 3)
-	public void verifyCallingFunction() throws InterruptedException {
+	public void verifyCallingFunction_ChatScreen_Sales() throws InterruptedException {
 		Assert.assertTrue(chatlistpage.checkCallingFunction());
 	}
 	
 	@Test(priority = 4)
-	public void verifyCreateChat_Function() throws InterruptedException {
+	public void verifyCreateChat_Function_Sales() throws InterruptedException {
 		Assert.assertTrue(chatlistpage.checkCreateChat_Function("DEFAULT USER"));
 
 	}
 
 	@Test(priority = 5)
-	public void verifySearchChat_Function() throws InterruptedException {
+	public void verifySearchChat_Function_Sales() throws InterruptedException {
 		Assert.assertTrue(chatlistpage.searchChat_Function("DEFAULT USER"));
 	}
 

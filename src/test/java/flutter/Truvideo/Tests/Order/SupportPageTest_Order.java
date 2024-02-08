@@ -34,7 +34,7 @@ public class SupportPageTest_Order extends BaseClass {
 	}
 
 	@Test(priority = 1)
-	public void verifySupportFunctionality() throws InterruptedException {
+	public void verifySupportFunctionality_Order() throws InterruptedException {
 		Assert.assertTrue(
 				supportPage.checkSupportFunctionality("rahul.kapse@5exceptions.com", "7812059487", "Testing Support"));
 	driver.navigate().back();

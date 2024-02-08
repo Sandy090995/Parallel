@@ -36,58 +36,58 @@ public class SettingPageTest_Order extends BaseClass {
 	}
 
 	@Test(priority = 1)
-	public void verifyAllElementsOnSettingScreen() throws InterruptedException {
+	public void verifyAllElementsOnSettingScreen_Order() throws InterruptedException {
 		settingPage.checkElementofSetting();
 	}
 
 	@Test(priority = 2)
-	public void verifyChangeFontSize_Small() throws InterruptedException {
+	public void verifyChangeFontSize_Small_Order() throws InterruptedException {
 		Assert.assertTrue(settingPage.checkSmallFont());
 	}
 
 	@Test(priority = 3)
-	public void verifyChangeFontSize_Large() throws InterruptedException {
+	public void verifyChangeFontSize_Large_Order() throws InterruptedException {
 		Assert.assertTrue(settingPage.largeFontCheck());
 	}
 
 	@Test(priority = 4)
-	public void verifyChangeFontSize_Medium() throws InterruptedException {
+	public void verifyChangeFontSize_Medium_Order() throws InterruptedException {
 		Assert.assertTrue(settingPage.meduimFontCheck());
 	}
 
 	@Test(priority = 5)
-	public void verifyThemeChangeFunction() throws InterruptedException {
+	public void verifyThemeChangeFunction_Order() throws InterruptedException {
 		Assert.assertTrue(settingPage.checkTheme());
 	}
 
 	@Test(priority = 6)
-	public void verifyBiometricConfiguration() throws InterruptedException {
+	public void verifyBiometricConfiguration_Order() throws InterruptedException {
 		Assert.assertTrue(settingPage.biometricConfiguration());
 	}
 
 	@Test(priority = 7)
-	public void verifyChangeDefaultCountry() throws InterruptedException {
+	public void verifyChangeDefaultCountry_Order() throws InterruptedException {
 		Assert.assertTrue(settingPage.defaultCountry("India"));
 	}
 
 	@Test(priority = 8)
-	public void verifyChangeCameraQuality_Low() throws InterruptedException {
+	public void verifyChangeCameraQuality_Low_Order() throws InterruptedException {
 		Assert.assertTrue(settingPage.lowCameraQuality());
 	}
 
 	@Test(priority = 9)
-	public void verifyChangeCameraQuality_Medium() throws InterruptedException {
+	public void verifyChangeCameraQuality_Medium_Order() throws InterruptedException {
 		Assert.assertTrue(settingPage.mediumCameraQuality());
 	}
 
 	@Test(priority = 10)
-	public void verifyChangeCameraQuality_High() throws InterruptedException {
+	public void verifyChangeCameraQuality_High_Order() throws InterruptedException {
 		Assert.assertTrue(settingPage.highCameraQuality());
 		driver.navigate().back();
 	}
 
 	//@Test(priority = 11)
-	public void verifyDeleteUserFunction() throws InterruptedException {
+	public void verifyDeleteUserFunction_Order() throws InterruptedException {
 		Assert.assertTrue(settingPage.deleteUser());
 		driver.navigate().back();
 	}

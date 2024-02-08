@@ -37,7 +37,7 @@ public class AddProspectPageTest extends BaseClass {
 	}
 	
 	@Test(priority = 1)
-	public void verifyRequiredFields_ProspectScreen() throws Exception {
+	public void verifyRequiredFields_AddProspectScreen() throws Exception {
 		Assert.assertTrue(addProspectPage.checkRequired_Fields());
 	}
 	

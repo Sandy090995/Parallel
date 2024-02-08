@@ -41,7 +41,7 @@ public class OrderDetailsPageTest extends BaseClass {
 	}
 
 	@Test(priority = 2)
-	public void verifyMandatoryFields() {
+	public void verifyMandatoryFields_RoDetails() {
 		Assert.assertTrue(orderDetails.checkAllMandatoryFields());
 	}
 	
@@ -50,12 +50,11 @@ public class OrderDetailsPageTest extends BaseClass {
 		Assert.assertTrue(orderDetails.checkNavigation_To_Inspection());
 		InspectionPage inspectionPage = new InspectionPage(driver);
 		inspectionPage.getBackArrowButton().click();
-		if(inspectionPage.getYesButton().isDisplayed()) {
-		inspectionPage.getYesButton().click();
-		}else {
-			driver.navigate().back();
-			inspectionPage.getYesButton().click();
-		}
+		/*
+		 * if(inspectionPage.getYesButton().isDisplayed()) {
+		 * inspectionPage.getYesButton().click(); }else { driver.navigate().back();
+		 * //inspectionPage.getYesButton().click(); }
+		 */
 	}
 
 	@Test(priority = 4)
@@ -66,14 +65,14 @@ public class OrderDetailsPageTest extends BaseClass {
 	}
 
 	@Test(priority = 5)
-	public void verifyNavigationToMessages() throws InterruptedException {
+	public void verifyNavigationToMessages_RoDetails() throws InterruptedException {
 		Assert.assertTrue(orderDetails.checkNavigation_To_Messages());
 		MessagingScreen messages = new MessagingScreen(driver);
 		messages.getBackButton().click();
 	}
 
 	@Test(priority = 6)
-	public void verifyNavigationToCameraScreen() throws InterruptedException {
+	public void verifyNavigationToCameraScreen_RoDetails() throws InterruptedException {
 		Assert.assertTrue(orderDetails.checkNavigation_To_CameraScreen());
 		VideoRecordingPage recordingPage = new VideoRecordingPage(driver);
 		recordingPage.getX_Button().click();

@@ -36,19 +36,19 @@ public class ProfileIconScreenTest_Prospect extends BaseClass {
 	}
 
 	@Test(priority = 1)
-	public void verifyUserDetails() {
+	public void verifyUserDetails_Sales() {
 		Assert.assertTrue(profileIconScreen.verifyProficeIconScreenDetails());
 	}
 
 	@Test(priority = 2)
-	public void clickonsettingsButton() {
+	public void clickonsettingsButton_Sales() {
 		Assert.assertTrue(profileIconScreen.checkNavigationToSettingsScreen());
 		RO_SettingPage settingPage = new RO_SettingPage(driver);
 		settingPage.getBackArrow().click();
 	}
 
 	@Test(priority = 3)
-	public void verifyNavigationToSupportScreen() throws InterruptedException {
+	public void verifyNavigationToSupportScreen_Sales() throws InterruptedException {
 		RO_ListPage roListPage = new RO_ListPage(driver);
 		Assert.assertTrue(roListPage.Navigate_ToProfileIcon().navigationToSupportScreen());
 		SupportPage supportPage = new SupportPage(driver);
@@ -56,19 +56,19 @@ public class ProfileIconScreenTest_Prospect extends BaseClass {
 	}
 	
 	@Test(priority = 4)
-	public void verifySwitchDealerFunction() throws InterruptedException{
+	public void verifySwitchDealerFunction_Sales() throws InterruptedException{
 		RO_ListPage roListPage = new RO_ListPage(driver);
 		Assert.assertTrue(roListPage.Navigate_ToProfileIcon().changeDealer("BMW"));
 	}
 	
 	@Test(priority = 5)
-	public void verifySwitchBackToFirstDealer() throws InterruptedException{
+	public void verifySwitchBackToFirstDealer_Sales() throws InterruptedException{
 		RO_ListPage roListPage = new RO_ListPage(driver);
 		Assert.assertTrue(roListPage.Navigate_ToProfileIcon().changeDealer("DEMO"));
 	}
 
 	@Test(priority = 6)
-	public void verifyLogoutFunctionality() throws InterruptedException {
+	public void verifyLogoutFunctionality_Sales() throws InterruptedException {
 		RO_ListPage roListPage = new RO_ListPage(driver);
 		Assert.assertTrue(roListPage.Navigate_ToProfileIcon().verifyLogoutButton());
 	}
