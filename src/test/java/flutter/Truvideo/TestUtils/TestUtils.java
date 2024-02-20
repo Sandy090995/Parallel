@@ -26,6 +26,7 @@ import io.appium.java_client.AppiumDriver;
 
 public class TestUtils {
 	static ExtentReports extent;
+	
 
 	public static ExtentReports getReporterObject() {
 		String path = System.getProperty("user.dir") + "/src/test/resources/Reports";
