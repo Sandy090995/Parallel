@@ -76,7 +76,11 @@ public class EditOrder_ProspectPage extends UtilityClass {
 
 	@AndroidFindBy(xpath = "//android.view.View[contains(@content-desc,'SAVE')]")
 	@iOSXCUITFindBy(accessibility = "SAVE")
-	private WebElement saveChanges_button;
+	private WebElement save_button;
+	
+	public WebElement getSaveButton() {
+		return save_button;
+	}
 
 	public boolean checkFleetCustomerFunction() {
 		fleetCustomer.click();
@@ -104,7 +108,7 @@ public class EditOrder_ProspectPage extends UtilityClass {
 		email_textBox.clear();
 		email_textBox.sendKeys(randomString(5) + "@yahoo.com");
 		editOrder_Title.click();// hiding keyboard
-		saveChanges_button.click();
+		save_button.click();
 		OrderDetailsPage orderDetailsPage = new OrderDetailsPage(driver);
 		Thread.sleep(5000);
 		if (orderDetailsPage.getOrderNumber().isDisplayed()) {
@@ -129,7 +133,7 @@ public class EditOrder_ProspectPage extends UtilityClass {
 		email_textBox.clear();
 		email_textBox.sendKeys(randomString(5) + "@yahoo.com");
 		editProspect_Title.click();// hiding keyboard
-		saveChanges_button.click();
+		save_button.click();
 		ProspectDetailsPage prospectDetailsPage = new ProspectDetailsPage(driver);
 		Thread.sleep(3000);
 		if (prospectDetailsPage.getProspectDetails_PageTitle().isDisplayed()) {

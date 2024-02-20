@@ -3,6 +3,7 @@ package flutter.Truvideo.Pages;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import flutter.Truvideo.BaseClass.DealerCodes;
 import flutter.Truvideo.Utils.UtilityClass;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -18,7 +19,8 @@ public class DealerCodePage extends UtilityClass {
 		PageFactory.initElements(new AppiumFieldDecorator(driver), this);
 	}
 
-	static String dealerCode;
+	public static String dealerCode;
+	public static String dealerName;
 
 	@AndroidFindBy(accessibility = "Hello there!")
 	@iOSXCUITFindBy(accessibility = "Hello there!")
@@ -92,7 +94,6 @@ public class DealerCodePage extends UtilityClass {
 	@AndroidFindBy(accessibility = "OK")
 	private WebElement oKButton;
 
-	
 	public boolean applicationInstall_dealerCodePageLoad() {
 		try {
 			if (popUpOK.isDisplayed()) {
@@ -102,7 +103,7 @@ public class DealerCodePage extends UtilityClass {
 		} catch (NoSuchElementException e) {
 			log.info("PopUp not present");
 		}
-		if (helloThereText.isDisplayed()){
+		if (helloThereText.isDisplayed()) {
 			log.info("App installed and Dealer Code Page Load");
 			return true;
 		} else {
@@ -110,7 +111,7 @@ public class DealerCodePage extends UtilityClass {
 			return false;
 		}
 	}
-	
+
 	public boolean visibleElements_DealerCodePage() {
 		try {
 			if (popUpOK.isDisplayed()) {
@@ -148,8 +149,8 @@ public class DealerCodePage extends UtilityClass {
 
 	public boolean dealerLogin_ValidCredentials() throws Exception {
 		navigateToUserListScreen_Order();
-		UserListPage userListpage = new UserListPage(driver);
-		if (userListpage.getDealerName().isDisplayed()) {
+		UserListPage userListScreen = new UserListPage(driver);
+		if (userListScreen.getDealerName(dealerName).isDisplayed()) {
 			log.info("Dealer name is Displayed");
 			return true;
 		} else {
@@ -169,39 +170,19 @@ public class DealerCodePage extends UtilityClass {
 		} catch (NoSuchElementException e) {
 			log.info("PopUp not present");
 		}
-		log.info("Entering Dealer code");
-		if (isAndroid()) {
-			String first = TWO.getAttribute("content-desc");
-			String second = FOUR.getAttribute("content-desc");
-			String third = SEVEN.getAttribute("content-desc");
-			String fourth = THREE.getAttribute("content-desc");
-			String fifth = ZERO.getAttribute("content-desc");
-			String sixth = ONE.getAttribute("content-desc");
-			dealerCode = first + second + third + fourth + fifth + sixth;
-		} else if (isiOS()) {
-			String first = TWO.getAttribute("label");
-			String second = FOUR.getAttribute("label");
-			String third = SEVEN.getAttribute("label");
-			String fourth = THREE.getAttribute("label");
-			String fifth = ZERO.getAttribute("label");
-			String sixth = ONE.getAttribute("label");
-			dealerCode = first + second + third + fourth + fifth + sixth;
-		}
-		TWO.click();
-		FOUR.click();
-		SEVEN.click();
-		THREE.click();
-		ZERO.click();
-		ONE.click();
-		log.info("Dealer code is entered");
+		DealerCodes AllDealerCode = new DealerCodes(driver);
+		AllDealerCode.enterDealerCode_TruvideoDealer_Order();// Change Dealer
+		dealerCode = AllDealerCode.dealerCode;
+		dealerName = AllDealerCode.dealerName;
+		System.out.println(dealerCode);
 		Thread.sleep(5000);
 		return new UserListPage(driver);
 	}
 
 	public boolean salesDealerLogin_ValidCredentials() throws Exception {
 		navigateToUserListScreen_Sales();
-		UserListPage userListpage = new UserListPage(driver);
-		if (userListpage.getDealerName().isDisplayed()) {
+		UserListPage userListScreen = new UserListPage(driver);
+		if (userListScreen.getDealerName(dealerName).isDisplayed()) {
 			log.info("Dealer name is Displayed");
 			return true;
 		} else {
@@ -220,33 +201,11 @@ public class DealerCodePage extends UtilityClass {
 		} catch (NoSuchElementException e) {
 			log.info("PopUp not present");
 		}
-		if (isAndroid()) {
-			String first = EIGHT.getAttribute("content-desc");
-			String second = ZERO.getAttribute("content-desc");
-			String third = TWO.getAttribute("content-desc");
-			String fourth = SEVEN.getAttribute("content-desc");
-			String fifth = NINE.getAttribute("content-desc");
-			String sixth = SEVEN.getAttribute("content-desc");
-			dealerCode = first + second + third + fourth + fifth + sixth;
-		} else if (isiOS()) {
-			String first = EIGHT.getAttribute("label");
-			String second = ZERO.getAttribute("label");
-			String third = TWO.getAttribute("label");
-			String fourth = SEVEN.getAttribute("label");
-			String fifth = NINE.getAttribute("label");
-			String sixth = SEVEN.getAttribute("label");
-			dealerCode = first + second + third + fourth + fifth + sixth;
-		}
-		log.info("Entering Dealer code");
-		EIGHT.click();
-		ZERO.click();
-		TWO.click();
-		SEVEN.click();
-		NINE.click();
-		SEVEN.click();
-		log.info("Sales Dealer code is entered");
+		DealerCodes AllDealerCode = new DealerCodes(driver);
+		AllDealerCode.enterDealerCode_TruvideoDealer_Sales();// Change Dealer
+		dealerCode = AllDealerCode.dealerCode;
+		dealerName = AllDealerCode.dealerName;
 		Thread.sleep(5000);
 		return new UserListPage(driver);
 	}
-
 }

@@ -19,7 +19,7 @@ public class RO_ListPage extends UtilityClass {
 		this.driver = driver;
 		PageFactory.initElements(new AppiumFieldDecorator(driver), this);
 	}
-	
+
 	String eneterdOrder_Prospect;
 
 	@AndroidFindBy(accessibility = "Orders")
@@ -33,11 +33,11 @@ public class RO_ListPage extends UtilityClass {
 	@AndroidFindBy(accessibility = "Prospects")
 	@iOSXCUITFindBy(accessibility = "Prospects")
 	private WebElement prospects_PageTitle;
-	
+
 	public WebElement getprospects_PageTitle() {
 		return prospects_PageTitle;
 	}
-	
+
 	@AndroidFindBy(xpath = "//android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View[2]")
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"TruVideo Enterprise\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]")
 	private WebElement searchButton;// modified
@@ -64,13 +64,13 @@ public class RO_ListPage extends UtilityClass {
 
 	@AndroidFindBy(xpath = "//android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View[1]")
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]")
-			
+
 	private WebElement searchBarBackButton;// modified
 
 	@AndroidFindBy(xpath = "//android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View[3]/android.view.View/android.view.View")
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeOther[contains(@name,'752')]")
 	private List<WebElement> searchResults;// new//make it common for IOS & Android
-	
+
 	@AndroidFindBy(accessibility = "Chat")
 	@iOSXCUITFindBy(accessibility = "Chat")
 	private WebElement chatFooterTab;
@@ -140,25 +140,25 @@ public class RO_ListPage extends UtilityClass {
 		searchButton.click();
 		searchBar.click();
 		searchBar.sendKeys(orderNumber_ProspectName);
-		eneterdOrder_Prospect=searchBar.getText();
+		eneterdOrder_Prospect = searchBar.getText();
 		Thread.sleep(4000);
 		if (searchBar.getText() != null) {
-				if (isAndroid()) {
-					if(searchResults.get(0).getAttribute("content-desc").contains(searchBar.getText())) {
+			if (isAndroid()) {
+				if (searchResults.get(0).getAttribute("content-desc").contains(searchBar.getText())) {
 					log.info("Search Function working");
-					}
-				}else if(isiOS()) {
-					if(searchResults.get(0).getAttribute("label").contains(searchBar.getText())) {
-						log.info("Search Function working");
+				}
+			} else if (isiOS()) {
+				if (searchResults.get(0).getAttribute("label").contains(searchBar.getText())) {
+					log.info("Search Function working");
 				}
 			}
-				searchBarBackButton.click();
-				return true;
-		}else{
+			searchBarBackButton.click();
+			return true;
+		} else {
 			searchBarBackButton.click();
 			return false;
 		}
-		
+
 	}
 
 	public boolean checkRO_Prospects_Status_New() throws Exception {
@@ -169,7 +169,7 @@ public class RO_ListPage extends UtilityClass {
 			for (WebElement statusObject : filterStatusList) {
 				if (isAndroid()) {
 					statusList.add(statusObject.getAttribute("content-desc"));
-				}else if(isiOS()) {
+				} else if (isiOS()) {
 					statusList.add(statusObject.getAttribute("label"));
 				}
 			}
@@ -192,7 +192,7 @@ public class RO_ListPage extends UtilityClass {
 			for (WebElement statusObject : filterStatusList) {
 				if (isAndroid()) {
 					statusList.add(statusObject.getAttribute("content-desc"));
-				}else if (isiOS()) {
+				} else if (isiOS()) {
 					statusList.add(statusObject.getAttribute("label"));
 				}
 			}
@@ -206,7 +206,7 @@ public class RO_ListPage extends UtilityClass {
 			return false;
 		}
 	}
-	
+
 	public boolean checkRO_Prospects_Status_All() throws Exception {
 		allFilter.click();
 		Thread.sleep(1000);
@@ -215,12 +215,13 @@ public class RO_ListPage extends UtilityClass {
 			for (WebElement statusObject : filterStatusList) {
 				if (isAndroid()) {
 					statusList.add(statusObject.getAttribute("content-desc"));
-				}else if(isiOS()){
+				} else if (isiOS()) {
 					statusList.add(statusObject.getAttribute("label"));
 				}
 			}
 			for (String status : statusList) {
-				if ((status.contains("Sent")||status.contains("New")||status.contains("For Review")||status.contains("Viewed"))) {
+				if ((status.contains("Sent") || status.contains("New") || status.contains("For Review")
+						|| status.contains("Viewed"))) {
 					log.info("In Rejected :->Status is :->" + status);
 				}
 			}
@@ -231,7 +232,7 @@ public class RO_ListPage extends UtilityClass {
 	}
 
 	public boolean checkRO_Status_My() throws Exception {
-		OrderDetailsPage orderDetails=new OrderDetailsPage(driver);
+		OrderDetailsPage orderDetails = new OrderDetailsPage(driver);
 		myFilter.click();
 		Thread.sleep(1000);
 		if (!filterStatusList.isEmpty()) {
@@ -240,13 +241,14 @@ public class RO_ListPage extends UtilityClass {
 					statusObject.click();
 					if (orderDetails.getTechnicianName().getText().contains(UserListPage.userName)
 							|| orderDetails.getAdvisorName().getText().contains(UserListPage.userName)) {
-						log.info("The RO in My Filter is of Login technician is " + orderDetails.getTechnicianName().getText()
-								+ " Advisor is " + orderDetails.getAdvisorName().getText());
+						log.info("The RO in My Filter is of Login technician is "
+								+ orderDetails.getTechnicianName().getText() + " Advisor is "
+								+ orderDetails.getAdvisorName().getText());
 						Thread.sleep(1000);
 						orderDetails.getBackButton().click();
 						log.info("Return back to ROList screen");
-					
-					}else {
+
+					} else {
 						orderDetails.getBackButton().click();
 						return false;
 					}
@@ -265,33 +267,46 @@ public class RO_ListPage extends UtilityClass {
 	public boolean checkNavigationTo_Chat() throws InterruptedException {
 		Navigate_To_Chat();
 		ChatListPage chatPage = new ChatListPage(driver);
-		waitTillElementToBeVisible(chatPage.getChat_Title(),10,1);
-		if (chatPage.getChat_Title().isDisplayed()) {
-			log.info("user is navigated to the chat screen");
+		waitTillElementToBeVisible(chatPage.getChat_Title(), 10, 1);
+		if (chatPage.getChat_Title().isDisplayed() && chatPage.get_createChatButton().isDisplayed()
+				&& chatPage.getSearchIcon().isDisplayed() && chatPage.getRefreshButton().isDisplayed()
+				&& chatPage.getProfileIconButton().isDisplayed()) {
+			log.info("Chat Screen :- User is navigated to the chat screen");
+			log.info("Chat Screen :- Create Chat Button is displayed");
+			log.info("Chat Screen :- Search icon Button is displayed");
+			log.info("Chat Screen :- Refresh Button is displayed");
+			log.info("Chat Screen :- Profile Icon Button is displayed");
 			return true;
 		} else {
 			return false;
 		}
 	}
-	
+
 	public ChatListPage Navigate_To_Chat() throws InterruptedException {
-		  Thread.sleep(3000);
-			chatFooterTab.click();
-			return new ChatListPage(driver);
-		}
+		Thread.sleep(3000);
+		chatFooterTab.click();
+		return new ChatListPage(driver);
+	}
 
 	public boolean checkNavigationTo_Messages() {
 		Navigate_To_MessageList();
 		MessagesListPage messagePage = new MessagesListPage(driver);
 		waitTillElementToBeVisible(messagePage.getMessage_Title(), 3);
-		if (messagePage.getMessage_Title().isDisplayed()) {
-			log.info("user is navigated to the Messages screen");
+		if (messagePage.getMessage_Title().isDisplayed() && messagePage.getRefreshButton().isDisplayed()
+				&& messagePage.getSearchIcon().isDisplayed() && messagePage.getProfileIconButton().isDisplayed()
+				&& messagePage.getFilter_My().isDisplayed() && messagePage.getFilter_MyActive().isDisplayed()
+						&& messagePage.getFilter_All().isDisplayed() && messagePage.getFilter_AllActive().isDisplayed()){
+			log.info("Message List Screen :- User is navigated to the Message list screen");
+			log.info("Message List Screen :- Search Icon Button is displayed");
+			log.info("Message List Screen :- Refresh Icon Button is displayed");
+			log.info("Message List Screen :- Profile Icon Button is displayed");
+			log.info("Message List Screen :- All Message Filters displayed : MY ,MY ACTIVE,ALL, ALL ACTIVE");
 			return true;
 		} else {
 			return false;
 		}
 	}
-	
+
 	public MessagesListPage Navigate_To_MessageList() {
 		messageFooterTab.click();
 		return new MessagesListPage(driver);
@@ -301,17 +316,23 @@ public class RO_ListPage extends UtilityClass {
 		Navigate_To_Contacts();
 		ContactsListPage contactPage = new ContactsListPage(driver);
 		waitTillElementToBeVisible(contactPage.getContacts_Title(), 3);
-		if (contactPage.getContacts_Title().isDisplayed()) {
-			log.info("user is navigated to the Contacts screen");
+		if (contactPage.getContacts_Title().isDisplayed() && contactPage.getSearchIconButton().isDisplayed()
+				&& contactPage.getRefreshButton().isDisplayed() && contactPage.getAllTabButton().isDisplayed()
+				&& contactPage.getFavoriteTabButton().isDisplayed()) {
+			log.info("Contact List Screen :- User is navigated to the Contact List Screen");
+			log.info("Contact List Screen :- Search Icon Button is displayed");
+			log.info("Contact List Screen :- Refresh Button is displayed");
+			log.info("Contact List Screen :- All Contacts Tab is displayed");
+			log.info("Contact List Screen :- Favorite Contacts Tab is displayed");
 			return true;
 		} else {
 			return false;
 		}
 	}
-	
+
 	public ContactsListPage Navigate_To_Contacts() {
 		contactsFooterTab.click();
-		return new ContactsListPage(driver);	
+		return new ContactsListPage(driver);
 	}
 
 	public boolean checkNavigationBackTo_Order() {
@@ -342,7 +363,7 @@ public class RO_ListPage extends UtilityClass {
 			return false;
 		}
 	}
-	
+
 	public ProfileIconScreen Navigate_ToProfileIcon() throws InterruptedException {
 		Thread.sleep(7000);
 		profileIcon.click();
@@ -351,29 +372,29 @@ public class RO_ListPage extends UtilityClass {
 
 	public boolean checkNavigationTo_AddOrder_Page() {
 		NavigateTo_AddOrder_Page();
-		AddOrderPage addOrderPage = new AddOrderPage(driver);	
+		AddOrderPage addOrderPage = new AddOrderPage(driver);
 		if (addOrderPage.getAddOrder_Title().isDisplayed()) {
 			return true;
 		} else {
 			return false;
 		}
 	}
-	
+
 	public boolean checkNavigationTo_AddProspect_Page() {
 		NavigateTo_AddProspect_Page();
-		AddProspectPage addProspectPage = new AddProspectPage(driver);	
+		AddProspectPage addProspectPage = new AddProspectPage(driver);
 		if (addProspectPage.getAddProspect_Title().isDisplayed()) {
 			return true;
 		} else {
 			return false;
 		}
 	}
-	
+
 	public AddOrderPage NavigateTo_AddOrder_Page() {
 		createButton.click();
 		return new AddOrderPage(driver);
 	}
-	
+
 	public AddProspectPage NavigateTo_AddProspect_Page() {
 		createButton.click();
 		return new AddProspectPage(driver);
@@ -383,10 +404,10 @@ public class RO_ListPage extends UtilityClass {
 		newFilter.click();
 		log.info("Clicked on new tab");
 		filterStatusList.get(0).click();
-		log.info("Selected First RO" );
+		log.info("Selected First RO");
 		return new OrderDetailsPage(driver);
 	}
-	
+
 	public boolean checkNavigationTo_AddProspects_Page() {
 		NavigateTo_AddProspect_Page();
 		AddProspectPage addProspectsPage = new AddProspectPage(driver);
@@ -398,7 +419,7 @@ public class RO_ListPage extends UtilityClass {
 	}
 
 	public boolean checkProspects_Status_My() throws Exception {
-		ProspectDetailsPage prospectDetail=new ProspectDetailsPage(driver);
+		ProspectDetailsPage prospectDetail = new ProspectDetailsPage(driver);
 		myFilter.click();
 		Thread.sleep(1000);
 		if (!filterStatusList.isEmpty()) {
@@ -406,7 +427,8 @@ public class RO_ListPage extends UtilityClass {
 				try {
 					statusObject.click();
 					if (prospectDetail.getSalesAgentName().getText().contains(UserListPage.userName)) {
-						log.info("The Prospects in My Filter is of Login Agent" + prospectDetail.getSalesAgentName().getText());
+						log.info("The Prospects in My Filter is of Login Agent"
+								+ prospectDetail.getSalesAgentName().getText());
 						Thread.sleep(1000);
 						prospectDetail.getBackButton().click();
 						log.info("Return back to Prospects List screen");

@@ -180,7 +180,13 @@ public class OrderDetailsPage extends UtilityClass {
 				&& serviceAdvisorBlock.isDisplayed() && technicianBlock.isDisplayed()) {
 			scrollDown();
 			if (lastMessagesBlock.isDisplayed() && mediaGallery.isDisplayed() && cameraIcon.isDisplayed()) {
-				log.info("All required elements are visible on Ro details screen");
+				log.info("Order Detail :- All required elements are visible on Ro details screen");
+				log.info("Order Detail :- Order Number is same as Entered while creating RO");
+				log.info("Order Detail :- Customer block is displyed");
+				log.info("Order Detail :- Service Advisor block is displyed");
+				log.info("Order Detail :- Technician block is displyed");
+				log.info("Order Detail :- Last Message block is displyed");
+				log.info("Order Detail :- Media Gallery block is displyed");
 				scrollUp();
 			}
 			return true;
@@ -192,7 +198,9 @@ public class OrderDetailsPage extends UtilityClass {
 
 	public boolean checkAllMandatoryFields() {
 		if (getOrderNumber().getText() != null && customer_Name.getText() != null && advisor_Name.getText() != null) {
-			log.info("order number, customer name & advisor name is not null");
+			log.info("Order Detail:- Order number is not null");
+			log.info("Order Detail:- Customer name is not null");
+			log.info("Order Detail:- Advisor name is not null");
 			return true;
 		} else {
 			log.info("order number, customer name & advisor name is null");
@@ -205,8 +213,11 @@ public class OrderDetailsPage extends UtilityClass {
 		Navigate_To_EditRO();
 		EditOrder_ProspectPage editOrder = new EditOrder_ProspectPage(driver);
 		Thread.sleep(2000);
-		if (editOrder.getEditOrderTitle().isDisplayed()) {
-			log.info("user is navigated to the Edit Ro Screen");
+		if (editOrder.getEditOrderTitle().isDisplayed() && editOrder.getCancelButton().isDisplayed()
+				&& editOrder.getSaveButton().isDisplayed()) {
+			log.info("Edit Order :- user is navigated to the Edit Ro Screen");
+			log.info("Edit Order :- Cancel button is displayed");
+			log.info("Edit Order :- Save button is displayed");
 			return true;
 		} else {
 			log.info("user is not navigated to the Edit Ro Screen");

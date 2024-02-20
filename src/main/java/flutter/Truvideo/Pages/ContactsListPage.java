@@ -30,6 +30,10 @@ public class ContactsListPage extends UtilityClass {
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"TruVideo Enterprise\"]/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]")
 	private WebElement searchIconButton;
 
+	public WebElement getSearchIconButton() {
+		return searchIconButton;
+	}
+
 	@AndroidFindBy(xpath = "//android.widget.EditText")
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeTextField")
 	private WebElement searchBar;
@@ -46,13 +50,25 @@ public class ContactsListPage extends UtilityClass {
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"TruVideo Enterprise\"]/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[3]")
 	private WebElement refreshButton;
 
+	public WebElement getRefreshButton() {
+		return refreshButton;
+	}
+
 	@AndroidFindBy(xpath = "//android.view.View[contains(@content-desc,'ALL')]")
 	@iOSXCUITFindBy(accessibility = "ALL")
 	private WebElement allTab;
 
+	public WebElement getAllTabButton() {
+		return allTab;
+	}
+
 	@AndroidFindBy(xpath = "//android.view.View[contains(@content-desc,'FAVORITES')]")
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[contains(@name,'FAVORITES')]")
 	private WebElement favoritesTab;
+
+	public WebElement getFavoriteTabButton() {
+		return favoritesTab;
+	}
 
 	@AndroidFindBy(xpath = "//android.view.View[@long-clickable='true']")
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[6]/XCUIElementTypeOther[2]/XCUIElementTypeOther")
@@ -99,7 +115,12 @@ public class ContactsListPage extends UtilityClass {
 				&& addToFavorite_Button_WithoutSearch.get(0).isDisplayed()
 				&& call_Button_WithouSearch.get(0).isDisplayed() && searchIconButton.isDisplayed()
 				&& refreshButton.isDisplayed()) {
-			log.info("All Important tabs are available on screen");
+			log.info("Contact List:- All Contacts tab is available on screen");
+			log.info("Contact List:- Favorite Contacts tab is available on screen");
+			log.info("Contact List:- Add To Favorite button is available on screen");
+			log.info("Contact List:- Call button is available on screen");
+			log.info("Contact List:- Search icon button is available on screen");
+			log.info("Contact List:- Refresh button is available on screen");
 			return true;
 		} else {
 			return false;
@@ -108,11 +129,11 @@ public class ContactsListPage extends UtilityClass {
 
 	public boolean checkSearchContacts(String contactForSearch) throws InterruptedException {
 		searchIconButton.click();
-		log.info("Search screen is opened");
+		log.info("Contact List:- Search screen is opened");
 		back_Button_BeforeEnteringText.click();
-		log.info("Search screen is closed");
+		log.info("Contact List:- Search screen is closed");
 		searchIconButton.click();
-		log.info("Search screen is opened");
+		log.info("Contact List:- Search screen is opened");
 		searchBar.click();
 		searchBar.sendKeys(contactForSearch);
 		String enteredContactName;
@@ -125,25 +146,22 @@ public class ContactsListPage extends UtilityClass {
 		if (!enteredContactName.isEmpty()) {
 			if (isAndroid()) {
 				if (contactsList_AfterSearch.get(0).getAttribute("content-desc").equalsIgnoreCase(enteredContactName)) {
-					log.info("Search Function is Working");
+					log.info("Search Contact Function is Working");
 					back_Button_AfterEnteringText.click();
 					flag = true;
 					return flag;
 				}
 			} else {
-				System.out.println("Name enterd" + enteredContactName);
 				Thread.sleep(1000);
-				// System.out.println("Name
-				// searched"+contactsList_AfterSearch.get(0).getAttribute("name"));
 				if (!contactsList_AfterSearch.isEmpty()) {
-					log.info("Search Function is Working");
+					log.info("Contact List:- Search contact Function is Working");
 					back_Button_AfterEnteringText.click();
 					flag = true;
 					return flag;
 				}
 			}
 		} else {
-			log.info("Search Function is Not Working");
+			log.info("Contact List:- Search contact Function is Not Working");
 			back_Button_AfterEnteringText.click();
 			flag = false;
 			return flag;
@@ -153,34 +171,39 @@ public class ContactsListPage extends UtilityClass {
 
 	public boolean checkAddToFavorite_withoutSearch() throws InterruptedException {
 		addToFavorite_Button_WithoutSearch.get(0).click();
-		log.info("First Contact added to Favorite");
+		log.info("Contact List:- First Contact added to Favorite");
+		Thread.sleep(500);
 		addToFavorite_Button_WithoutSearch.get(1).click();
-		log.info("Second Contact added to Favorite");
-		Thread.sleep(1000);
+		log.info("Contact List:- Second Contact added to Favorite");
+		Thread.sleep(1500);
 		favoritesTab.click();
 		if (addToFavorite_Button_WithoutSearch.get(0).isDisplayed()
 				&& addToFavorite_Button_WithoutSearch.get(1).isDisplayed()) {
-			log.info("Add to favorite working fine");
+			log.info("Contact List:- Add to favorite working fine");
+			allTab.click();
 			return true;
 		} else {
-			log.info("Add to favorite not working");
+			log.info("Contact List:- Add to favorite not working");
+			allTab.click();
 			return false;
 		}
 	}
 
 	public boolean removeFromFavorite() throws InterruptedException {
+		favoritesTab.click();
 		addToFavorite_Button_WithoutSearch.get(0).click();
-		log.info("First Contact Removed from Favorite");
-		addToFavorite_Button_WithoutSearch.get(0).click();
-		log.info("Second Contact Removed from Favorite");
+		log.info("Contact List:- First Contact Removed from Favorite");
 		Thread.sleep(500);
+		addToFavorite_Button_WithoutSearch.get(0).click();
+		log.info("Contact List:- Second Contact Removed from Favorite");
+		Thread.sleep(200);
 		if (removedFromFavorite_text.isDisplayed() && youHaveNoFavorites_Text.isDisplayed()) {
-			log.info("Removed from Favorite Working fine");
+			log.info("Contact List:- Removed from Favorite Working fine");
 			Thread.sleep(2000);
 			allTab.click();
 			return true;
 		} else {
-			log.info("Removed from Favorite Not Working");
+			log.info("Contact List:- Removed from Favorite Not Working");
 			allTab.click();
 			return false;
 		}
@@ -197,8 +220,11 @@ public class ContactsListPage extends UtilityClass {
 		}
 		Thread.sleep(3000);
 		JointheRoomPage joinTheRoom = new JointheRoomPage(driver);
-		if (joinTheRoom.getJoinTheRoomButton().isDisplayed()) {
-			log.info("Join The Room Screen Is Dispalyed");
+		if (joinTheRoom.getJoinTheRoomButton().isDisplayed() && joinTheRoom.getAudioIconButton().isDisplayed()
+				&& joinTheRoom.getVideoIconButton().isDisplayed()) {
+			log.info("Contact List:- Join The Room Screen is Dispalyed");
+			log.info("Contact List:- Audio Icon is present on Join The Room Screen");
+			log.info("Contact List:- Video Icon is present on Join The Room Screen");
 			joinTheRoom.getCancelButton().click();
 			return true;
 		} else {
@@ -208,50 +234,70 @@ public class ContactsListPage extends UtilityClass {
 		}
 	}
 
-	public boolean checkAdd_Remove_Favorite_withSearch(String contactForSearch) {
+	public boolean checkAdd_Remove_Favorite_withSearch(String contactForSearch) throws InterruptedException {
+		Thread.sleep(1000);
 		searchIconButton.click();
-		log.info("Search screen is opened");
+		log.info("Contact List:- Search screen is opened");
 		back_Button_BeforeEnteringText.click();
-		log.info("Search screen is closed");
+		log.info("Contact List:- Search screen is closed");
 		searchIconButton.click();
-		log.info("Search screen is opened");
+		log.info("Contact List:- Search screen is opened");
 		searchBar.click();
 		searchBar.sendKeys(contactForSearch);
 		addToFavorite_Button.get(0).click();
+		Thread.sleep(100);
+		boolean flag = false;
 		if (addedToFavoriteContacts_Text.isDisplayed()) {
-			log.info("Search Contact added to Favorite List");
+			log.info("Contact List:- Search Contact added to Favorite List");
 			addToFavorite_Button.get(0).click();
+			Thread.sleep(100);
 			if (removedFromFavorite_text.isDisplayed()) {
-				log.info("Search Contact Removed from Favorite List");
+				log.info("Contact List:- Search Contact Removed from Favorite List");
+				Thread.sleep(2000);
 				back_Button_AfterEnteringText.click();
+				flag = true;
+				return flag;
+			} else {
+				flag = false;
+				return flag;
 			}
-			return true;
 		} else {
-			log.info("Search Contact, failed to add to Favorite List");
+			log.info("Contact List:- Search Contact, failed to add to Favorite List");
 			back_Button_AfterEnteringText.click();
 			return false;
 		}
 	}
 
 	public boolean checkCalling_withSearch(String contactForSearch) throws InterruptedException {
+		Thread.sleep(1000);
 		searchIconButton.click();
-		log.info("Search screen is opened");
+		log.info("Contact List:- Search screen is opened");
 		back_Button_BeforeEnteringText.click();
-		log.info("Search screen is closed");
+		log.info("Contact List:- Search screen is closed");
 		searchIconButton.click();
-		log.info("Search screen is opened");
+		log.info("Contact List:- Search screen is opened");
 		searchBar.click();
 		searchBar.sendKeys(contactForSearch);
 		Thread.sleep(2000);
 		call_Button.get(0).click();
+		try {
+			permission_Allow.click();
+			Thread.sleep(2000);
+			permission_Allow.click();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		Thread.sleep(3000);
 		JointheRoomPage joinTheRoom = new JointheRoomPage(driver);
-		if (joinTheRoom.getJoinTheRoomButton().isDisplayed()) {
-			log.info("Join The Room Screen Is Dispalyed");
+		if (joinTheRoom.getJoinTheRoomButton().isDisplayed() && joinTheRoom.getAudioIconButton().isDisplayed()
+				&& joinTheRoom.getVideoIconButton().isDisplayed()) {
+			log.info("Contact List Search :- Join The Room Screen is Dispalyed");
+			log.info("Contact List Search :- Audio Icon is present on Join The Room Screen");
+			log.info("Contact List Search :- Video Icon is present on Join The Room Screen");
 			joinTheRoom.getCancelButton().click();
 			return true;
 		} else {
-			log.info("Join The Room Screen Not Dispalyed");
+			log.info("Contact List:- Join The Room Screen Not Dispalyed");
 			joinTheRoom.getCancelButton().click();
 			return false;
 		}

@@ -374,6 +374,7 @@ public class RO_SettingPage extends UtilityClass {
 	}
 
 	public boolean mediumCameraQuality() {
+		scrollDown();
 		camQualityOption.click();
 		log.info("Clicked on camera quality option:-'Low','Medium','High' option is displayed");
 		mediumQuality.click();
@@ -394,6 +395,7 @@ public class RO_SettingPage extends UtilityClass {
 	}
 
 	public boolean highCameraQuality() {
+		scrollDown();
 		camQualityOption.click();
 		log.info("Clicked on camera quality option:-'Low','Medium','High' option is displayed");
 		highQuality.click();
@@ -421,7 +423,7 @@ public class RO_SettingPage extends UtilityClass {
 		log.info("Clicked on Delete Account Button:- Confirmation Dialog is displayed");
 		delete.click();
 		log.info("Account deleted succesfully");
-		if (user.getDealerName().isDisplayed()) {
+		if (user.getDealerName(DealerCodePage.dealerName).isDisplayed()) {
 			log.info("Account of new User is  deleted succesfully");
 			return true;
 		} else {

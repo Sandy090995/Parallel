@@ -3,6 +3,7 @@ package flutter.Truvideo.Tests.Prospects;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import flutter.Truvideo.BaseClass.BaseClass;
+import flutter.Truvideo.Pages.DealerCodePage;
 import flutter.Truvideo.Pages.ProfileIconScreen;
 import flutter.Truvideo.Pages.RO_ListPage;
 import flutter.Truvideo.Pages.RO_SettingPage;
@@ -64,7 +65,7 @@ public class ProfileIconScreenTest_Prospect extends BaseClass {
 	@Test(priority = 5)
 	public void verifySwitchBackToFirstDealer_Sales() throws InterruptedException{
 		RO_ListPage roListPage = new RO_ListPage(driver);
-		Assert.assertTrue(roListPage.Navigate_ToProfileIcon().changeDealer("DEMO"));
+		Assert.assertTrue(roListPage.Navigate_ToProfileIcon().changeDealer(DealerCodePage.dealerName));
 	}
 
 	@Test(priority = 6)

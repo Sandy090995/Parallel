@@ -1,7 +1,7 @@
 package flutter.Truvideo.Tests.Order;
 
-import java.net.MalformedURLException;
 import org.testng.Assert;
+import org.testng.ITestResult;
 import org.testng.annotations.*;
 import flutter.Truvideo.BaseClass.BaseClass;
 import flutter.Truvideo.Pages.DealerCodePage;
@@ -11,30 +11,25 @@ public class DealerCodePageTest_Order extends BaseClass {
 	DealerCodePage dealerCodePage;
 	UserListPage userListPage;
 
-	@BeforeClass
-	public void setUp() throws MalformedURLException, Exception {
+	@BeforeMethod
+	public void setUpTestEnvironment_ClassLevel() throws Exception {
 		if (driver == null) {
 			driver = setUpApplication();
 			dealerCodePage = loadDealerCodePage();
 		}
-	}
-
-	@BeforeMethod
-	public void setDriverObject() {
 		if (dealerCodePage == null) {
 			dealerCodePage = new DealerCodePage(driver);
 		}
 	}
 
-	//@AfterClass
-	public void tearDown() {
-		if (driver != null ) {
-			log.info("Closed in Class  1");
+	@AfterMethod
+	public void tearDown_OnFailure(ITestResult result) {
+		if (result.getStatus() == ITestResult.FAILURE) {
 			driver.quit();
-			log.info("Closed in Class  2");
+			driver = null;
 		}
 	}
-	
+
 	@Test(priority = 1)
 	public void verifyInstallationOfTruVideoApplication() {
 		Assert.assertTrue(dealerCodePage.applicationInstall_dealerCodePageLoad());

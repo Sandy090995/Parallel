@@ -48,6 +48,14 @@ public class ProfileIconScreen extends UtilityClass {
 	@iOSXCUITFindBy(accessibility = "DEMO - Main Street Toyota")
 	private WebElement serviceSideDealerName;
 
+	public WebElement getServiceSideDealerName() {
+		if (isAndroid()) {
+			return driver.findElement(By.xpath("//android.view.View[contains(@content-desc,'" + DealerCodePage.dealerName + "')]"));
+		} else {
+			return driver.findElement(By.xpath("//XCUIElementTypeStaticText[contains(@label,'" + DealerCodePage.dealerName + "')]"));
+		}
+	}
+
 	@iOSXCUITFindBy(accessibility = "Switch Dealer")
 	@AndroidFindBy(accessibility = "Switch Dealer")
 	private WebElement switchDealerButton;
@@ -119,11 +127,11 @@ public class ProfileIconScreen extends UtilityClass {
 		log.info("Now Verifying Dealer Name....");
 
 		if (isAndroid()) {
-			loginDealerName = serviceSideDealerName.getAttribute("content-desc");
+			loginDealerName = getServiceSideDealerName().getAttribute("content-desc");
 		} else {
-			loginDealerName = serviceSideDealerName.getAttribute("label");
+			loginDealerName = getServiceSideDealerName().getAttribute("label");
 		}
-		if (loginDealerName.equalsIgnoreCase("DEMO - Main Street Toyota")) {
+		if (loginDealerName.equalsIgnoreCase(DealerCodePage.dealerName)) {
 			log.info("Delaer Name is verified , Showing Dealer Name is:-" + dealerName);
 		} else {
 			log.info("Dealer name is not showing correctly");
@@ -176,7 +184,7 @@ public class ProfileIconScreen extends UtilityClass {
 		log.info("Logout process is done :-User navigating on User List page");
 		Thread.sleep(5000);
 		UserListPage userListpage = new UserListPage(driver);
-		if (userListpage.getDealerName().isDisplayed()) {
+		if (userListpage.getDealerName(DealerCodePage.dealerName).isDisplayed()) {
 			log.info("Dealer name is Displayed");
 			return true;
 		} else {
@@ -221,16 +229,16 @@ public class ProfileIconScreen extends UtilityClass {
 
 	public boolean navigationToSupportScreen() throws InterruptedException {
 		navigateToSupportPage();
-		SupportPage supportPage=new SupportPage(driver);
-		if(supportPage.getSupportPageTitle().isDisplayed()) {
+		SupportPage supportPage = new SupportPage(driver);
+		if (supportPage.getSupportPageTitle().isDisplayed()) {
 			log.info("User is navigated to the Support port");
 			return true;
-		}else{
+		} else {
 			log.info("Error to navigate to the Support port");
 			return false;
 		}
 	}
-	
+
 	public SupportPage navigateToSupportPage() throws InterruptedException {
 		supportButton.click();
 		Thread.sleep(5000);

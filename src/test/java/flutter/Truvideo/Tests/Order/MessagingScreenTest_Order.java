@@ -1,34 +1,34 @@
 package flutter.Truvideo.Tests.Order;
 
-import java.net.MalformedURLException;
 import org.testng.Assert;
+import org.testng.ITestResult;
 import org.testng.annotations.*;
 import flutter.Truvideo.BaseClass.BaseClass;
 import flutter.Truvideo.Pages.MessagingScreen;
 
 public class MessagingScreenTest_Order extends BaseClass {
 	MessagingScreen messageScreen;
-	
-	@BeforeClass
-	public void setUp() throws MalformedURLException, Exception {
-		if(driver==null) {
-		driver=setUpApplication();
-		messageScreen=loadDealerCodePage().navigateToUserListScreen_Order()
-				.navigateTo_RO_Prospect_ListPage(userForLogin_Order)
-				.Navigate_To_MessageList().navigateToMessagingScreen();
-		}
-	}
-	
+
 	@BeforeMethod
-	public void setDriverObject() {
-		if(messageScreen==null) {
-			messageScreen=new MessagingScreen(driver);
+	public void setUp() throws Exception {
+		if (driver == null) {
+			driver = setUpApplication();
+			messageScreen = loadDealerCodePage().navigateToUserListScreen_Order()
+					.navigateTo_RO_Prospect_ListPage(userForLogin_Order).Navigate_To_MessageList()
+					.navigateToMessagingScreen();
+		}
+		if (messageScreen == null) {
+			messageScreen = new MessagingScreen(driver);
 		}
 	}
-	
-	//@AfterClass
-	public void tearDown() {
-		driver.quit();
+
+	@AfterMethod
+	public void tearDown_OnFailure(ITestResult result) {
+		if (result.getStatus() == ITestResult.FAILURE) {
+			log.info("Test Case Failed" + result.getMethod().getMethodName());
+			driver.quit();
+			driver = null;
+		}
 	}
 
 	@Test(priority = 1)
@@ -44,8 +44,8 @@ public class MessagingScreenTest_Order extends BaseClass {
 	@Test(priority = 3)
 	public void verifyManualConversationStatus_Order() throws InterruptedException {
 		messageScreen.checkManualConversationStatus();
-		driver.navigate().back();
+		MessagingScreen messagingScreen = new MessagingScreen(driver);
+		messagingScreen.getBackButton().click();
 	}
 
-	
 }

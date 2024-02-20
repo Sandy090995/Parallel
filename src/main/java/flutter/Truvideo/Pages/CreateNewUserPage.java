@@ -171,7 +171,7 @@ public class CreateNewUserPage extends UtilityClass {
 		log.info("Verify Cancel button is displayed");
 		cancelButton.click();
 		UserListPage userListPage = new UserListPage(driver);
-		if (userListPage.getDealerName().isDisplayed()) {
+		if (userListPage.getDealerName(DealerCodePage.dealerName).isDisplayed()) {
 			log.info("Cancel Button is Working");
 			return true;
 		} else {

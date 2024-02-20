@@ -62,7 +62,7 @@ public class ContactsListPageTest_Prospect extends BaseClass {
 	}
 
 	@Test(priority = 6)
-	public void verifyAdd_Remove_Favorite_withSearch_Sales() {
+	public void verifyAdd_Remove_Favorite_withSearch_Sales() throws InterruptedException {
 		Assert.assertTrue(contactsListPage.checkAdd_Remove_Favorite_withSearch("Sandip Test"));
 	}
 

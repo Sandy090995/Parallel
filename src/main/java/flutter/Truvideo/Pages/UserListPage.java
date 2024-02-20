@@ -5,6 +5,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+
+import flutter.Truvideo.BaseClass.DealerCodes;
 import flutter.Truvideo.Utils.UtilityClass;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -19,80 +21,91 @@ public class UserListPage extends UtilityClass {
 		this.driver = driver;
 		PageFactory.initElements(new AppiumFieldDecorator(driver), this);
 	}
-	
+
 	public static String userName;
 
 	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View[2]")
-	@iOSXCUITFindBy(xpath="//XCUIElementTypeOther[2]")
-	private WebElement reFreshButton;//modified
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeOther[2]")
+	private WebElement reFreshButton;// modified
 
 	@AndroidFindBy(xpath = "//android.widget.EditText")
-	@iOSXCUITFindBy(xpath="//XCUIElementTypeTextField")
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeTextField")
 	private WebElement searchBar;
+	
+	public WebElement getUserSearchBar() {
+		return searchBar;
+	}
 
 	@AndroidFindBy(accessibility = "NO USERS FOUND")
-	@iOSXCUITFindBy(accessibility="NO USERS FOUND")
+	@iOSXCUITFindBy(accessibility = "NO USERS FOUND")
 	private WebElement noUserFoundMessage;
 
 	@AndroidFindBy(xpath = "//android.view.View[@index='4']")
-	@iOSXCUITFindBy(xpath="//XCUIElementTypeOther[4]")
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeOther[4]")
 	private WebElement cancelButton_search;
 
-	@AndroidFindBy(xpath = "//android.view.View[contains(@content-desc,'Hello there')]")//modified
-	@iOSXCUITFindBy(accessibility="Hello there Disha Gupta")
+	@AndroidFindBy(xpath = "//android.view.View[contains(@content-desc,'Hello there')]") // modified
+	@iOSXCUITFindBy(accessibility = "Hello there Disha Gupta")
 	private WebElement helloThere_UserText;
 
 	@AndroidFindBy(accessibility = "Please type your Personal Pin Code to login")
-	@iOSXCUITFindBy(accessibility="Please type your Personal Pin Code to login")
+	@iOSXCUITFindBy(accessibility = "Please type your Personal Pin Code to login")
 	private WebElement pleaseEnterPin_text;
 
 	@AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Disha Gupta\"]")
-	@iOSXCUITFindBy(xpath="//XCUIElementTypeStaticText[@label=\"Sandip Test\"]")
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@label=\"Sandip Test\"]")
 	private WebElement userDishaGupta;
-	
+
 	@AndroidFindBy(xpath = "//android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View[5]/android.view.View/android.view.View")
-	@iOSXCUITFindBy(xpath="//XCUIElementTypeOther[5]/XCUIElementTypeOther[2]/XCUIElementTypeStaticText")
-	private List<WebElement>selectUser_Login;//modified
-	
-	
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeOther[5]/XCUIElementTypeOther[2]/XCUIElementTypeStaticText")
+	private List<WebElement> selectUser_Login;// modified
+
 	public WebElement getUserToLogin(String searchUser) {
 		WebElement search_User = null;
-	    if(isiOS()) {
-	    	 search_User=driver.findElement(By.xpath("//XCUIElementTypeStaticText[contains(@label,'" + searchUser + "')]"));
-	    } else if(isAndroid()) {
-	    	search_User=driver.findElement(By.xpath("//android.view.View[contains(@content-desc,'" + searchUser + "')]"));
-	    } 
-	    return search_User;
+		if (isAndroid()) {
+			search_User = driver
+					.findElement(By.xpath("//android.view.View[contains(@content-desc,'" + searchUser + "')]"));
+		}else {
+			search_User = driver
+					.findElement(By.xpath("//XCUIElementTypeStaticText[contains(@label,'" + searchUser + "')]"));
+		}
+		return search_User;
 	}
 
 	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View[1]")
-	@iOSXCUITFindBy(xpath="//XCUIElementTypeApplication[@name=\"TruVideo Enterprise\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]")
-	private WebElement x_button;//modified
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"TruVideo Enterprise\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]")
+	private WebElement x_button;// modified
 
 	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View[3]")
-	@iOSXCUITFindBy(xpath="//XCUIElementTypeOther[3]")
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeOther[3]")
 	private WebElement threeDotButton;// modified
 
 	@AndroidFindBy(accessibility = "Create user")
-	@iOSXCUITFindBy(accessibility="Create user")
+	@iOSXCUITFindBy(accessibility = "Create user")
 	private WebElement createUser;
 
 	@AndroidFindBy(accessibility = "Change dealer")
-	@iOSXCUITFindBy(accessibility="Change dealer")
+	@iOSXCUITFindBy(accessibility = "Change dealer")
 	private WebElement changeDealer;
 
 	@AndroidFindBy(accessibility = "DEMO Main Street Toyota")
 	@iOSXCUITFindBy(accessibility = "DEMO Main Street Toyota")
 	private WebElement dealerName;
 
-	public WebElement getDealerName() {
-		return dealerName;
+	public WebElement getDealerName(String enteredDealerName) {
+		if (isAndroid()) {
+			return driver.findElement(
+					By.xpath("//android.view.View[contains(@content-desc,'" + enteredDealerName + "')]"));
+		} else {
+			return driver.findElement(
+					By.xpath("//XCUIElementTypeStaticText[contains(@label,'" + enteredDealerName + "')]"));
+		}
 	}
 
 	@AndroidFindBy(accessibility = "0")
 	@iOSXCUITFindBy(accessibility = "0")
 	private WebElement zero;
-	
+
 	@AndroidFindBy(accessibility = "1")
 	@iOSXCUITFindBy(accessibility = "1")
 	private WebElement one;
@@ -133,8 +146,8 @@ public class UserListPage extends UtilityClass {
 	@iOSXCUITFindBy(accessibility = "NO")
 	private WebElement biometric_no;
 
-	@iOSXCUITFindBy(xpath="//XCUIElementTypeStaticText[contains(@label,'Something went wrong')]")
-	@AndroidFindBy(xpath="//android.view.View[contains(@content-desc,'Something went wrong')]")
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[contains(@label,'Something went wrong')]")
+	@AndroidFindBy(xpath = "//android.view.View[contains(@content-desc,'Something went wrong')]")
 	private WebElement somethingWentWrong;
 
 	@AndroidFindBy(accessibility = "Invalid pin code")
@@ -156,18 +169,18 @@ public class UserListPage extends UtilityClass {
 	@AndroidFindBy(accessibility = "NO")
 	@iOSXCUITFindBy(accessibility = "NO")
 	private WebElement noButton;
-	
+
 	public WebElement getNoButton() {
 		return noButton;
 	}
-	
+
 	@AndroidFindBy(id = "com.android.permissioncontroller:id/permission_allow_button")
 	@iOSXCUITFindBy(accessibility = "Allow")
 	private WebElement notificationsAllow;
 
 	public boolean checkVisibleText_Icons() throws Exception {
 		Thread.sleep(1000);
-		if (dealerName.isDisplayed() && reFreshButton.isDisplayed() && searchBar.isDisplayed()) {
+		if (getDealerName(DealerCodePage.dealerName).isDisplayed() && reFreshButton.isDisplayed() && searchBar.isDisplayed()) {
 			log.info("Dealer Name and refresh button is Displayed");
 			return true;
 		} else {
@@ -239,7 +252,7 @@ public class UserListPage extends UtilityClass {
 
 		}
 	}
-	
+
 	public RO_ListPage navigateTo_RO_Prospect_ListPage(String user) throws Exception {
 		Thread.sleep(2000);
 		searchUser(user);
@@ -255,34 +268,34 @@ public class UserListPage extends UtilityClass {
 				biometric_no.click();
 				log.info("Biometric -> 'NO' clicked");
 			}
-		}catch(NoSuchElementException e) {
-		log.info("Biometric popup Not present");
+		} catch (NoSuchElementException e) {
+			log.info("Biometric popup Not present");
 		}
 		try {
 			if (notificationsAllow.isDisplayed()) {
 				notificationsAllow.click();
 				log.info("Notifications allowed.");
 			}
-		}catch(NoSuchElementException e) {
-		log.info("Notifications allowed pop up not displayed");
+		} catch (NoSuchElementException e) {
+			log.info("Notifications allowed pop up not displayed");
 		}
 		return new RO_ListPage(driver);
 	}
-	
+
 	public void searchUser(String user) throws Exception {
 		Thread.sleep(1000);
 		searchBar.click();
 		searchBar.clear();
-		searchBar.sendKeys(user);	
-		//selectUser_Login.get(0).click();
+		searchBar.sendKeys(user);
+		// selectUser_Login.get(0).click();
 		Thread.sleep(1000);
-		userName=searchBar.getText();
+		userName = searchBar.getText();
 		Thread.sleep(1000);
-		//selectUser_Login.get(0).click();
+		// selectUser_Login.get(0).click();
 		getUserToLogin(userName).click();
 
 	}
-	
+
 	public boolean checkCreateUserFunction() throws InterruptedException {
 		Navigate_To_CreateUserPage();
 		CreateNewUserPage newUser = new CreateNewUserPage(driver);
@@ -296,11 +309,11 @@ public class UserListPage extends UtilityClass {
 			return false;
 		}
 	}
-	
+
 	public CreateNewUserPage Navigate_To_CreateUserPage() throws InterruptedException {
 		threeDotButton.click();
 		createUser.click();
-		return new CreateNewUserPage(driver);	
+		return new CreateNewUserPage(driver);
 	}
 
 	public boolean check_TextsUnderChangeDealerFunction() {
@@ -309,50 +322,49 @@ public class UserListPage extends UtilityClass {
 		if (changeDealer.isDisplayed() && areYouSure_text.isDisplayed()) {
 			noButton.click();
 			return true;
-		}else {
+		} else {
 			return false;
 		}
 	}
-	
+
 	public boolean check_ChangeDealerFunction_Order() throws InterruptedException {
 		Thread.sleep(2000);
 		threeDotButton.click();
-        changeDealer.click();
+		changeDealer.click();
 		yesButton.click();
-		DealerCodePage dealeCodePage=new DealerCodePage(driver);
-		if(dealeCodePage.getHelloThereText().isDisplayed()) {
+		DealerCodePage dealeCodePage = new DealerCodePage(driver);
+		if (dealeCodePage.getHelloThereText().isDisplayed()) {
 			log.info("User is On Dealer Code Page Now");
-			two.click();
-			four.click();
-			seven.click();
-			three.click();
-			zero.click();
-			one.click();
+			DealerCodes dealerCode=new DealerCodes(driver);
+			dealerCode.enterDealerCode_TruvideoDealer_Order();
+			/*
+			 * two.click(); four.click(); seven.click(); three.click(); zero.click();
+			 * one.click();
+			 */
 			return true;
-		}else {
+		} else {
 			return false;
 		}
 	}
-	
+
 	public boolean check_ChangeDealerFunction_Sales() throws InterruptedException {
 		Thread.sleep(2000);
 		threeDotButton.click();
-        changeDealer.click();
+		changeDealer.click();
 		yesButton.click();
-		DealerCodePage dealeCodePage=new DealerCodePage(driver);
-		if(dealeCodePage.getHelloThereText().isDisplayed()) {
+		DealerCodePage dealeCodePage = new DealerCodePage(driver);
+		if (dealeCodePage.getHelloThereText().isDisplayed()) {
 			log.info("User is On Dealer Code Page Now");
-		    eight.click();
-			zero.click();
-			two.click();
-			seven.click();
-			nine.click();
-			seven.click();
+			DealerCodes dealerCode=new DealerCodes(driver);
+			dealerCode.enterDealerCode_TruvideoDealer_Sales();
+			/*
+			 * eight.click(); zero.click(); two.click(); seven.click(); nine.click();
+			 * seven.click();
+			 */
 			return true;
-		}else {
+		} else {
 			return false;
 		}
 	}
 
 }
-

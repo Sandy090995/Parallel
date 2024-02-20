@@ -31,6 +31,10 @@ public class ChatListPage extends UtilityClass {
 	@iOSXCUITFindBy(accessibility = "CREATE")
 	private WebElement createChatButton;
 
+	public WebElement get_createChatButton() {
+		return createChatButton;
+	}
+
 	@AndroidFindBy(xpath = "//android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View[5]/android.view.View/android.view.View")
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeOther[5]/XCUIElementTypeOther[2]/XCUIElementTypeOther")
 	private List<WebElement> userList_Chat;
@@ -49,6 +53,10 @@ public class ChatListPage extends UtilityClass {
 	@AndroidFindBy(xpath = "//android.widget.EditText")
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeTextField")
 	private WebElement textBox;
+	
+	@AndroidFindBy(accessibility =  "NO ITEMS FOUND")
+	@iOSXCUITFindBy(accessibility = "NO ITEMS FOUND")
+	private WebElement noItemsFound_Text;
 
 	@AndroidFindBy(xpath = "//android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[4]")
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeOther[4][@index='5']")
@@ -66,42 +74,66 @@ public class ChatListPage extends UtilityClass {
 	@iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"TruVideo Enterprise\"]/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]")
 	private WebElement searchIcon;
 
+	public WebElement getSearchIcon() {
+		return searchIcon;
+	}
+
+	@AndroidFindBy(xpath = "//android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View[3]")
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"TruVideo Enterprise\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[3]")
+	private WebElement reFreshButton;
+
+	public WebElement getRefreshButton() {
+		return reFreshButton;
+	}
+
+	@AndroidFindBy(xpath = "//android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View[4]")
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"TruVideo Enterprise\"]/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[4]")
+	private WebElement profileIcon;
+
+	public WebElement getProfileIconButton() {
+		return profileIcon;
+	}
+
 	@AndroidFindBy(xpath = "//android.view.View[3]/android.view.View/android.view.View")
-	@iOSXCUITFindBy(xpath = "//XCUIElementTypeOther[4]/XCUIElementTypeOther[2]/XCUIElementTypeOther\n"
-			+ "")
-	private List<WebElement>searched_UserList;
-	
-	
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeOther[4]/XCUIElementTypeOther[2]/XCUIElementTypeOther\n" + "")
+	private List<WebElement> searched_UserList;
+
 	public boolean navigationToChatScreen() throws InterruptedException {
-		String userName_ChatListScreen="";
-		String userName_ChatScreen="";
-		if(isAndroid()) {
-			userName_ChatListScreen = userName_ChatListScreen+userList_Chat.get(0).getAttribute("content-desc");
+		String userName_ChatListScreen = "";
+		String userName_ChatScreen = "";
+		if (isAndroid()) {
+			userName_ChatListScreen = userName_ChatListScreen + userList_Chat.get(0).getAttribute("content-desc");
 		} else {
 			Thread.sleep(3000);
-			userName_ChatListScreen = userName_ChatListScreen+userList_Chat.get(0).getAttribute("name");
+			userName_ChatListScreen = userName_ChatListScreen + userList_Chat.get(0).getAttribute("name");
 		}
 		userList_Chat.get(0).click();
-		if(isAndroid()) {
-			userName_ChatScreen = userName_ChatScreen+chatScreen_UserName.getAttribute("content-desc");
+		if (isAndroid()) {
+			userName_ChatScreen = userName_ChatScreen + chatScreen_UserName.getAttribute("content-desc");
 		} else {
 			Thread.sleep(3000);
-			userName_ChatScreen= userName_ChatScreen+chatScreen_UserName.getAttribute("name");
+			userName_ChatScreen = userName_ChatScreen + chatScreen_UserName.getAttribute("name");
 		}
-		log.info("chatlistscreen"+userName_ChatListScreen);
-		log.info("chatscreen"+userName_ChatScreen);
-		if (userName_ChatListScreen.contains(userName_ChatScreen)) {
+		log.info("chatlistscreen" + userName_ChatListScreen);
+		log.info("chatscreen" + userName_ChatScreen);
+		if (userName_ChatListScreen.contains(userName_ChatScreen) && textBox.isDisplayed()
+				&& sendButton.isDisplayed()) {
 			log.info("user is navigated to the Chat screen: userName_ChatListScreen:->" + userName_ChatListScreen
 					+ " & userName_ChatScreen:->" + userName_ChatScreen);
+			log.info("Chat Screen :- Message text box is available");
+			log.info("Chat Screen :- Send button is available");
+			backButton_ChatScreen.click();
 			return true;
 		} else {
 			log.info("user is unable to navigate to Chat screen: userName_ChatListScreen:->" + userName_ChatListScreen
 					+ " & userName_ChatScreen:->" + userName_ChatScreen);
+			backButton_ChatScreen.click();
 			return false;
 		}
 	}
-	
+
 	public boolean checkSendMessage() throws InterruptedException {
+		userList_Chat.get(0).click();
 		textBox.click();
 		textBox.sendKeys("Automation Message from Chat");
 		if (textBox.getText() != null) {
@@ -111,13 +143,13 @@ public class ChatListPage extends UtilityClass {
 			try {
 				if (messageList.get(messageList.size() - 1).getAttribute("content-desc")
 						.contains("Automation Message from Chat")) {
-					log.info("Message sent successfully");
+					log.info("Chat Screen :- Message sent successfully");
 				}
 				return true;
 			} catch (Exception e) {
 				if (messageList.get(messageList.size() - 1).getAttribute("label")
 						.contains("Automation Message from Chat")) {
-					log.info("Message sent successfully");
+					log.info("Chat Screen :- Message sent successfully");
 				}
 				return true;
 			} finally {
@@ -134,27 +166,27 @@ public class ChatListPage extends UtilityClass {
 		try {
 			if (permission_Allow.isDisplayed()) {
 				permission_Allow.click();
-				log.info("camera permission message displayed");
+				log.info("Chat screen :- camera permission message displayed");
 			}
 		} catch (Exception e) {
-			log.info("permission message not displayed");
+			log.info("Chat screen :- permission message not displayed");
 		}
 		try {
 			if (permission_Allow.isDisplayed()) {
 				permission_Allow.click();
-				log.info("Audio permission message displayed");
+				log.info("Chat screen :- Audio permission message displayed");
 			}
 		} catch (Exception e) {
-			log.info("permission message not displayed");
+			log.info("Chat screen :- permission message not displayed");
 		}
 		Thread.sleep(2000);
 		JointheRoomPage joinTheRoomPage = new JointheRoomPage(driver);
 		if (joinTheRoomPage.getJoinTheRoomButton().isDisplayed()) {
-			log.info("User is on Join the Room screen");
+			log.info("Chat screen :- User is on Join the Room screen");
 			joinTheRoomPage.getCancelButton().click();
 			return true;
 		} else {
-			log.info("User not able to go to Join the Room screen");
+			log.info("Chat screen :- User not able to go to Join the Room screen");
 			joinTheRoomPage.getCancelButton().click();
 			return false;
 		}
@@ -164,23 +196,27 @@ public class ChatListPage extends UtilityClass {
 		createChatButton.click();
 		Thread.sleep(5000);
 		try {
-		if(isAndroid()) {
-			By element=By.xpath("//android.widget.ScrollView/android.view.View");
-			scrollForVisualElement(element, "content-desc", UserForChat);
-			Thread.sleep(2000);
-		}else {
-			By element=By.xpath("//XCUIElementTypeApplication[@name=\"TruVideo Enterprise\"]/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[4]/XCUIElementTypeOther[2]/XCUIElementTypeStaticText");
-			scrollForVisualElement(element, "content-desc", UserForChat);
-			Thread.sleep(2000);
-		}}catch(Exception e) {
+			if (isAndroid()) {
+				By element = By.xpath("//android.widget.ScrollView/android.view.View");
+				scrollForVisualElement(element, "content-desc", UserForChat);
+				Thread.sleep(2000);
+			} else {
+				By element = By.xpath(
+						"//XCUIElementTypeApplication[@name=\"TruVideo Enterprise\"]/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[4]/XCUIElementTypeOther[2]/XCUIElementTypeStaticText");
+				scrollForVisualElement(element, "content-desc", UserForChat);
+				Thread.sleep(2000);
+			}
+		} catch (Exception e) {
 			log.info("Inside scroll-catch");
 		}
-		if (textBox.isDisplayed()) {
-			log.info("User is navigated to the new chat screen");
+		if (textBox.isDisplayed() && sendButton.isDisplayed()) {
+			log.info("Chat screen :- User is navigated to the new chat screen");
+			log.info("Chat screen :- Message text box is displayed on new chat screen");
+			log.info("Chat screen :- Send button is displayed on new chat screen");
 			backButton_ChatScreen.click();
 			return true;
 		} else {
-			log.info("User is navigated to the new chat screen");
+			log.info("Chat screen :- User is navigated to the new chat screen");
 			backButton_ChatScreen.click();
 			return false;
 		}

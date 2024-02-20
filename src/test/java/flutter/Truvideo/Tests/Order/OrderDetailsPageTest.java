@@ -1,7 +1,7 @@
 package flutter.Truvideo.Tests.Order;
 
-import java.net.MalformedURLException;
 import org.testng.Assert;
+import org.testng.ITestResult;
 import org.testng.annotations.*;
 import flutter.Truvideo.BaseClass.BaseClass;
 import flutter.Truvideo.Pages.EditOrder_ProspectPage;
@@ -13,26 +13,25 @@ import flutter.Truvideo.Pages.VideoRecordingPage;
 public class OrderDetailsPageTest extends BaseClass {
 	OrderDetailsPage orderDetails;
 
-	@BeforeClass
-	public void setUp() throws MalformedURLException, Exception {
+	@BeforeMethod
+	public void setUpTestEnvironment_ClassLevel() throws Exception {
 		if (driver == null) {
 			driver = setUpApplication();
 			orderDetails = loadDealerCodePage().navigateToUserListScreen_Order()
 					.navigateTo_RO_Prospect_ListPage(userForLogin_Order).NavigateTo_AddOrder_Page()
 					.CreateNewRO_NavigateToRODetail();
 		}
-	}
-
-	@BeforeMethod
-	public void setDriverObject() {
 		if (orderDetails == null) {
 			orderDetails = new OrderDetailsPage(driver);
 		}
 	}
 
-	// @AfterClass
-	public void tearDown() {
-		driver.quit();
+	@AfterMethod
+	public void tearDown_OnFailure(ITestResult result) {
+		if (result.getStatus() == ITestResult.FAILURE) {
+			driver.quit();
+			driver = null;
+		}
 	}
 
 	@Test(priority = 1)
@@ -44,17 +43,12 @@ public class OrderDetailsPageTest extends BaseClass {
 	public void verifyMandatoryFields_RoDetails() {
 		Assert.assertTrue(orderDetails.checkAllMandatoryFields());
 	}
-	
+
 	@Test(priority = 3)
 	public void verifyNavigationToInspection() throws InterruptedException {
 		Assert.assertTrue(orderDetails.checkNavigation_To_Inspection());
 		InspectionPage inspectionPage = new InspectionPage(driver);
 		inspectionPage.getBackArrowButton().click();
-		/*
-		 * if(inspectionPage.getYesButton().isDisplayed()) {
-		 * inspectionPage.getYesButton().click(); }else { driver.navigate().back();
-		 * //inspectionPage.getYesButton().click(); }
-		 */
 	}
 
 	@Test(priority = 4)
