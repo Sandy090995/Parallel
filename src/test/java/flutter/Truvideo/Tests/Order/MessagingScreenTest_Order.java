@@ -10,7 +10,7 @@ public class MessagingScreenTest_Order extends BaseClass {
 	MessagingScreen messageScreen;
 
 	@BeforeMethod
-	public void setUp() throws Exception {
+	public void setUpTestEnvironment_SuiteLevel() throws Exception {
 		if (driver == null) {
 			driver = setUpApplication();
 			messageScreen = loadDealerCodePage().navigateToUserListScreen_Order()

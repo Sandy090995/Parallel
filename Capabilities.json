@@ -10,7 +10,7 @@
             "platformVersion":"14.0",
             "bundleId":"com.truvideo.enterprise.rc",
             "app":"/src/main/resources/ApplicationFile/RCTruvideoflutter.apk",
-            "autoAcceptAlerts": "true",
+            "autoGrantPermissions": true,
             "autoAcceptAlerts":true
                 }
     },
@@ -23,7 +23,7 @@
             "platformVersion":"14.0",
             "bundleId":"com.truvideo.enterprise.rc",
             "app":"/src/main/resources/ApplicationFile/RCTruvideoflutter.apk",
-            "autoAcceptAlerts": "true",
+            "autoGrantPermissions": true,
             "autoAcceptAlerts":true
                 }
     },
@@ -37,6 +37,7 @@
         "bundleId":"com.truvideo.enterprise.rc",
         "udid":"f56dbf11ec7c4f28f4147740577c3dfa121023b3",
         "app":"/src/main/resources/ApplicationFile/TruVideoEnterprise.app",
+        "autoGrantPermissions": true,
         "autoAcceptAlerts":true
             }
      },
@@ -49,6 +50,7 @@
             "platformVersion":"12.0",
             "bundleId":"com.truvideo.enterprise.rc",
             "app":"/src/main/resources/ApplicationFile/RCTruvideoflutter.apk",
+            "autoGrantPermissions": true,
             "autoAcceptAlerts": "true"
                 }
     },
@@ -62,6 +64,7 @@
                 "appium:noReset": true,
                 "appium:bundleId": "com.truvideo.enterprise.rc",
                 "app":"/src/main/resources/ApplicationFile/RCTruvideoflutter.apk",
+                "autoGrantPermissions": true,
                 "autoAcceptAlerts": "true"
                 }
     },
@@ -76,8 +79,8 @@
         "bundleId":"com.truvideo.enterprise.rc",
         "udid":"0f7ff0b1aacc9d6c1cecb453205ba82cf7e21762",
         "app":"/src/main/resources/ApplicationFile/TruVideoEnterprise.app",
-        "autoAcceptAlerts":true,
-        "autoAcceptAlerts": "true"
+        "autoGrantPermissions": true,
+        "autoAcceptAlerts":true
             }
      },
      { 
@@ -90,6 +93,7 @@
         "bundleId":"com.truvideo.enterprise.rc",
         "udid":"5d4e4f2ea9b1d96b7c54c1c17b37dd3f4bf43eab",
         "app":"/src/main/resources/ApplicationFile/TruVideoEnterprise.app",
+        "autoGrantPermissions": true,
         "autoAcceptAlerts":true
             }
     }

@@ -181,5 +181,66 @@ public class DealerCodes extends UtilityClass {
 		// dealerName_UserListScreen = "DEMO Main Street Toyota";
 		return dealerCode;
 	}
+	
+	public void enterDealerCode_KenilityStoreDealer_Order() throws InterruptedException {
+		dealerName="Kenility";
+		if (isAndroid()) {
+			String first = SIX.getAttribute("content-desc");
+			String second = SIX.getAttribute("content-desc");
+			String third = SEVEN.getAttribute("content-desc");
+			String fourth = THREE.getAttribute("content-desc");
+			String fifth = FOUR.getAttribute("content-desc");
+			String sixth = TWO.getAttribute("content-desc");
+			dealerCode = first + second + third + fourth + fifth + sixth;
+		} else {
+			String first = SIX.getAttribute("label");
+			String second = SIX.getAttribute("label");
+			String third = SEVEN.getAttribute("label");
+			String fourth = THREE.getAttribute("label");
+			String fifth = FOUR.getAttribute("label");
+			String sixth = TWO.getAttribute("label");
+			dealerCode = first + second + third + fourth + fifth + sixth;
+		}
+		log.info("Entering Dealer code");
+		SIX.click();
+		SIX.click();
+		SEVEN.click();
+		THREE.click();
+		FOUR.click();
+		TWO.click();
+		log.info("Order Dealer code is entered");
+		Thread.sleep(1000);
+	}
+	
+	public String enterDealerCode_KenilityStoreDealer_Sales() {
+		dealerName="Kenility";
+		if (isAndroid()) {
+			String first = FOUR.getAttribute("content-desc");
+			String second = FIVE.getAttribute("content-desc");
+			String third = ONE.getAttribute("content-desc");
+			String fourth = THREE.getAttribute("content-desc");
+			String fifth = FOUR.getAttribute("content-desc");
+			String sixth = SEVEN.getAttribute("content-desc");
+			dealerCode = first + second + third + fourth + fifth + sixth;
+		} else {
+			String first = FOUR.getAttribute("label");
+			String second = FIVE.getAttribute("label");
+			String third = ONE.getAttribute("label");
+			String fourth = THREE.getAttribute("label");
+			String fifth = FOUR.getAttribute("label");
+			String sixth = SEVEN.getAttribute("label");
+			dealerCode = first + second + third + fourth + fifth + sixth;
+		}
+		log.info("Entering Dealer code");
+		FOUR.click();
+		FIVE.click();
+		ONE.click();
+		THREE.click();
+		FOUR.click();
+		SEVEN.click();
+		log.info("Sales Dealer code is entered");
+		// dealerName_UserListScreen = "DEMO Main Street Toyota";
+		return dealerCode;
+	}
 
 }

@@ -1,7 +1,7 @@
 package flutter.Truvideo.Tests.Prospects;
 
-import java.net.MalformedURLException;
 import org.testng.Assert;
+import org.testng.ITestResult;
 import org.testng.annotations.*;
 import flutter.Truvideo.BaseClass.BaseClass;
 import flutter.Truvideo.Pages.PendingToUploadPage;
@@ -11,14 +11,16 @@ public class PendingToUploadPageTest_Gallery_Prospect extends BaseClass {
 	PendingToUploadPage pendingToUploadPage;
 	
 	@BeforeClass
-	public void setUp() throws MalformedURLException, Exception {
+	public void setUpTestEnvironment_SuiteLevel() throws Exception {
 		if (driver == null) {
 			driver = setUpApplication();
 			pendingToUploadPage = loadDealerCodePage().navigateToUserListScreen_Sales()
 					.navigateTo_RO_Prospect_ListPage(userForLogin_Sales).NavigateTo_AddProspect_Page()
 					.navigateTOProspectDetails().Navigate_To_CameraScreen().navigateToVideoPreviewScreen_Gallery()
 					.navigateToProspectDetails().Navigate_To_PendingToUploadScreen();
-		} else {
+		} 
+
+		if(driver !=null && pendingToUploadPage==null){
 			ProspectDetailsPage prospectDetails = new ProspectDetailsPage(driver);
 			prospectDetails.Navigate_To_PendingToUploadScreen();
 		}
@@ -31,9 +33,12 @@ public class PendingToUploadPageTest_Gallery_Prospect extends BaseClass {
 		}
 	}
 
-	// @AfterClass
-	public void tearDown() {
-		driver.quit();
+	@AfterClass
+	public void tearDown_OnFailure(ITestResult result) {
+		if (result.getStatus() == ITestResult.FAILURE) {
+			driver.quit();
+			driver = null;
+		}
 	}
 
 	// @Test(priority = 1)

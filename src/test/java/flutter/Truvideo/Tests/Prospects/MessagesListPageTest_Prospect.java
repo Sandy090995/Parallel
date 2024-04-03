@@ -1,7 +1,7 @@
 package flutter.Truvideo.Tests.Prospects;
 
-import java.net.MalformedURLException;
 import org.testng.Assert;
+import org.testng.ITestResult;
 import org.testng.annotations.*;
 import flutter.Truvideo.BaseClass.BaseClass;
 import flutter.Truvideo.Pages.MessagesListPage;
@@ -11,29 +11,33 @@ public class MessagesListPageTest_Prospect extends BaseClass{
 
 	MessagesListPage messageListPage;
 	
-	@BeforeClass
-	public void setUp() throws MalformedURLException, Exception {
-		if(driver==null) {
-		driver=setUpApplication();
-		messageListPage=loadDealerCodePage().navigateToUserListScreen_Sales()
-				.navigateTo_RO_Prospect_ListPage(userForLogin_Sales)
-				.Navigate_To_MessageList();
-		}else {
-			RO_ListPage roListPage=new RO_ListPage(driver);
+	@BeforeMethod
+	public void setUpTestEnvironment_SuiteLevel() {
+		if (driver != null && messageListPage == null) {
+			RO_ListPage roListPage = new RO_ListPage(driver);
 			roListPage.Navigate_To_MessageList();
 		}
 	}
 	
 	@BeforeMethod
-	public void setDriverObject() {
+	public void setUp() throws  Exception {
+		if(driver==null) {
+		driver=setUpApplication();
+		messageListPage=loadDealerCodePage().navigateToUserListScreen_Sales()
+				.navigateTo_RO_Prospect_ListPage(userForLogin_Sales)
+				.Navigate_To_MessageList();
+		}
 		if(messageListPage==null) {
 			messageListPage=new MessagesListPage(driver);
 		}
 	}
 	
-	//@AfterClass
-	public void tearDown() {
-		driver.quit();
+	@AfterMethod
+	public void tearDown_OnFailure(ITestResult result) {
+		if (result.getStatus() == ITestResult.FAILURE) {
+			driver.quit();
+			driver = null;
+		}
 	}
 	
 	@Test(priority = 1)

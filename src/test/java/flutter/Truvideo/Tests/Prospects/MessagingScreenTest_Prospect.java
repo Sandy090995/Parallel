@@ -1,7 +1,7 @@
 package flutter.Truvideo.Tests.Prospects;
 
-import java.net.MalformedURLException;
 import org.testng.Assert;
+import org.testng.ITestResult;
 import org.testng.annotations.*;
 import flutter.Truvideo.BaseClass.BaseClass;
 import flutter.Truvideo.Pages.MessagingScreen;
@@ -9,26 +9,26 @@ import flutter.Truvideo.Pages.MessagingScreen;
 public class MessagingScreenTest_Prospect extends BaseClass {
 	MessagingScreen messageScreen;
 	
-	@BeforeClass
-	public void setUp() throws MalformedURLException, Exception {
+	@BeforeMethod
+	public void setUpTestEnvironment_SuiteLevel() throws Exception {
 		if(driver==null) {
 		driver=setUpApplication();
 		messageScreen=loadDealerCodePage().navigateToUserListScreen_Sales()
 				.navigateTo_RO_Prospect_ListPage(userForLogin_Sales)
 				.Navigate_To_MessageList().navigateToMessagingScreen();
 		}
-	}
-	
-	@BeforeMethod
-	public void setDriverObject() {
 		if(messageScreen==null) {
 			messageScreen=new MessagingScreen(driver);
 		}
 	}
 	
-	//@AfterClass
-	public void tearDown() {
-		driver.quit();
+	@AfterMethod
+	public void tearDown_OnFailure(ITestResult result) {
+		if (result.getStatus() == ITestResult.FAILURE) {
+			log.info("Test Case Failed" + result.getMethod().getMethodName());
+			driver.quit();
+			driver = null;
+		}
 	}
 
 	@Test(priority = 1)

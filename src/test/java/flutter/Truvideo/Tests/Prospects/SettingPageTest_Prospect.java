@@ -1,6 +1,7 @@
 package flutter.Truvideo.Tests.Prospects;
 
 import org.testng.Assert;
+import org.testng.ITestResult;
 import org.testng.annotations.*;
 import flutter.Truvideo.BaseClass.BaseClass;
 import flutter.Truvideo.Pages.RO_ListPage;
@@ -10,29 +11,33 @@ public class SettingPageTest_Prospect extends BaseClass {
 
 	RO_SettingPage settingPage;
 
-	@BeforeClass
-	public void setUp() throws Exception {
-		if(driver==null) {
-		driver=setUpApplication();
-		settingPage=loadDealerCodePage().navigateToUserListScreen_Order()
-				.navigateTo_RO_Prospect_ListPage(userForLogin_Order).Navigate_ToProfileIcon()
-				.NavigateToSettingsScreen();
-		}else {
-			RO_ListPage roListPage=new RO_ListPage(driver);
+	@BeforeMethod
+	public void setUpTestEnvironment_SuiteLevel() throws Exception {
+		if (driver != null && settingPage == null) {
+			RO_ListPage roListPage = new RO_ListPage(driver);
 			roListPage.Navigate_ToProfileIcon().NavigateToSettingsScreen();
 		}
 	}
-	
+
 	@BeforeMethod
-	public void setDriverObject() {
+	public void setUpTestEnvironment_ClassLevel() throws Exception {
+		if (driver == null) {
+			driver = setUpApplication();
+			settingPage = loadDealerCodePage().navigateToUserListScreen_Order()
+					.navigateTo_RO_Prospect_ListPage(userForLogin_Order).Navigate_ToProfileIcon()
+					.NavigateToSettingsScreen();
+		}
 		if (settingPage == null) {
 			settingPage = new RO_SettingPage(driver);
 		}
 	}
-	
-	//@AfterClass
-	public void tearDown() {
-		driver.quit();
+
+	@AfterMethod
+	public void tearDown_OnFailure(ITestResult result) {
+		if (result.getStatus() == ITestResult.FAILURE) {
+			driver.quit();
+			driver = null;
+		}
 	}
 
 	@Test(priority = 1)
@@ -86,7 +91,7 @@ public class SettingPageTest_Prospect extends BaseClass {
 		driver.navigate().back();
 	}
 
-	//@Test(priority = 11)
+	// @Test(priority = 11)
 	public void verifyDeleteUserFunction_Sales() throws InterruptedException {
 		Assert.assertTrue(settingPage.deleteUser());
 		driver.navigate().back();

@@ -1,34 +1,32 @@
 package flutter.Truvideo.Tests.Prospects;
 
-import java.net.MalformedURLException;
 import org.testng.Assert;
+import org.testng.ITestResult;
 import org.testng.annotations.*;
 import flutter.Truvideo.BaseClass.BaseClass;
-import flutter.Truvideo.Pages.AddProspectPage;
 import flutter.Truvideo.Pages.RO_ListPage;
 
 public class ProspectsListPageTest extends BaseClass {
 	RO_ListPage ro_ListPage;
 
-	@BeforeClass
-	public void setUp() throws MalformedURLException, Exception {
-		if(driver==null) {
-		driver = setUpApplication();
-		ro_ListPage = loadDealerCodePage().navigateToUserListScreen_Sales()
-				.navigateTo_RO_Prospect_ListPage(userForLogin_Sales);
-		}
-	}
-
 	@BeforeMethod
-	public void setDriverObject() {
+	public void setUpTestEnvironment_ClassLevel() throws Exception {
+		if (driver == null) {
+			driver = setUpApplication();
+			ro_ListPage = loadDealerCodePage().navigateToUserListScreen_Sales()
+					.navigateTo_RO_Prospect_ListPage(userForLogin_Sales);
+		}
 		if (ro_ListPage == null) {
 			ro_ListPage = new RO_ListPage(driver);
 		}
 	}
 
-	//@AfterClass
-	public void tearDown() {
-		driver.quit();
+	@AfterMethod
+	public void tearDown_OnFailure(ITestResult result) {
+		if (result.getStatus() == ITestResult.FAILURE) {
+			driver.quit();
+			driver = null;
+		}
 	}
 
 	@Test(priority = 1)
@@ -85,7 +83,7 @@ public class ProspectsListPageTest extends BaseClass {
 	@Test(priority = 12)
 	public void verifyNavigationToAddProspectsPage() {
 		Assert.assertTrue(ro_ListPage.checkNavigationTo_AddProspects_Page());
-		AddProspectPage addProspectPage=new AddProspectPage(driver);
-		addProspectPage.getCancelButton().click();
+		//AddProspectPage addProspectPage = new AddProspectPage(driver);
+		//addProspectPage.getCancelButton().click();
 	}
 }

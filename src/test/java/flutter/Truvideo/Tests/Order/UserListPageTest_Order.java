@@ -58,17 +58,17 @@ public class UserListPageTest_Order extends BaseClass {
 
 	@Test(priority = 6)
 	public void verify_HelloThere_PersonalPinText_Order() throws Exception {
-		Assert.assertTrue(userListPage.check_VisibleText_PersonalPinScreen("RahulTest test"));
+		Assert.assertTrue(userListPage.check_VisibleText_PersonalPinScreen("RahulTest Kapse"));
 	}
 
 	@Test(priority = 7)
 	public void verify_Login_InValidPin_Order() throws Exception {
-		Assert.assertTrue(userListPage.selectUserToLogin_WitInvalidPin("RahulTest test"));
+		Assert.assertTrue(userListPage.selectUserToLogin_WitInvalidPin("RahulTest Kapse"));
 	}
 
 	@Test(priority = 8)
 	public void verify_Login_ValidPin_Order() throws Exception {
-		Assert.assertTrue(userListPage.selectUserToLogin_WithValidPin("RahulTest test"));
+		Assert.assertTrue(userListPage.selectUserToLogin_WithValidPin("RahulTest Kapse"));
 	}
 
 	// @Test(priority = 9)

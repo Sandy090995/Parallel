@@ -245,6 +245,6 @@ public class ProspectDetailsPage extends UtilityClass {
 		scrollDown();
 		pendingToUpload_video.click();
 		return new PendingToUploadPage(driver);
-	}
+	}	
 
 }

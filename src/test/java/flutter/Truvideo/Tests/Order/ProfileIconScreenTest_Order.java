@@ -22,7 +22,7 @@ public class ProfileIconScreenTest_Order extends BaseClass {
 	}
 
 	@BeforeMethod
-	public void setUp() throws Exception {
+	public void setUpTestEnvironment_ClassLevel() throws Exception {
 		if (driver == null) {
 			driver = setUpApplication();
 			roListPage = loadDealerCodePage().navigateToUserListScreen_Order()

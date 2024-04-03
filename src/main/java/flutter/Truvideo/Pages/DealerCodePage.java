@@ -93,12 +93,16 @@ public class DealerCodePage extends UtilityClass {
 	@iOSXCUITFindBy(accessibility = "OK")
 	@AndroidFindBy(accessibility = "OK")
 	private WebElement oKButton;
+	
+	@iOSXCUITFindBy(accessibility = "")
+	@AndroidFindBy(xpath  = "//android.widget.Button[@text='Allow']")
+	private WebElement allow_Button;
 
 	public boolean applicationInstall_dealerCodePageLoad() {
 		try {
-			if (popUpOK.isDisplayed()) {
+			if (allow_Button.isDisplayed()) {
 				log.info("PopUp Displayed");
-				popUpOK.click();
+				allow_Button.click();
 			}
 		} catch (NoSuchElementException e) {
 			log.info("PopUp not present");
@@ -114,9 +118,9 @@ public class DealerCodePage extends UtilityClass {
 
 	public boolean visibleElements_DealerCodePage() {
 		try {
-			if (popUpOK.isDisplayed()) {
+			if (allow_Button.isDisplayed()) {
 				log.info("PopUp Displayed");
-				popUpOK.click();
+				allow_Button.click();
 			}
 		} catch (NoSuchElementException e) {
 			log.info("PopUp not present");
@@ -162,16 +166,17 @@ public class DealerCodePage extends UtilityClass {
 
 	public UserListPage navigateToUserListScreen_Order() throws Exception {
 		try {
-			if (popUpOK.isDisplayed()) {
+			if (allow_Button.isDisplayed()) {
 				Thread.sleep(2000);
 				log.info("PopUp Displayed");
-				popUpOK.click();
+				allow_Button.click();
 			}
 		} catch (NoSuchElementException e) {
 			log.info("PopUp not present");
 		}
 		DealerCodes AllDealerCode = new DealerCodes(driver);
-		AllDealerCode.enterDealerCode_TruvideoDealer_Order();// Change Dealer
+		//AllDealerCode.enterDealerCode_TruvideoDealer_Order();// Change Dealer
+		AllDealerCode.enterDealerCode_KenilityStoreDealer_Order();
 		dealerCode = AllDealerCode.dealerCode;
 		dealerName = AllDealerCode.dealerName;
 		System.out.println(dealerCode);
@@ -193,16 +198,17 @@ public class DealerCodePage extends UtilityClass {
 
 	public UserListPage navigateToUserListScreen_Sales() throws Exception {
 		try {
-			if (popUpOK.isDisplayed()) {
+			if (allow_Button.isDisplayed()) {
 				Thread.sleep(2000);
 				log.info("PopUp Displayed");
-				popUpOK.click();
+				allow_Button.click();
 			}
 		} catch (NoSuchElementException e) {
 			log.info("PopUp not present");
 		}
 		DealerCodes AllDealerCode = new DealerCodes(driver);
-		AllDealerCode.enterDealerCode_TruvideoDealer_Sales();// Change Dealer
+		//AllDealerCode.enterDealerCode_TruvideoDealer_Sales();// Change Dealer
+		AllDealerCode.enterDealerCode_KenilityStoreDealer_Sales();
 		dealerCode = AllDealerCode.dealerCode;
 		dealerName = AllDealerCode.dealerName;
 		Thread.sleep(5000);

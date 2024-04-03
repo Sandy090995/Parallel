@@ -1,7 +1,7 @@
 package flutter.Truvideo.Tests.Prospects;
 
-import java.net.MalformedURLException;
 import org.testng.Assert;
+import org.testng.ITestResult;
 import org.testng.annotations.*;
 import flutter.Truvideo.BaseClass.BaseClass;
 import flutter.Truvideo.Pages.ContactsListPage;
@@ -11,28 +11,32 @@ public class ContactsListPageTest_Prospect extends BaseClass {
 
 	ContactsListPage contactsListPage;
 
-	@BeforeClass
-	public void setUp() throws MalformedURLException, Exception {
-		if (driver == null) {
-			driver = setUpApplication();
-			contactsListPage = loadDealerCodePage().navigateToUserListScreen_Sales()
-					.navigateTo_RO_Prospect_ListPage(userForLogin_Sales).Navigate_To_Contacts();
-		} else {
+	@BeforeMethod
+	public void setUpTestEnvironment_SuiteLevel() throws Exception {
+		if (driver != null && contactsListPage == null) {
 			RO_ListPage roListPage = new RO_ListPage(driver);
 			roListPage.Navigate_To_Contacts();
 		}
 	}
 
 	@BeforeMethod
-	public void setDriverObject() {
+	public void setUpTestEnvironment_ClassLevel() throws Exception {
+		if (driver == null) {
+			driver = setUpApplication();
+			contactsListPage = loadDealerCodePage().navigateToUserListScreen_Sales()
+					.navigateTo_RO_Prospect_ListPage(userForLogin_Sales).Navigate_To_Contacts();
+		}
 		if (contactsListPage == null) {
 			contactsListPage = new ContactsListPage(driver);
 		}
 	}
 
-	// @AfterClass
-	public void tearDown() {
-		driver.quit();
+	@AfterMethod
+	public void tearDown_OnFailure(ITestResult result) {
+		if (result.getStatus() == ITestResult.FAILURE) {
+			driver.quit();
+			driver = null;
+		}
 	}
 
 	@Test(priority = 1)

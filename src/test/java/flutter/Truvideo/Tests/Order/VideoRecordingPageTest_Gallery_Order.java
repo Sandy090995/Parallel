@@ -1,6 +1,5 @@
 package flutter.Truvideo.Tests.Order;
 
-import java.net.MalformedURLException;
 import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
@@ -14,7 +13,7 @@ public class VideoRecordingPageTest_Gallery_Order extends BaseClass {
 	VideoPreviewScreen videoPreviewScreen;
 
 	@BeforeClass
-	public void setUp() throws MalformedURLException, Exception {
+	public void setUp() throws Exception {
 		if (driver == null) {
 			driver = setUpApplication();
 			videoRecordingPage = loadDealerCodePage().navigateToUserListScreen_Order()

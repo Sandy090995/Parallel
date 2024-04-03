@@ -5,11 +5,8 @@ import org.testng.ITestResult;
 import org.testng.annotations.*;
 import flutter.Truvideo.BaseClass.BaseClass;
 import flutter.Truvideo.Pages.DealerCodePage;
-import flutter.Truvideo.Pages.UserListPage;
-
 public class DealerCodePageTest_Order extends BaseClass {
 	DealerCodePage dealerCodePage;
-	UserListPage userListPage;
 
 	@BeforeMethod
 	public void setUpTestEnvironment_ClassLevel() throws Exception {

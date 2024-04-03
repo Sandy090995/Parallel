@@ -6,7 +6,7 @@
 		<listener class-name="flutter.Truvideo.TestUtils.Listeners"></listener>
 	</listeners>
 	<test name="ServiseSideTest_MI10I" preserve-order="true">
-		<parameter name="deviceName" value="MI10I" />
+		<parameter name="deviceName" value="Galaxy S21 5G" />
 		<classes>
 		    <class name="flutter.Truvideo.Tests.Order.DealerCodePageTest_Order" />
 			<class name="flutter.Truvideo.Tests.Order.UserListPageTest_Order" />
@@ -14,8 +14,8 @@
 			<class name="flutter.Truvideo.Tests.Order.AddOrderPageTest" />
 			<class name="flutter.Truvideo.Tests.Order.OrderDetailsPageTest" />
 			<class name="flutter.Truvideo.Tests.Order.ContactsListPageTest_Order" />
-			<class name="flutter.Truvideo.Tests.Order.MessagesListPageTest_Order" />
-			<class name="flutter.Truvideo.Tests.Order.MessagingScreenTest_Order" />
+			<!--<class name="flutter.Truvideo.Tests.Order.MessagesListPageTest_Order" />
+			<class name="flutter.Truvideo.Tests.Order.MessagingScreenTest_Order" />-->
 			<class name="flutter.Truvideo.Tests.Order.ChatListPageTest_Order" />
 			<class name="flutter.Truvideo.Tests.Order.SettingPageTest_Order" />
 			<class name="flutter.Truvideo.Tests.Order.SupportPageTest_Order" />

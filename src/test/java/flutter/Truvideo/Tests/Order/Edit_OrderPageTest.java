@@ -1,6 +1,5 @@
 package flutter.Truvideo.Tests.Order;
 
-import java.net.MalformedURLException;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import flutter.Truvideo.BaseClass.BaseClass;
@@ -10,7 +9,7 @@ public class Edit_OrderPageTest extends BaseClass{
 	EditOrder_ProspectPage editPage;
 	
 	@BeforeClass
-	public void setUp() throws MalformedURLException, Exception {
+	public void setUpTestEnvironment_ClassLevel() throws  Exception {
 		if(driver==null) {
 		driver=setUpApplication();
 		editPage=loadDealerCodePage().navigateToUserListScreen_Order()

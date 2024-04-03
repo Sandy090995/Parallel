@@ -1,6 +1,5 @@
 package flutter.Truvideo.Tests.Order;
 
-import java.net.MalformedURLException;
 import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
@@ -13,7 +12,7 @@ public class PendingToUploadPageTest_Gallery_Order extends BaseClass {
 	OrderDetailsPage orderDetails;
 
 	@BeforeClass
-	public void setUp() throws MalformedURLException, Exception {
+	public void setUpTestEnvironment_SuiteLevel() throws Exception {
 		if (driver == null) {
 			driver = setUpApplication();
 			pendingToUploadPage = loadDealerCodePage().navigateToUserListScreen_Order()

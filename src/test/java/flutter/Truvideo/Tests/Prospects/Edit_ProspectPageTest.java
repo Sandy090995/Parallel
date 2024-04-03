@@ -10,7 +10,7 @@ public class Edit_ProspectPageTest extends BaseClass{
 	EditOrder_ProspectPage editPage;
 	
 	@BeforeClass
-	public void setUp() throws MalformedURLException, Exception {
+	public void setUpTestEnvironment_ClassLevel() throws MalformedURLException, Exception {
 		if(driver==null) {
 		driver=setUpApplication();
 		editPage=loadDealerCodePage().navigateToUserListScreen_Sales()

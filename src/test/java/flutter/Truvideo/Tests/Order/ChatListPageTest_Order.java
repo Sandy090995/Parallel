@@ -1,6 +1,5 @@
 package flutter.Truvideo.Tests.Order;
 
-import java.net.MalformedURLException;
 import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
@@ -20,7 +19,7 @@ public class ChatListPageTest_Order extends BaseClass {
 	}
 
 	@BeforeMethod
-	public void setUp() throws MalformedURLException, Exception {
+	public void setUp() throws Exception {
 		if (driver == null) {
 			driver = setUpApplication();
 			chatlistpage = loadDealerCodePage().navigateToUserListScreen_Order()
