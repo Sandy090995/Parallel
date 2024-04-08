@@ -35,7 +35,7 @@ public class VideoRecordingPageTest_Gallery_Prospect extends BaseClass {
 		videoPreviewScreen = new VideoPreviewScreen(driver);
 	}
 
-	@AfterClass
+	//@AfterClass
 	public void tearDown_OnFailure(ITestResult result) {
 		if (result.getStatus() == ITestResult.FAILURE) {
 			driver.quit();

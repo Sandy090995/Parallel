@@ -34,7 +34,7 @@ public class VideoRecordingPageTest_Recorder_Order extends BaseClass {
 		videoPreviewScreen = new VideoPreviewScreen(driver);
 	}
 
-	@AfterClass
+	//@AfterClass
 	public void tearDown_OnFailure(ITestResult result) {
 		if (result.getStatus() == ITestResult.FAILURE) {
 			driver.quit();

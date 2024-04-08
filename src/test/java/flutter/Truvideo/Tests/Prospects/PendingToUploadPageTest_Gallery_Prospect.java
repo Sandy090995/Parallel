@@ -33,7 +33,7 @@ public class PendingToUploadPageTest_Gallery_Prospect extends BaseClass {
 		}
 	}
 
-	@AfterClass
+	//@AfterClass
 	public void tearDown_OnFailure(ITestResult result) {
 		if (result.getStatus() == ITestResult.FAILURE) {
 			driver.quit();
