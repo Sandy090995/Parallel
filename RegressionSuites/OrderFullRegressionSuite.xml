@@ -5,8 +5,8 @@
 	<listeners>
 		<listener class-name="flutter.Truvideo.TestUtils.Listeners"></listener>
 	</listeners>
-	<test name="ServiseSideTest_MI10I" preserve-order="true">
-		<parameter name="deviceName" value="Galaxy S21 5G" />
+	<test name="ServiseSideTest_Galaxy_zFlip" preserve-order="true">
+		<parameter name="deviceName" value="Samsung zFlip" />
 		<classes>
 		    <class name="flutter.Truvideo.Tests.Order.DealerCodePageTest_Order" />
 			<class name="flutter.Truvideo.Tests.Order.UserListPageTest_Order" />
@@ -15,8 +15,8 @@
 			<class name="flutter.Truvideo.Tests.Order.OrderDetailsPageTest" />
 			<class name="flutter.Truvideo.Tests.Order.ContactsListPageTest_Order" />
 			<!--<class name="flutter.Truvideo.Tests.Order.MessagesListPageTest_Order" />
-			<class name="flutter.Truvideo.Tests.Order.MessagingScreenTest_Order" />-->
-			<class name="flutter.Truvideo.Tests.Order.ChatListPageTest_Order" />
+			<class name="flutter.Truvideo.Tests.Order.MessagingScreenTest_Order" />
+			<class name="flutter.Truvideo.Tests.Order.ChatListPageTest_Order" />-->
 			<class name="flutter.Truvideo.Tests.Order.SettingPageTest_Order" />
 			<class name="flutter.Truvideo.Tests.Order.SupportPageTest_Order" />
 			<class name="flutter.Truvideo.Tests.Order.ProfileIconScreenTest_Order" />
@@ -26,25 +26,4 @@
 			<class name="flutter.Truvideo.Tests.Order.PendingToUploadPageTest_Recorder_Order" />
 		</classes>
 	</test>
-	<!--<test name="ServiseSideTest_SamsungS21" preserve-order="true">
-		<parameter name="deviceName" value="SamsungS21" />
-		<classes>
-		    <class name="flutter.Truvideo.Tests.Order.DealerCodePageTest_Order" />
-			<class name="flutter.Truvideo.Tests.Order.UserListPageTest_Order" />
-			<class name="flutter.Truvideo.Tests.Order.RO_ListPageTest" />
-			<class name="flutter.Truvideo.Tests.Order.AddOrderPageTest" />
-			<class name="flutter.Truvideo.Tests.Order.OrderDetailsPageTest" />
-			<class name="flutter.Truvideo.Tests.Order.ContactsListPageTest_Order" />
-			<class name="flutter.Truvideo.Tests.Order.MessagesListPageTest_Order" />
-			<class name="flutter.Truvideo.Tests.Order.MessagingScreenTest_Order" />
-			<class name="flutter.Truvideo.Tests.Order.ChatListPageTest_Order" />
-			<class name="flutter.Truvideo.Tests.Order.SettingPageTest_Order" />
-			<class name="flutter.Truvideo.Tests.Order.SupportPageTest_Order" />
-			<class name="flutter.Truvideo.Tests.Order.ProfileIconScreenTest_Order" />
-			<class name="flutter.Truvideo.Tests.Order.VideoRecordingPageTest_Gallery_Order" />
-			<class name="flutter.Truvideo.Tests.Order.PendingToUploadPageTest_Gallery_Order" />
-			<class name="flutter.Truvideo.Tests.Order.VideoRecordingPageTest_Recorder_Order" />
-			<class name="flutter.Truvideo.Tests.Order.PendingToUploadPageTest_Recorder_Order" />
-		</classes>
-	</test>-->
 </suite> 

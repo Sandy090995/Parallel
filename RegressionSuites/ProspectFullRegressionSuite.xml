@@ -4,8 +4,8 @@
 	<listeners>
 		<listener class-name="flutter.Truvideo.TestUtils.Listeners"></listener>
 	</listeners>
-	<test thread-count="5" name="ProspectSideTest">
-		<parameter name="deviceName" value="Galaxy S21 5G" />
+	<test name="SalesSideTest_Galaxy_zFlip" thread-count="5" >
+		<parameter name="deviceName" value="Samsung zFlip" />
 		<classes>
 		<class name="flutter.Truvideo.Tests.Prospects.DealerCodePageTest_Prospect" />
 			<class name="flutter.Truvideo.Tests.Prospects.UserListPageTest_Prospect" />
@@ -14,8 +14,8 @@
 			<class name="flutter.Truvideo.Tests.Prospects.PropsectDetailsPageTest" />
 			<class name="flutter.Truvideo.Tests.Prospects.ContactsListPageTest_Prospect" />
 			<!--<class name="flutter.Truvideo.Tests.Prospects.MessagesListPageTest_Prospect" />
-			<class name="flutter.Truvideo.Tests.Prospects.MessagingScreenTest_Prospect" />-->
-			<class name="flutter.Truvideo.Tests.Prospects.ChatListPageTest_Prospect" />
+			<class name="flutter.Truvideo.Tests.Prospects.MessagingScreenTest_Prospect" />
+			<class name="flutter.Truvideo.Tests.Prospects.ChatListPageTest_Prospect" />-->
 			<class name="flutter.Truvideo.Tests.Prospects.SettingPageTest_Prospect" />
 			<class name="flutter.Truvideo.Tests.Prospects.SupportPageTest_Prospect" />
 			<class name="flutter.Truvideo.Tests.Prospects.ProfileIconScreenTest_Prospect" />

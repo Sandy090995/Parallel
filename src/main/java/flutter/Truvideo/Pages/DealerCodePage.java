@@ -175,8 +175,8 @@ public class DealerCodePage extends UtilityClass {
 			log.info("PopUp not present");
 		}
 		DealerCodes AllDealerCode = new DealerCodes(driver);
-		//AllDealerCode.enterDealerCode_TruvideoDealer_Order();// Change Dealer
-		AllDealerCode.enterDealerCode_KenilityStoreDealer_Order();
+		AllDealerCode.enterDealerCode_TruvideoDealer_Order();// Change Dealer
+		//AllDealerCode.enterDealerCode_KenilityStoreDealer_Order();
 		dealerCode = AllDealerCode.dealerCode;
 		dealerName = AllDealerCode.dealerName;
 		System.out.println(dealerCode);
@@ -207,8 +207,8 @@ public class DealerCodePage extends UtilityClass {
 			log.info("PopUp not present");
 		}
 		DealerCodes AllDealerCode = new DealerCodes(driver);
-		//AllDealerCode.enterDealerCode_TruvideoDealer_Sales();// Change Dealer
-		AllDealerCode.enterDealerCode_KenilityStoreDealer_Sales();
+		AllDealerCode.enterDealerCode_TruvideoDealer_Sales();// Change Dealer
+		//AllDealerCode.enterDealerCode_KenilityStoreDealer_Sales();
 		dealerCode = AllDealerCode.dealerCode;
 		dealerName = AllDealerCode.dealerName;
 		Thread.sleep(5000);
