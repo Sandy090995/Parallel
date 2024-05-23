@@ -142,6 +142,7 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>3.0.0-M5</version>
 				<configuration>
+					<argLine>--add-opens java.base/java.lang=ALL-UNNAMED</argLine>
 					<suiteXmlFiles>
 						<suiteXmlFile>RO_ListPage.xml</suiteXmlFile>
 					</suiteXmlFiles>
