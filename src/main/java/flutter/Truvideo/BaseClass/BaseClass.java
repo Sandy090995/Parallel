@@ -1,5 +1,6 @@
 package flutter.Truvideo.BaseClass;
 
+import java.net.URL;
 import java.time.Duration;
 import org.apache.logging.log4j.*;
 import org.openqa.selenium.WebDriver;
@@ -21,7 +22,7 @@ public class BaseClass {
 	public Logger log = LogManager.getLogger(this.getClass().getName());
 	public static String userForLogin_Order = "RahulTest Kapse";
 	public static String userForLogin_Sales = "RahulTest Kapse";
-	public static String capabilityName = System.getProperty("capabilityName", "Samsung zFlip");
+	public static String capabilityName = System.getProperty("capabilityName", "iPhone8_v16.3");
 	public static String browserName = System.getProperty("browser", "Chrome");
 	public static String applicationBuild = "1.5.19(1005)";
 	public static String opeartingSystem;
@@ -29,12 +30,12 @@ public class BaseClass {
 
 	public AppiumDriver setUpApplication() throws Exception {
 		System.out.println(capabilityName);
-		startAppiumService();
+		//startAppiumService();
 		try {
-			// driver = new AppiumDriver(new
-			// URL("http://127.0.0.1:4723"),CapabilityReader.getDesiredCapabilities(capabilityName,"./Capabilities.json"));
-			driver = new AppiumDriver(service,
-					CapabilityReader.getDesiredCapabilities(capabilityName, "./Capabilities.json"));
+			 driver = new AppiumDriver(new
+			 URL("http://127.0.0.1:4723"),CapabilityReader.getDesiredCapabilities(capabilityName,"./Capabilities.json"));
+			//driver = new AppiumDriver(service,
+				//	CapabilityReader.getDesiredCapabilities(capabilityName, "./Capabilities.json"));
 			log.info("Capability file read....");
 		} catch (Exception e) {
 			log.info("Error in Reading Capabilities from Json File ");
