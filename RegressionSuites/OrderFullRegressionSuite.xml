@@ -6,7 +6,7 @@
 		<listener class-name="flutter.Truvideo.TestUtils.Listeners"></listener>
 	</listeners>
 	<test name="ServiseSideTest_Galaxy_zFlip" preserve-order="true">
-		<parameter name="deviceName" value="Samsung zFlip" />
+		<parameter name="deviceName" value="Galaxy S21 5G" />
 		<classes>
 		    <class name="flutter.Truvideo.Tests.Order.DealerCodePageTest_Order" />
 			<class name="flutter.Truvideo.Tests.Order.UserListPageTest_Order" />

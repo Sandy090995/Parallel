@@ -22,7 +22,7 @@ public class BaseClass {
 	public Logger log = LogManager.getLogger(this.getClass().getName());
 	public static String userForLogin_Order = "RahulTest Kapse";
 	public static String userForLogin_Sales = "RahulTest Kapse";
-	public static String capabilityName = System.getProperty("capabilityName", "iPhone8_v16.3");
+	public static String capabilityName = System.getProperty("capabilityName", "Galaxy S21 5G");
 	public static String browserName = System.getProperty("browser", "Chrome");
 	public static String applicationBuild = "1.5.19(1005)";
 	public static String opeartingSystem;
