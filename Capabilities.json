@@ -51,7 +51,7 @@
             "bundleId":"com.truvideo.enterprise.rc",
             "app":"/src/main/resources/ApplicationFile/RCTruvideoflutter.apk",
             "autoGrantPermissions": true,
-            "autoAcceptAlerts": "true"
+            "autoAcceptAlerts":true
                 }
     },
     {

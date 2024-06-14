@@ -148,7 +148,7 @@ public class OrderDetailsPage extends UtilityClass {
 	}
 
 	@AndroidFindBy(xpath = "//android.widget.ImageView[contains(@content-desc,'Video')]")
-	@iOSXCUITFindBy(xpath = "//XCUIElementTypeImage[contains(@label,'Video')]")
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeImage[contains(@label,'VIDEOS')]")
 	private WebElement video_MediaGallery;
 
 	@AndroidFindBy(xpath = "//android.widget.ImageView[contains(@content-desc,'Video')]/android.view.View")
@@ -226,6 +226,7 @@ public class OrderDetailsPage extends UtilityClass {
 	}
 
 	public EditOrder_ProspectPage Navigate_To_EditRO() throws InterruptedException {
+		Thread.sleep(2000);
 		editButton.click();
 		return new EditOrder_ProspectPage(driver);
 	}
@@ -343,7 +344,7 @@ public class OrderDetailsPage extends UtilityClass {
 	
 	public PendingToUploadPage Navigate_To_PendingToUploadScreen() throws InterruptedException {
 		scrollDown();
-		Thread.sleep(3000);
+		Thread.sleep(9000);
 		scrollDown();
 		pendingToUpload_video.click();
 		log.info("Clicked on video details :-  User will navigate to Pending to Upload screen");

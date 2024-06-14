@@ -34,6 +34,7 @@ public class VideoRecordingPage extends UtilityClass {
 	}
 
 	@AndroidFindBy(xpath = "//android.view.View/android.view.View/android.view.View/android.view.View[1]")
+	@iOSXCUITFindBy(xpath="//XCUIElementTypeApplication[@name=\"TruVideo Enterprise\"]/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]")
 	private WebElement x_Button;
 	
 	public WebElement getX_Button() {
@@ -170,7 +171,7 @@ public class VideoRecordingPage extends UtilityClass {
 	private WebElement imageVideo_Count_AfterImageCapture;
 
 	@AndroidFindBy(xpath = "//android.view.View[@index='5']")
-	@iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@index='4']")
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@index='6']")
 	private WebElement imageVideo_Count_AfterRecording;
 
 	@AndroidFindBy(xpath = "//android.view.View[11]")
@@ -178,7 +179,7 @@ public class VideoRecordingPage extends UtilityClass {
 	private WebElement start_Recording;
 
 	@AndroidFindBy(xpath = "//android.view.View[11]")
-	@iOSXCUITFindBy(xpath = "//XCUIElementTypeOther[4][@index='9']")
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeOther[4][@index='11']")
 	private WebElement final_StartRecording;
 
 	@AndroidFindBy(xpath = "//android.view.View[12]")
@@ -364,7 +365,7 @@ public class VideoRecordingPage extends UtilityClass {
 	}
 
 	public boolean checkVideoRecordingWithImageCapture() throws InterruptedException {
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		final_StartRecording.click();
 		log.info("Recording started");
 		Thread.sleep(1000);

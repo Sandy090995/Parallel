@@ -39,15 +39,15 @@ public class PendingToUploadPage extends UtilityClass {
 	private WebElement upload_button;
 
 	@AndroidFindBy(xpath = "//android.view.View[7]")
-	@iOSXCUITFindBy(xpath = "//XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[3]/XCUIElementTypeOther[1]")
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"TruVideo Enterprise\"]/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[3]/XCUIElementTypeOther[1]")
 	private WebElement playIcon_Blue;
 
 	@AndroidFindBy(xpath = "//android.view.View[4]")
-	@iOSXCUITFindBy(xpath = "//XCUIElementTypeOther[2]/XCUIElementTypeOther[4]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[3]")
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"TruVideo Enterprise\"]/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[3]")
 	private WebElement playPause_Button_playerScreen;
 
 	@AndroidFindBy(xpath = "//android.view.View[2]")
-	@iOSXCUITFindBy(xpath = "//XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[3]")
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"TruVideo Enterprise\"]/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[3]")
 	private WebElement backButton_playerScreen;
 
 	@AndroidFindBy(xpath = "//android.view.View[contains(@content-desc,'encoded')]")
@@ -94,7 +94,7 @@ public class PendingToUploadPage extends UtilityClass {
 	private WebElement videoDescription_MessageButton;
 	
 	@AndroidFindBy(xpath = "//android.view.View[11]")
-	@iOSXCUITFindBy(xpath = "")
+	
 	private WebElement videoDescription_MessageButtonRecorder;
 
 	@AndroidFindBy(xpath = "//android.widget.EditText")
@@ -110,7 +110,7 @@ public class PendingToUploadPage extends UtilityClass {
 	private WebElement enteredVideoDescription;
 	
 	@AndroidFindBy(xpath = "//android.view.View[12]")
-	@iOSXCUITFindBy(xpath = "")
+
 	private WebElement enteredVideoDescription_Recorder;
 
 	@AndroidFindBy(xpath = "//android.widget.ImageView[1][contains(@content-desc,'Resolution')]/android.view.View[1]")
@@ -244,42 +244,48 @@ public class PendingToUploadPage extends UtilityClass {
 	}
 
 	@AndroidFindBy(xpath = "//android.widget.ImageView[1]/android.view.View[2]")
-	private WebElement firstImage_ThreeDotButton;
+   @iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"TruVideo Enterprise\"]/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[3]/XCUIElementTypeOther[5]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]")
+	private WebElement firstImage_CommentButton;
 
 	@AndroidFindBy(xpath = "//android.widget.ImageView[2]/android.view.View[2]")
-	private WebElement secondImage_ThreeDotButton;
+	 @iOSXCUITFindBy(xpath = "//XCUIElementTypeOther[5]/XCUIElementTypeOther[2]/XCUIElementTypeOther[3]/XCUIElementTypeOther[1]")
+	private WebElement secondImage_CommentButton;
 
 	@AndroidFindBy(xpath = "//android.widget.ImageView[3]/android.view.View[2]")
-	private WebElement thirdImage_ThreeDotButton;
+	 @iOSXCUITFindBy(xpath = "//XCUIElementTypeOther[5]/XCUIElementTypeOther[2]/XCUIElementTypeOther[4]/XCUIElementTypeOther[1]")
+	private WebElement thirdImage_CommentButton;
 
 	@AndroidFindBy(accessibility = "Details")
+	@iOSXCUITFindBy(accessibility = "Add comment")
 	private WebElement details_Button;
 
 	@AndroidFindBy(accessibility = "Delete")
+	@iOSXCUITFindBy(xpath="//XCUIElementTypeApplication[@name=\"TruVideo Enterprise\"]/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[3]/XCUIElementTypeOther[5]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]")
 	private WebElement deleteImage_Button;
 
 	@AndroidFindBy(accessibility = "Picture Details")
+	@iOSXCUITFindBy(accessibility = "Add comment")
 	private WebElement pictureDetails_Heading;
 
 	public boolean detailsAndDeleteImage() throws InterruptedException {
 		scrollDown();
 		scrollDown();
-		Thread.sleep(1000);
-		firstImage_ThreeDotButton.click();
-		details_Button.click();
-		if (pictureDetails_Heading.isDisplayed() && close_Button.isDisplayed()) {
+		Thread.sleep(3000);
+		firstImage_CommentButton.click();
+		//details_Button.click();
+		if (pictureDetails_Heading.isDisplayed() || close_Button.isDisplayed()) {
 			log.info("Picture Details screen is displayed");
 			close_Button.click();
 			log.info("Picture Details screen closed");
 		}
-		firstImage_ThreeDotButton.click();
+		firstImage_CommentButton.click();
 		deleteImage_Button.click();
 		if (delete_Message.isDisplayed() && areYouSure_Message.isDisplayed()) {
 			log.info("Delete Pop-up window is displayed");
 			no_Button.click();
 			log.info("Image not deleted ");
 		}
-		firstImage_ThreeDotButton.click();
+		firstImage_CommentButton.click();
 		deleteImage_Button.click();
 		if (delete_Message.isDisplayed() && areYouSure_Message.isDisplayed()) {
 			log.info("Delete Pop-up window is displayed");

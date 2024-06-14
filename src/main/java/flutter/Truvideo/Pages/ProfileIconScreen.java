@@ -45,7 +45,7 @@ public class ProfileIconScreen extends UtilityClass {
 	private WebElement dealerName;
 
 	@AndroidFindBy(accessibility = "DEMO - Main Street Toyota")
-	@iOSXCUITFindBy(accessibility = "DEMO - Main Street Toyota")
+	@iOSXCUITFindBy(accessibility = "TruVideo")
 	private WebElement serviceSideDealerName;
 
 	public WebElement getServiceSideDealerName() {

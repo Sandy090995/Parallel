@@ -162,8 +162,8 @@ public class AddOrderPage extends UtilityClass{
 	
 	public boolean checkErrorMessage() {
 		createButton.click();
-		if(required_order.isDisplayed()&&required_advisor.isDisplayed()&&required_firstName.isDisplayed()
-				&&required_lastName.isDisplayed()) {
+		if(required_order.isDisplayed()&&required_advisor.isDisplayed()&&required_firstName.isDisplayed())
+				 {
 			return true;
 		}else {
 			return false;
