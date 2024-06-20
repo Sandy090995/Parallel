@@ -122,7 +122,7 @@ public class RO_SettingPage extends UtilityClass {
 	private WebElement openShakingtheDevice;
 
 	@AndroidFindBy(xpath = "//android.view.View[contains(@content-desc, 'Noise Canceling') or contains(@content-desc, 'Noise Cancelling')]")
-	@iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[contains(@name, 'Noise Cancelling')]")
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[contains(@name, 'Noise Canceling')]")
 	private WebElement noiceCancelling;
 
 	@AndroidFindBy(xpath = "//android.view.View[contains(@content-desc, 'Camera Shake-to-play')]")

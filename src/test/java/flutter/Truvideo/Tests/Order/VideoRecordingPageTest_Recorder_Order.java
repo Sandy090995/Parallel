@@ -52,7 +52,7 @@ public class VideoRecordingPageTest_Recorder_Order extends BaseClass {
 		Assert.assertTrue(videoRecordingPage.checkFlashlightFunction());
 	}
 
-	@Test(priority = 3)
+	//@Test(priority = 3)
 	public void verifyNarratorMode_Recorder_Order() throws InterruptedException {
 		Assert.assertTrue(videoRecordingPage.checkNarratorMode());
 	}

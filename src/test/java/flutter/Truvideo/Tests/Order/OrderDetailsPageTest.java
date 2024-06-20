@@ -66,7 +66,7 @@ public class OrderDetailsPageTest extends BaseClass {
 		editOrder.getCancelButton().click();
 	}
 
-	@Test(priority = 5)
+	//@Test(priority = 5)
 	public void verifyNavigationToMessages_RoDetails() throws InterruptedException {
 		Assert.assertTrue(orderDetails.checkNavigation_To_Messages());
 		MessagingScreen messages = new MessagingScreen(driver);

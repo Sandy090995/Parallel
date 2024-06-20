@@ -35,6 +35,7 @@ public class ProspectDetailsPage extends UtilityClass {
 	private WebElement refreshButton;
 
 	@AndroidFindBy(accessibility = "Status")
+	@iOSXCUITFindBy(accessibility = "Status")
 	private WebElement status;
 
 	@AndroidFindBy(xpath = "//android.widget.ScrollView/android.view.View[3]")

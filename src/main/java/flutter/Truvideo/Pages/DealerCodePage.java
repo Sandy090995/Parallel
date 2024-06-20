@@ -82,7 +82,7 @@ public class DealerCodePage extends UtilityClass {
 	@AndroidFindBy(accessibility = "0")
 	private WebElement ZERO;
 
-	@iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[contains(@label,'Something went wrong')]")
+	@iOSXCUITFindBy(accessibility="Something went wrong...")
 	@AndroidFindBy(xpath = "//android.view.View[contains(@content-desc,'Something went wrong')]")
 	private WebElement errorMessage;
 
@@ -94,7 +94,7 @@ public class DealerCodePage extends UtilityClass {
 	@AndroidFindBy(accessibility = "OK")
 	private WebElement oKButton;
 	
-	@iOSXCUITFindBy(accessibility = "")
+	@iOSXCUITFindBy(accessibility = "Allow")
 	@AndroidFindBy(xpath  = "//android.widget.Button[@text='Allow']")
 	private WebElement allow_Button;
 

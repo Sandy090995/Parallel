@@ -45,7 +45,7 @@ public class PendingToUploadPageTest_Recorder_Order extends BaseClass {
 		}
 	}
 
-	// @Test(priority = 1)
+	@Test(priority = 1)
 	public void verifyVideoCanPlayOnPendingScreen_Recorder_Order() throws InterruptedException {
 		Assert.assertTrue(pendingToUploadPage.checkVideoIsPlaying());
 	}

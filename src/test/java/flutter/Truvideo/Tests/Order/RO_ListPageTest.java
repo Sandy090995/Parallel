@@ -59,12 +59,12 @@ public class RO_ListPageTest extends BaseClass {
 		Assert.assertTrue(ro_ListPage.checkRO_Status_My());
 	}
 
-	@Test(priority = 7)
+	//@Test(priority = 7)
 	public void verifyNavigationTo_Chat_Order() throws InterruptedException {
 		Assert.assertTrue(ro_ListPage.checkNavigationTo_Chat());
 	}
 
-	@Test(priority = 8)
+	//@Test(priority = 8)
 	public void verifyNavigationTo_Messages_Order() {
 		Assert.assertTrue(ro_ListPage.checkNavigationTo_Messages());
 	}

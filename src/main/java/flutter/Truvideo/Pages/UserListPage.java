@@ -37,7 +37,7 @@ public class UserListPage extends UtilityClass {
 	}
 
 	@AndroidFindBy(accessibility = "NO USERS FOUND")
-	@iOSXCUITFindBy(accessibility = "NO USERS FOUND")
+	@iOSXCUITFindBy(accessibility = "No users found")
 	private WebElement noUserFoundMessage;
 
 	@AndroidFindBy(xpath = "//android.view.View[@index='4']")
@@ -45,7 +45,7 @@ public class UserListPage extends UtilityClass {
 	private WebElement cancelButton_search;
 
 	@AndroidFindBy(xpath = "//android.view.View[contains(@content-desc,'Hello there')]") // modified
-	@iOSXCUITFindBy(accessibility = "Hello there Disha Gupta")
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[contains(@label,'Hello there')]")
 	private WebElement helloThere_UserText;
 
 	@AndroidFindBy(accessibility = "Please type your Personal Pin Code to login")
@@ -73,7 +73,7 @@ public class UserListPage extends UtilityClass {
 	}
 
 	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View[1]")
-	@iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"TruVideo Enterprise\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]")
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name=\"TruVideo Enterprise\"]/XCUIElementTypeWindow[2]/XCUIElementTypeOther/XCUIElementTypeOther[1]")
 	private WebElement x_button;// modified
 
 	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View[3]")
@@ -146,7 +146,7 @@ public class UserListPage extends UtilityClass {
 	@iOSXCUITFindBy(accessibility = "NO")
 	private WebElement biometric_no;
 
-	@iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[contains(@label,'Something went wrong')]")
+	@iOSXCUITFindBy(accessibility = "Something went wrong...")
 	@AndroidFindBy(xpath = "//android.view.View[contains(@content-desc,'Something went wrong')]")
 	private WebElement somethingWentWrong;
 

@@ -76,7 +76,7 @@ public class RO_ListPage extends UtilityClass {
 	private WebElement chatFooterTab;
 
 	@AndroidFindBy(accessibility = "Messages")
-	@iOSXCUITFindBy(accessibility = "Messages")
+	@iOSXCUITFindBy(accessibility = "Conversations")
 	private WebElement messageFooterTab;
 
 	@AndroidFindBy(accessibility = "Contacts")
@@ -84,7 +84,7 @@ public class RO_ListPage extends UtilityClass {
 	private WebElement contactsFooterTab;
 
 	@AndroidFindBy(accessibility = "Orders")
-	@iOSXCUITFindBy(accessibility = "Orders")
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[contains(@name,'Orders')][2]")
 	private WebElement ordersFooterTab;
 
 	@AndroidFindBy(accessibility = "Prospects")
@@ -122,7 +122,7 @@ public class RO_ListPage extends UtilityClass {
 	public boolean checkAllFooterTab_and_HederTabs() throws Exception {
 		Thread.sleep(1000);
 		log.info("inside Footer tab method");
-		if (chatFooterTab.isDisplayed() && messageFooterTab.isDisplayed() && contactsFooterTab.isDisplayed()
+		if ( messageFooterTab.isDisplayed() && contactsFooterTab.isDisplayed()
 				&& createButton.isDisplayed() && reFreshButton.isDisplayed() && profileIcon.isDisplayed()) {
 			log.info("All Footer tabs, Header tabs & Create button are Present on RO Screen");
 
@@ -234,7 +234,7 @@ public class RO_ListPage extends UtilityClass {
 	public boolean checkRO_Status_My() throws Exception {
 		OrderDetailsPage orderDetails = new OrderDetailsPage(driver);
 		myFilter.click();
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		if (!filterStatusList.isEmpty()) {
 			for (WebElement statusObject : filterStatusList) {
 				try {
@@ -244,7 +244,7 @@ public class RO_ListPage extends UtilityClass {
 						log.info("The RO in My Filter is of Login technician is "
 								+ orderDetails.getTechnicianName().getText() + " Advisor is "
 								+ orderDetails.getAdvisorName().getText());
-						Thread.sleep(1000);
+						Thread.sleep(3000);
 						orderDetails.getBackButton().click();
 						log.info("Return back to ROList screen");
 

@@ -95,7 +95,7 @@ public class ContactsListPage extends UtilityClass {
 	private List<WebElement> call_Button;
 
 	@AndroidFindBy(accessibility = "YOU HAVE NO FAVORITES")
-	@iOSXCUITFindBy(accessibility = "YOU HAVE NO FAVORITES")
+	@iOSXCUITFindBy(accessibility = "You have no favourites")
 	private WebElement youHaveNoFavorites_Text;
 
 	@AndroidFindBy(accessibility = "Added to favorite contacts.")
@@ -196,7 +196,7 @@ public class ContactsListPage extends UtilityClass {
 		Thread.sleep(500);
 		addToFavorite_Button_WithoutSearch.get(0).click();
 		log.info("Contact List:- Second Contact Removed from Favorite");
-		Thread.sleep(200);
+		Thread.sleep(2000);
 		if (removedFromFavorite_text.isDisplayed() && youHaveNoFavorites_Text.isDisplayed()) {
 			log.info("Contact List:- Removed from Favorite Working fine");
 			Thread.sleep(2000);

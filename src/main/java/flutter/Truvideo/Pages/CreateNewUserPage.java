@@ -292,7 +292,7 @@ public class CreateNewUserPage extends UtilityClass {
 		soft.assertEquals(textBox.get(textBox.size() - 1).getText(), "(781) 205-9487");
 		textBox.get(textBox.size() - 2).click();
 		Thread.sleep(2000);
-		textBox.get(textBox.size() - 1).sendKeys("password");
+		textBox.get(textBox.size() - 2).sendKeys("password");
 		createUserPage_Title.click();
 		textBox.get(textBox.size() - 3).click();
 		Thread.sleep(2000);
