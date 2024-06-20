@@ -1,3 +1,6 @@
 /target/
 src/test/resources/Reports/index.html
 src/main/resources/ApplicationFile/RCTruvideoflutter.apk
+*.log
+src/test/resources/ScreenShots/
+test-output/

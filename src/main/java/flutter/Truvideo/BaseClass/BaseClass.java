@@ -30,12 +30,12 @@ public class BaseClass {
 
 	public AppiumDriver setUpApplication() throws Exception {
 		System.out.println(capabilityName);
-		//startAppiumService();
+		startAppiumService();
 		try {
-			 driver = new AppiumDriver(new
-			 URL("http://127.0.0.1:4723"),CapabilityReader.getDesiredCapabilities(capabilityName,"./Capabilities.json"));
-			//driver = new AppiumDriver(service,
-				//	CapabilityReader.getDesiredCapabilities(capabilityName, "./Capabilities.json"));
+			 //driver = new AppiumDriver(new
+			// URL("http://127.0.0.1:4723"),CapabilityReader.getDesiredCapabilities(capabilityName,"./Capabilities.json"));
+			driver = new AppiumDriver(service,
+					CapabilityReader.getDesiredCapabilities(capabilityName, "./Capabilities.json"));
 			log.info("Capability file read....");
 		} catch (Exception e) {
 			log.info("Error in Reading Capabilities from Json File ");
